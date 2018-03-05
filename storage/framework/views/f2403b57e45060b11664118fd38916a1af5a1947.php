@@ -18,7 +18,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-2 col-sm-3 col-xs-12">Modalidade</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control" name="modality">
+                                <select class="form-control" name="modality_id">
                                     <option value="0">Selecione</option>
                                     <?php $__currentLoopData = $modalities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $modality): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($modality['id']); ?>"><?php echo e($modality['name']); ?></option>
@@ -44,7 +44,7 @@
                                 <div class="control-group">
                                     <div class="controls">
                                         <div class="col-md-12 xdisplay_inputx form-group has-feedback">
-                                            <input type="text" class="form-control has-feedback-left" id="single_cal1" name="periodo" aria-describedby="inputSuccess2Status">
+                                            <input type="text" class="form-control has-feedback-left" id="single_cal1" name="range" aria-describedby="inputSuccess2Status">
                                             <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                                             <span id="inputSuccess2Status" class="sr-only">(success)</span>
                                         </div>
@@ -55,13 +55,13 @@
                         <div class="form-group">
                             <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">Nº Participantes</label>
                             <div class="col-md-1 col-sm-6 col-xs-12">
-                                <input type="text" id="quantityCampers" name="quantityCampers" class="form-control col-md-7 col-xs-12">
+                                <input type="text" id="quantityCampers" name="campers" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">Nº Equipes</label>
                             <div class="col-md-1 col-sm-6 col-xs-12">
-                                <input type="text" id="quantityTeams" name="quantityTeams" class="form-control col-md-7 col-xs-12">
+                                <input type="text" id="quantityTeams" name="teams" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                         <div class="ln_solid"></div>

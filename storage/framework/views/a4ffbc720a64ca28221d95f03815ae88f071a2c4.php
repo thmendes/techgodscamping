@@ -56,7 +56,7 @@
             });
 
             $(function() {
-                $('input[name="periodo"]').daterangepicker({
+                $('input[name="range"]').daterangepicker({
                     locale: {
                         format: 'DD/MM/YYYY'
                     }

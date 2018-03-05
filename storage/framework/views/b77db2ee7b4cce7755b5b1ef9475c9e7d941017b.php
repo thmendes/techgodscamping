@@ -41,7 +41,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Modalidade</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="modality">
+                                    <select class="form-control" name="modality_id">
                                         <option value="0">Selecione</option>
                                         <?php $__currentLoopData = $modalities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $modality): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <option value="<?php echo e($modality['id']); ?>"><?php echo e($modality['name']); ?></option>
@@ -52,24 +52,24 @@
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-						          <button class="btn btn-primary" type="reset">Limpar Filtros</button>
+					                          <button class="btn btn-primary" type="reset">Limpar Filtros</button>
                                     <button type="submit" class="btn btn-success">Pesquisar</button>
                                 </div>
                             </div>
                         </form>
                         <table class="table">
                       <thead>
-                        <tr>
+                        <tr>  
                           <th>Nome</th>
                           <th>Descrição</th>
                         </tr>
                       </thead>
                       <tbody>
-                      <?php if(count($modalities)): ?>
-                            <?php $__currentLoopData = $modalities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $modality): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <?php if(count($campings)): ?>
+                            <?php $__currentLoopData = $campings; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $camping): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td><?php echo e($modality['name']); ?></td>
-                                <td><?php echo e($modality['description']); ?></td>
+                                <td><?php echo e($camping['name']); ?></td>
+                                <td><?php echo e($camping['description']); ?></td>
                             </tr>   
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <?php endif; ?>

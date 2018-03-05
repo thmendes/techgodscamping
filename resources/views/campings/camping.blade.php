@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Modalidade</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="modality">
+                                    <select class="form-control" name="modality_id">
                                         <option value="0">Selecione</option>
                                         @foreach($modalities as $modality)
                                             <option value="{{ $modality['id'] }}">{{ $modality['name'] }}</option>
@@ -54,24 +54,24 @@
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-						          <button class="btn btn-primary" type="reset">Limpar Filtros</button>
+					                          <button class="btn btn-primary" type="reset">Limpar Filtros</button>
                                     <button type="submit" class="btn btn-success">Pesquisar</button>
                                 </div>
                             </div>
                         </form>
                         <table class="table">
                       <thead>
-                        <tr>
+                        <tr>  
                           <th>Nome</th>
                           <th>Descrição</th>
                         </tr>
                       </thead>
                       <tbody>
-                      @if(count($modalities))
-                            @foreach($modalities as $modality)
+                      @if(count($campings))
+                            @foreach($campings as $camping)
                             <tr>
-                                <td>{{ $modality['name'] }}</td>
-                                <td>{{ $modality['description'] }}</td>
+                                <td>{{ $camping['name'] }}</td>
+                                <td>{{ $camping['description'] }}</td>
                             </tr>   
                             @endforeach
                         @endif

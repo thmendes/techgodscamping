@@ -13,6 +13,8 @@ class Modalities extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('modalities');
+        
         Schema::create('modalities', function (Blueprint $table){
             $table->increments('id');
             $table->string('name');
@@ -28,6 +30,6 @@ class Modalities extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('modalities');
     }
 }

@@ -40,5 +40,6 @@ class ModalityController extends Controller
    	 	$modality->add($request);
    	 	
    	 	return redirect()->route('modality');
+  	
    	}
 }
