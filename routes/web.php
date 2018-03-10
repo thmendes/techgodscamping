@@ -15,7 +15,13 @@ Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'HomeController@index');
 
-Route::get('/campista', 'CamperController@show');
+Route::get('/campista', 'CamperController@show')->name('camper');
+Route::get('/campista/cadastrar', 'CamperController@create');
+Route::post('/campista/cadastrar', 'CamperController@store');
+
+Route::get('/voluntario', 'VolunteerController@show')->name('camper');
+Route::get('/voluntario/cadastrar', 'VolunteerController@create');
+Route::post('/voluntario/cadastrar', 'VolunteerController@store');
 
 Route::get('/acampamento', 'CampingController@show')->name('camping');
 Route::get('/acampamento/cadastrar', 'CampingController@create');

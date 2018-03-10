@@ -19,15 +19,15 @@ class ModalityController extends Controller
 
     	$modalities = $modality->get('name', 'ASC');
     	
-      return view('campings.modality.modality', array(
-    		'modalities' => $modalities,
-    		'campings' => array()));
+      return view('modality.modality', array(
+    		'modalities' => $modalities
+    		));
     }
 
     public function create(Request $request)
    	{
    		$request->user()->authorizeRoles(['manager']);
-    	return view('campings.modality.create');	
+    	return view('modality.create');	
    	}
 
    	public function store(Request $request, Modality $modality)

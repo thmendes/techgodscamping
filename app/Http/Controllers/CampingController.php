@@ -51,7 +51,7 @@ class CampingController extends Controller
             'teams' => 'required',
         ]);
 
-        $camping->add($request, $this->helper);
+        $this->camping->add($request, $this->helper);
         return redirect()->route('camping');
     }
 }
