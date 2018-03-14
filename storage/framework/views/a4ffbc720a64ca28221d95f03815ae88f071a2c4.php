@@ -27,7 +27,7 @@
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
-
+            
                 <?php echo $__env->make('includes/sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
                 <?php echo $__env->make('includes/topbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -39,6 +39,7 @@
             </div>
         </div>
 
+        <script src="<?php echo e(asset("js/main.js")); ?>"></script>
         <!-- jQuery -->
         <script src="<?php echo e(asset("js/jquery.min.js")); ?>"></script>
         <!-- Bootstrap -->
@@ -46,29 +47,8 @@
         <!-- Custom Theme Scripts -->
         <script src="<?php echo e(asset("js/gentelella.min.js")); ?>"></script>
         <!-- datapicker -->
-        <script type="text/javascript">
-            $(function() {
-                $('input[name="reservation"]').daterangepicker({
-                    locale: {
-                        format: 'DD/MM/YYYY'
-                    }
-                });
-            });
-
-            $(function() {
-                $('input[name="range"]').daterangepicker({
-                    locale: {
-                        format: 'DD/MM/YYYY'
-                    }
-                });
-            });
-
-        </script>
         <script src="<?php echo e(asset("js/moment.js")); ?>"></script>
         <script src="<?php echo e(asset("js/daterangepicker.js")); ?>"></script>
-
-        
-
         <?php echo $__env->yieldPushContent('scripts'); ?>
 
     </body>

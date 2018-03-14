@@ -49,5 +49,10 @@ class CamperController extends Controller
 
        	return redirect()->route('camper');
     }
+
+    public function GetByDocument($document)
+    {
+        return \Response::json($this->camper->where('document', '=', $document)->get());
+    }
 }
 

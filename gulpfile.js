@@ -38,9 +38,6 @@ elixir(function(mix) {
     // jQuery
     mix.copy('vendor/bower_components/gentelella/vendors/jquery/dist/jquery.min.js', 'public/js/jquery.min.js');
 
-    // Gentelella
-    mix.copy('vendor/bower_components/gentelella/build/js/custom.min.js', 'public/js/gentelella.min.js');
-
     /**************/
     /* Copy Fonts */
     /**************/
@@ -50,4 +47,11 @@ elixir(function(mix) {
 
     // Font awesome
     mix.copy('vendor/bower_components/gentelella/vendors/font-awesome/fonts/', 'public/fonts');
+
+    //vue.js
+    mix.browserify('main.js');
+
+    //vueify
+    require("laravel-elixir-vueify");
+
 });

@@ -27,7 +27,7 @@
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
-
+            
                 @include('includes/sidebar')
 
                 @include('includes/topbar')
@@ -39,6 +39,7 @@
             </div>
         </div>
 
+        <script src="{{ asset("js/main.js") }}"></script>
         <!-- jQuery -->
         <script src="{{ asset("js/jquery.min.js") }}"></script>
         <!-- Bootstrap -->
@@ -46,29 +47,8 @@
         <!-- Custom Theme Scripts -->
         <script src="{{ asset("js/gentelella.min.js") }}"></script>
         <!-- datapicker -->
-        <script type="text/javascript">
-            $(function() {
-                $('input[name="reservation"]').daterangepicker({
-                    locale: {
-                        format: 'DD/MM/YYYY'
-                    }
-                });
-            });
-
-            $(function() {
-                $('input[name="range"]').daterangepicker({
-                    locale: {
-                        format: 'DD/MM/YYYY'
-                    }
-                });
-            });
-
-        </script>
         <script src="{{ asset("js/moment.js") }}"></script>
         <script src="{{ asset("js/daterangepicker.js") }}"></script>
-
-        
-
         @stack('scripts')
 
     </body>

@@ -18,10 +18,12 @@ Route::get('/', 'HomeController@index');
 Route::get('/campista', 'CamperController@show')->name('camper');
 Route::get('/campista/cadastrar', 'CamperController@create');
 Route::post('/campista/cadastrar', 'CamperController@store');
+Route::get('/api/campista/{document}', 'CamperController@GetByDocument');
 
-Route::get('/voluntario', 'VolunteerController@show')->name('camper');
+Route::get('/voluntario', 'VolunteerController@show')->name('volunteer');
 Route::get('/voluntario/cadastrar', 'VolunteerController@create');
 Route::post('/voluntario/cadastrar', 'VolunteerController@store');
+Route::get('/api/voluntario/{document}', 'VolunteerController@GetByDocument');
 
 Route::get('/acampamento', 'CampingController@show')->name('camping');
 Route::get('/acampamento/cadastrar', 'CampingController@create');
