@@ -28,7 +28,12 @@ Route::get('/api/voluntario/{document}', 'VolunteerController@GetByDocument');
 Route::get('/acampamento', 'CampingController@show')->name('camping');
 Route::get('/acampamento/cadastrar', 'CampingController@create');
 Route::post('/acampamento/cadastrar', 'CampingController@store');
+Route::get('/acampamento/{campingId}/gerenciar', 'CampingController@manage');
 
 Route::get('/acampamento/modalidade', 'ModalityController@show')->name('modality');
 Route::get('/acampamento/modalidade/cadastrar', 'ModalityController@create');
 Route::post('/acampamento/modalidade/cadastrar', 'ModalityController@store');
+
+Route::get('/funcoes', 'JobController@show')->name('job');
+Route::get('/funcoes/cadastrar', 'JobController@create');
+Route::post('/funcoes/cadastrar', 'JobController@store');

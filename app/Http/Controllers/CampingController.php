@@ -9,10 +9,10 @@ use App\Models\Camping;
 
 
 class CampingController extends Controller
-{
+{   
     public function __construct(Camping $camping, Modality $modality, Helper $helper)
     {
-    	$this->middleware('auth');
+    
         $this->camping = $camping;
         $this->modality = $modality;
         $this->helper = $helper;
@@ -22,7 +22,7 @@ class CampingController extends Controller
     {
         $request->user()->authorizeRoles(['manager']);
         $modalities = $this->modality->get('name', 'ASC');
-    	$campings = $this->camping->get('name', 'ASC');
+    	$campings = $this->getCampings('created_at', 'DESC');
     	return view('campings/camping', array(
             'modalities' => $modalities, 
             'campings' => $campings)
@@ -46,12 +46,35 @@ class CampingController extends Controller
             'name'  =>  'required',
             'description' =>'required',
             'modality_id' => 'required',
-            'range' => 'required',
+            'reservation' => 'required',
             'campers' => 'required',
             'teams' => 'required',
         ]);
 
-        $this->camping->add($request, $this->helper);
+        $dates = $this->helper->rangeToDate($request['reservation']);
+
+        $this->camping->create([
+            'name' => $request['name'],
+            'description' => $request['description'],
+            'modality_id' => $request['modality_id'],
+            'teams' => $request['teams'],
+            'campers' => $request['campers'],
+            'begin_at' => $dates['0'],
+            'end_at' => $dates['1']
+        ]);
+                
         return redirect()->route('camping');
+    }
+
+    public function getCampings($element, $sortBy)
+    {
+    	return $this->camping->orderBy($element, $sortBy)->get()->toArray();
+    }
+
+    public function manage($campingId)
+    {
+        $camping = $this->camping->where('id', '=', $campingId)->get();
+        return view('campings.manage', compact('camping')
+        );
     }
 }

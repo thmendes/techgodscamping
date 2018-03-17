@@ -21,13 +21,13 @@
                         <br />
                     	<form id="pesquisa" data-parsley-validate class="form-horizontal form-label-left">
 		                  	<div class="form-group">
-	           					<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome</label>
+	           					<label class="control-label col-md-1 col-sm-3 col-xs-12" for="first-name">Nome</label>
 	                        	<div class="col-md-6 col-sm-6 col-xs-12">
 		                        	<input type="text" id="nome" class="form-control col-md-7 col-xs-12">
 	                        	</div>
 		                  	</div>
 		                  	<div class="form-group">
-		                  		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Período</label>
+		                  		<label class="control-label col-md-1 col-sm-3 col-xs-12" for="first-name">Período</label>
 		                  		<div class="col-md-6 col-sm-6 col-xs-12">
 		                        	<div class="controls">
                                 		<div class="input-prepend input-group">
@@ -38,7 +38,7 @@
 	                        	</div>
 		                  	</div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Modalidade</label>
+                                <label class="control-label col-md-1 col-sm-3 col-xs-12">Modalidade</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <select class="form-control" name="modality_id">
                                         <option value="0">Selecione</option>
@@ -49,8 +49,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-					                          <button class="btn btn-primary" type="reset">Limpar Filtros</button>
+                                <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-1">
+                                    <button class="btn btn-default" type="reset">Limpar Filtros</button>
                                     <button type="submit" class="btn btn-success">Pesquisar</button>
                                 </div>
                             </div>
@@ -66,6 +66,7 @@
                                 <tr>  
                                     <th>Nome</th>
                                     <th>Descrição</th>
+                                    <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,6 +75,7 @@
                                         <tr>
                                             <td>{{ $camping['name'] }}</td>
                                             <td>{{ $camping['description'] }}</td>
+                                            <td><a href="acampamento/{{ $camping['id'] }}/gerenciar"><button type="button" class="btn btn-primary btn-xs">Gerenciar</button></a><button type="button" class="btn btn-danger btn-xs">Arquivar</button></td>
                                         </tr>   
                                     @endforeach
                                 @endif

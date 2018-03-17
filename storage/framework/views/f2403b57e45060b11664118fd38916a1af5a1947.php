@@ -39,19 +39,16 @@
                             </div>
                         </div>	                  
                         <div class="form-group">
-                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="description">Período</label>                                        
-                            <fieldset class="left">
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <div class="col-md-12 xdisplay_inputx form-group has-feedback">
-                                            <input type="text" class="form-control has-feedback-left" id="single_cal1" name="range" aria-describedby="inputSuccess2Status">
-                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                            <span id="inputSuccess2Status" class="sr-only">(success)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </div>
+		                  		<label class="control-label col-md-2 col-sm-3 col-xs-12" for="reservation">Período</label>
+		                  		<div class="col-md-6 col-sm-6 col-xs-12">
+		                        	<div class="controls">
+                                		<div class="input-prepend input-group">
+                                  			<span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+                                  			<input type="text" style="width: 200px" name="reservation" id="reservation" class="form-control" value="01/01/2018 - 01/01/2018" />
+                            			</div>
+                              		</div>
+	                        	</div>
+		                  	</div>
                         <div class="form-group">
                             <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">Nº Participantes</label>
                             <div class="col-md-1 col-sm-6 col-xs-12">
@@ -70,7 +67,6 @@
                                 <button type="submit" class="btn btn-success">Cadastrar</button>
                             </div>
                         </div>
-
                         <?php echo $__env->make('layouts.error', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                     </form>
                 </div>
