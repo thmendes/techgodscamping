@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Volunteer extends Model
 {
-    public function add($body)
+	use Searchable;
+	
+	public function add($body)
     {
 		$this->document = $body['document'];
 		$this->name = $body['name'];
@@ -31,5 +34,10 @@ class Volunteer extends Model
 
 
     	return $volunteers->toArray();
-    }    
+	}
+	
+	public function searchableAs()
+	{
+		return 'name';
+	}
 }

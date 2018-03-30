@@ -67,6 +67,7 @@
         </script>
         <script src="<?php echo e(asset("js/moment.js")); ?>"></script>
         <script src="<?php echo e(asset("js/daterangepicker.js")); ?>"></script>
+        
         <?php echo $__env->yieldPushContent('scripts'); ?>
 
     </body>

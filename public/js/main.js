@@ -1,6 +1,241 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+module.exports = { "default": require("core-js/library/fn/object/define-property"), __esModule: true };
+},{"core-js/library/fn/object/define-property":4}],2:[function(require,module,exports){
+"use strict";
 
-},{}],2:[function(require,module,exports){
+exports.__esModule = true;
+
+var _defineProperty = require("../core-js/object/define-property");
+
+var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (obj, key, value) {
+  if (key in obj) {
+    (0, _defineProperty2.default)(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+};
+},{"../core-js/object/define-property":1}],3:[function(require,module,exports){
+
+},{}],4:[function(require,module,exports){
+require('../../modules/es6.object.define-property');
+var $Object = require('../../modules/_core').Object;
+module.exports = function defineProperty(it, key, desc) {
+  return $Object.defineProperty(it, key, desc);
+};
+
+},{"../../modules/_core":7,"../../modules/es6.object.define-property":20}],5:[function(require,module,exports){
+module.exports = function (it) {
+  if (typeof it != 'function') throw TypeError(it + ' is not a function!');
+  return it;
+};
+
+},{}],6:[function(require,module,exports){
+var isObject = require('./_is-object');
+module.exports = function (it) {
+  if (!isObject(it)) throw TypeError(it + ' is not an object!');
+  return it;
+};
+
+},{"./_is-object":16}],7:[function(require,module,exports){
+var core = module.exports = { version: '2.5.1' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+},{}],8:[function(require,module,exports){
+// optional / simple context binding
+var aFunction = require('./_a-function');
+module.exports = function (fn, that, length) {
+  aFunction(fn);
+  if (that === undefined) return fn;
+  switch (length) {
+    case 1: return function (a) {
+      return fn.call(that, a);
+    };
+    case 2: return function (a, b) {
+      return fn.call(that, a, b);
+    };
+    case 3: return function (a, b, c) {
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function (/* ...args */) {
+    return fn.apply(that, arguments);
+  };
+};
+
+},{"./_a-function":5}],9:[function(require,module,exports){
+// Thank's IE8 for his funny defineProperty
+module.exports = !require('./_fails')(function () {
+  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
+});
+
+},{"./_fails":12}],10:[function(require,module,exports){
+var isObject = require('./_is-object');
+var document = require('./_global').document;
+// typeof document.createElement is 'object' in old IE
+var is = isObject(document) && isObject(document.createElement);
+module.exports = function (it) {
+  return is ? document.createElement(it) : {};
+};
+
+},{"./_global":13,"./_is-object":16}],11:[function(require,module,exports){
+var global = require('./_global');
+var core = require('./_core');
+var ctx = require('./_ctx');
+var hide = require('./_hide');
+var PROTOTYPE = 'prototype';
+
+var $export = function (type, name, source) {
+  var IS_FORCED = type & $export.F;
+  var IS_GLOBAL = type & $export.G;
+  var IS_STATIC = type & $export.S;
+  var IS_PROTO = type & $export.P;
+  var IS_BIND = type & $export.B;
+  var IS_WRAP = type & $export.W;
+  var exports = IS_GLOBAL ? core : core[name] || (core[name] = {});
+  var expProto = exports[PROTOTYPE];
+  var target = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE];
+  var key, own, out;
+  if (IS_GLOBAL) source = name;
+  for (key in source) {
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    if (own && key in exports) continue;
+    // export native or passed
+    out = own ? target[key] : source[key];
+    // prevent global pollution for namespaces
+    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+    // bind timers to global for call from export context
+    : IS_BIND && own ? ctx(out, global)
+    // wrap global constructors for prevent change them in library
+    : IS_WRAP && target[key] == out ? (function (C) {
+      var F = function (a, b, c) {
+        if (this instanceof C) {
+          switch (arguments.length) {
+            case 0: return new C();
+            case 1: return new C(a);
+            case 2: return new C(a, b);
+          } return new C(a, b, c);
+        } return C.apply(this, arguments);
+      };
+      F[PROTOTYPE] = C[PROTOTYPE];
+      return F;
+    // make static versions for prototype methods
+    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+    if (IS_PROTO) {
+      (exports.virtual || (exports.virtual = {}))[key] = out;
+      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+      if (type & $export.R && expProto && !expProto[key]) hide(expProto, key, out);
+    }
+  }
+};
+// type bitmap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library`
+module.exports = $export;
+
+},{"./_core":7,"./_ctx":8,"./_global":13,"./_hide":14}],12:[function(require,module,exports){
+module.exports = function (exec) {
+  try {
+    return !!exec();
+  } catch (e) {
+    return true;
+  }
+};
+
+},{}],13:[function(require,module,exports){
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self
+  // eslint-disable-next-line no-new-func
+  : Function('return this')();
+if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+
+},{}],14:[function(require,module,exports){
+var dP = require('./_object-dp');
+var createDesc = require('./_property-desc');
+module.exports = require('./_descriptors') ? function (object, key, value) {
+  return dP.f(object, key, createDesc(1, value));
+} : function (object, key, value) {
+  object[key] = value;
+  return object;
+};
+
+},{"./_descriptors":9,"./_object-dp":17,"./_property-desc":18}],15:[function(require,module,exports){
+module.exports = !require('./_descriptors') && !require('./_fails')(function () {
+  return Object.defineProperty(require('./_dom-create')('div'), 'a', { get: function () { return 7; } }).a != 7;
+});
+
+},{"./_descriptors":9,"./_dom-create":10,"./_fails":12}],16:[function(require,module,exports){
+module.exports = function (it) {
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
+
+},{}],17:[function(require,module,exports){
+var anObject = require('./_an-object');
+var IE8_DOM_DEFINE = require('./_ie8-dom-define');
+var toPrimitive = require('./_to-primitive');
+var dP = Object.defineProperty;
+
+exports.f = require('./_descriptors') ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if (IE8_DOM_DEFINE) try {
+    return dP(O, P, Attributes);
+  } catch (e) { /* empty */ }
+  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
+  if ('value' in Attributes) O[P] = Attributes.value;
+  return O;
+};
+
+},{"./_an-object":6,"./_descriptors":9,"./_ie8-dom-define":15,"./_to-primitive":19}],18:[function(require,module,exports){
+module.exports = function (bitmap, value) {
+  return {
+    enumerable: !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable: !(bitmap & 4),
+    value: value
+  };
+};
+
+},{}],19:[function(require,module,exports){
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = require('./_is-object');
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function (it, S) {
+  if (!isObject(it)) return it;
+  var fn, val;
+  if (S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+},{"./_is-object":16}],20:[function(require,module,exports){
+var $export = require('./_export');
+// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+$export($export.S + $export.F * !require('./_descriptors'), 'Object', { defineProperty: require('./_object-dp').f });
+
+},{"./_descriptors":9,"./_export":11,"./_object-dp":17}],21:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -186,7 +421,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],3:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -487,7 +722,7 @@ function format (id) {
   return match ? match[0] : id
 }
 
-},{}],4:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 /*!
  * vue-resource v1.5.0
  * https://github.com/pagekit/vue-resource
@@ -2046,7 +2281,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 module.exports = plugin;
 
-},{"got":1}],5:[function(require,module,exports){
+},{"got":3}],24:[function(require,module,exports){
 (function (global){
 /*!
  * Vue.js v2.5.15
@@ -12990,7 +13225,7 @@ return Vue;
 })));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],6:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v2.5.15
@@ -21022,7 +21257,7 @@ if (inBrowser) {
 module.exports = Vue;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":2}],7:[function(require,module,exports){
+},{"_process":21}],26:[function(require,module,exports){
 var inserted = exports.cache = {}
 
 exports.insert = function (css) {
@@ -21042,7 +21277,7 @@ exports.insert = function (css) {
   return elem
 }
 
-},{}],8:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
 var __vueify_style__ = __vueify_insert__.insert("\n\n")
 'use strict';
@@ -21106,7 +21341,46 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0fbff6bc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":6,"vue-hot-reload-api":3,"vueify/lib/insert-css":7}],9:[function(require,module,exports){
+},{"vue":25,"vue-hot-reload-api":22,"vueify/lib/insert-css":26}],28:[function(require,module,exports){
+var __vueify_insert__ = require("vueify/lib/insert-css")
+var __vueify_style__ = __vueify_insert__.insert("\n\n")
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    props: ['camping'],
+    data: function data() {
+        return {};
+    },
+
+    methods: {},
+    mounted: function mounted() {},
+
+    computed: {
+        campingValues: function campingValues() {
+            return JSON.parse(this.camping);
+        }
+    }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div _v-3a22d7e8=\"\">\n    <div class=\"row top_tiles\" _v-3a22d7e8=\"\">\n        <div class=\"animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12\" _v-3a22d7e8=\"\">\n            <a v-bind:href=\"'/acampamento/' + campingValues.id + '/gerenciar/equipe/nova'\" _v-3a22d7e8=\"\">\n                <div class=\"tile-stats\" _v-3a22d7e8=\"\">\n                    <div class=\"icon\" _v-3a22d7e8=\"\">\n                        <i class=\"fa fa-users\" _v-3a22d7e8=\"\"></i>\n                    </div>\n                    <div class=\"count\" _v-3a22d7e8=\"\">1</div>\n                    <h3 _v-3a22d7e8=\"\">Nova Equipe</h3>\n                    <p _v-3a22d7e8=\"\">Crie equipes e selecione os anjos</p>\n                </div>\n            </a>\n        </div>\n        <div class=\"animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12\" _v-3a22d7e8=\"\">\n            <a href=\"#\" _v-3a22d7e8=\"\"> \n                <div class=\"tile-stats\" _v-3a22d7e8=\"\">\n                    <div class=\"icon\" _v-3a22d7e8=\"\">\n                        <i class=\"fa fa-user\" _v-3a22d7e8=\"\"></i>\n                    </div>\n                    <div class=\"count\" _v-3a22d7e8=\"\">13</div>\n                    <h3 _v-3a22d7e8=\"\">Novo Campista</h3>\n                    <p _v-3a22d7e8=\"\"><i class=\"fa fa-female\" _v-3a22d7e8=\"\"></i> 10 <i class=\"fa fa-male\" _v-3a22d7e8=\"\"></i> 3</p>\n                </div>\n            </a>\n        </div>\n        <div class=\"animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12\" _v-3a22d7e8=\"\">\n            <a href=\"#\" _v-3a22d7e8=\"\"> \n                <div class=\"tile-stats\" _v-3a22d7e8=\"\">\n                    <div class=\"icon\" _v-3a22d7e8=\"\">\n                        <i class=\"fa fa-comments-o\" _v-3a22d7e8=\"\"></i>\n                    </div>\n                    <div class=\"count\" _v-3a22d7e8=\"\">1</div>\n                    <h3 _v-3a22d7e8=\"\">Lorem</h3>\n                    <p _v-3a22d7e8=\"\">Lorem ipsum psdea itgum rixt.</p>\n                </div>\n            </a>\n        </div>\n        <div class=\"animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12\" _v-3a22d7e8=\"\">\n            <a href=\"#\" _v-3a22d7e8=\"\">\n                <div class=\"tile-stats\" _v-3a22d7e8=\"\">\n                    <div class=\"icon\" _v-3a22d7e8=\"\">\n                        <i class=\"fa fa-check-square-o\" _v-3a22d7e8=\"\"></i>\n                    </div>\n                    <div class=\"count\" _v-3a22d7e8=\"\">1</div>\n                    <h3 _v-3a22d7e8=\"\">Lorem</h3>\n                    <p _v-3a22d7e8=\"\">Lorem ipsum psdea itgum rixt.</p>\n                </div>\n            </a>\n        </div>\n    </div>\n    <div class=\"x_panel\" _v-3a22d7e8=\"\">\n        <div class=\"x_title\" _v-3a22d7e8=\"\">\n            <h2 _v-3a22d7e8=\"\">Painel</h2>\n            <div class=\"clearfix\" _v-3a22d7e8=\"\"></div>\n        </div>\n        <div class=\"x_content\" _v-3a22d7e8=\"\">\n            <div class=\"col-md-9 col-sm-9 col-xs-12\" _v-3a22d7e8=\"\">\n                <div _v-3a22d7e8=\"\">\n                    <span _v-3a22d7e8=\"\"> {{ campingValues.id }}</span>\n                    <h4 _v-3a22d7e8=\"\">Atividades Recentes</h4>\n                    <div class=\"text-keft mtop20\" _v-3a22d7e8=\"\">\n                        <a href=\"#\" class=\"btn btn-sm btn-primary\" _v-3a22d7e8=\"\">Novo Registro</a>\n                    </div>\n                    <ul class=\"messages\" _v-3a22d7e8=\"\">\n                        <li _v-3a22d7e8=\"\">\n\n                            <img src=\"https://www.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2017/11/18/National-Politics/Images/Rex_Trump_to_allow_elephant_trophies_9227717A.jpg?t=20170517\" class=\"avatar\" alt=\"Avatar\" _v-3a22d7e8=\"\">\n                            <div class=\"message_date\" _v-3a22d7e8=\"\">\n                                <h3 class=\"date text-info\" _v-3a22d7e8=\"\">15</h3>\n                                <p class=\"month\" _v-3a22d7e8=\"\">Março</p>\n                            </div>\n                            <div class=\"message_wrapper\" _v-3a22d7e8=\"\">\n                                <h4 class=\"heading\" _v-3a22d7e8=\"\"></h4>\n                                <blockquote class=\"message\" _v-3a22d7e8=\"\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nunc urna, convallis\n                                    id laoreet a, placerat quis arcu. Aliquam erat volutpat. Quisque bibendum\n                                    luctus risus sed laoreet.</blockquote>\n                                <br _v-3a22d7e8=\"\">\n                                <p class=\"url\" _v-3a22d7e8=\"\">\n                                    <span class=\"fs1 text-info\" aria-hidden=\"true\" data-icon=\"\" _v-3a22d7e8=\"\"></span>\n                                    <a href=\"#\" _v-3a22d7e8=\"\">\n                                        <i class=\"fa fa-paperclip\" _v-3a22d7e8=\"\"></i> Lorem.png</a>\n                                </p>\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n            <div class=\"col-md-3 col-sm-3 col-xs-12\" _v-3a22d7e8=\"\">\n                <section class=\"panel\" _v-3a22d7e8=\"\">\n                    <div class=\"panel-body\" _v-3a22d7e8=\"\">\n                        <h5 _v-3a22d7e8=\"\">Arquivos do Acampamento</h5>\n                        <ul class=\"list-unstyled project_files\" _v-3a22d7e8=\"\">\n                            <li _v-3a22d7e8=\"\">\n                                <a href=\"\" _v-3a22d7e8=\"\">\n                                    <i class=\"fa fa-file-word-o\" _v-3a22d7e8=\"\"></i> Lista de Compras.docx</a>\n                            </li>\n                        </ul>\n                        <br _v-3a22d7e8=\"\">\n                        <div class=\"text-keft mtop20\" _v-3a22d7e8=\"\">\n                            <a href=\"#\" class=\"btn btn-sm btn-primary\" _v-3a22d7e8=\"\">Adicionar Arquivo</a>\n                        </div>\n                    </div>\n                </section>\n            </div>\n        </div>\n    </div>\n</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.dispose(function () {
+    __vueify_insert__.cache["\n\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-3a22d7e8", module.exports)
+  } else {
+    hotAPI.update("_v-3a22d7e8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":25,"vue-hot-reload-api":22,"vueify/lib/insert-css":26}],29:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
 var __vueify_style__ = __vueify_insert__.insert("\n\n")
 'use strict';
@@ -21170,7 +21444,75 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-a1891900", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":6,"vue-hot-reload-api":3,"vueify/lib/insert-css":7}],10:[function(require,module,exports){
+},{"vue":25,"vue-hot-reload-api":22,"vueify/lib/insert-css":26}],30:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
+
+var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function debounce(fn, delay) {
+    var timeoutID = null;
+    return function () {
+        clearTimeout(timeoutID);
+        var args = arguments;
+        var that = this;
+        timeoutID = setTimeout(function () {
+            fn.apply(that, args);
+        }, delay);
+    };
+};
+
+exports.default = {
+    data: function data() {
+        return {
+            keywords: null,
+            results: []
+        };
+    },
+
+
+    watch: (0, _defineProperty3.default)({
+        keywords: function keywords(after, before) {
+            this.fetch();
+        }
+    }, 'keywords', debounce(function (newVal) {
+        this.fetch();
+    }, 300)),
+
+    methods: {
+        fetch: function fetch() {
+            var _this = this;
+
+            this.$http.get('/api/voluntario/pesquisar', { params: { keywords: this.keywords } }).then(function (response) {
+                return _this.results = response.data;
+            }).catch(function (error) {});
+        },
+        pick: function pick(item) {
+            this.keywords = item;
+            this.results = [];
+        }
+    }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div>\n    <div class=\"form-group\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"description\">Anjo</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\">   \n            <input type=\"text\" lazy=\"\" class=\"form-control col-md-7 col-xs-12\" v-model=\"keywords\">\n                <ul class=\"left list-group\" style=\"width:100%; max-height:100px; overflow-y:auto;\" v-if=\"results.length > 0\">\n                    <li v-on:click=\"pick(result.name)\" class=\"list-group-item\" v-for=\"result in results\" :key=\"result.id\" v-text=\"result.name\"></li>\n                </ul>\n        </div>\n    </div>\n</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-1c5235b4", module.exports)
+  } else {
+    hotAPI.update("_v-1c5235b4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"babel-runtime/helpers/defineProperty":2,"vue":25,"vue-hot-reload-api":22}],31:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue/dist/vue.js');
@@ -21185,25 +21527,35 @@ var _createvolunteer = require('./components/volunteer/createvolunteer.vue');
 
 var _createvolunteer2 = _interopRequireDefault(_createvolunteer);
 
+var _search = require('./components/volunteer/search.vue');
+
+var _search2 = _interopRequireDefault(_search);
+
 var _createcamper = require('./components/camper/createcamper.vue');
 
 var _createcamper2 = _interopRequireDefault(_createcamper);
+
+var _manage = require('./components/camping/manage.vue');
+
+var _manage2 = _interopRequireDefault(_manage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.use(_vueResource2.default);
 
 new _vue2.default({
-    el: '.main_container',
+  el: ".main_container",
 
-    data: {},
+  data: {},
 
-    components: {
-        TcCreatevolunteer: _createvolunteer2.default,
-        TcCreatecamper: _createcamper2.default
-    }
+  components: {
+    TcCreatevolunteer: _createvolunteer2.default,
+    TcCreatecamper: _createcamper2.default,
+    TcSearchvolunteer: _search2.default,
+    TcManagecamping: _manage2.default
+  }
 });
 
-},{"./components/camper/createcamper.vue":8,"./components/volunteer/createvolunteer.vue":9,"vue-resource":4,"vue/dist/vue.js":5}]},{},[10]);
+},{"./components/camper/createcamper.vue":27,"./components/camping/manage.vue":28,"./components/volunteer/createvolunteer.vue":29,"./components/volunteer/search.vue":30,"vue-resource":23,"vue/dist/vue.js":24}]},{},[31]);
 
 //# sourceMappingURL=main.js.map

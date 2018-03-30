@@ -54,4 +54,12 @@ class VolunteerController extends Controller
     {
         return \Response::json($this->volunteer->where('document', '=', $document)->get());
     }
+
+    public function search(Request $request)
+    {
+        if(strlen($request->keywords) > 0)
+            return \Response::json($this->volunteer->search($request->keywords)->get());
+
+        return \Response::json();
+    }
 }

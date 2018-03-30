@@ -148,6 +148,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,
+        
 
         /*
          * Application Service Providers...
@@ -163,6 +164,7 @@ return [
 		Collective\Html\HtmlServiceProvider::class,
 		Watson\BootstrapForm\BootstrapFormServiceProvider::class,
 		Spatie\Permission\PermissionServiceProvider::class,
+		Laravel\Scout\ScoutServiceProvider::class,
     ],
 
     /*

@@ -33,6 +33,7 @@
     29 => 'Collective\\Html\\HtmlServiceProvider',
     30 => 'Watson\\BootstrapForm\\BootstrapFormServiceProvider',
     31 => 'Spatie\\Permission\\PermissionServiceProvider',
+    32 => 'Laravel\\Scout\\ScoutServiceProvider',
   ),
   'eager' => 
   array (
@@ -54,6 +55,7 @@
     15 => 'Thomaswelton\\LaravelGravatar\\LaravelGravatarServiceProvider',
     16 => 'Conner\\Tagging\\Providers\\TaggingServiceProvider',
     17 => 'Spatie\\Permission\\PermissionServiceProvider',
+    18 => 'Laravel\\Scout\\ScoutServiceProvider',
   ),
   'deferred' => 
   array (

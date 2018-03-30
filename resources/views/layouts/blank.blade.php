@@ -67,6 +67,7 @@
         </script>
         <script src="{{ asset("js/moment.js") }}"></script>
         <script src="{{ asset("js/daterangepicker.js") }}"></script>
+        
         @stack('scripts')
 
     </body>

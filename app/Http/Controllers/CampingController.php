@@ -7,7 +7,6 @@ use App\Models\Modality;
 use App\Models\Helper;
 use App\Models\Camping;
 
-
 class CampingController extends Controller
 {   
     public function __construct(Camping $camping, Modality $modality, Helper $helper)
@@ -71,10 +70,5 @@ class CampingController extends Controller
     	return $this->camping->orderBy($element, $sortBy)->get()->toArray();
     }
 
-    public function manage($campingId)
-    {
-        $camping = $this->camping->where('id', '=', $campingId)->get();
-        return view('campings.manage', compact('camping')
-        );
-    }
+    
 }
