@@ -15,6 +15,10 @@ Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'HomeController@index');
 
+Route::get('/pessoas', 'PersonController@show')->name('people');
+Route::get('/pessoas/cadastrar', 'PersonController@create');
+Route::post('/pessoas/cadastrar', 'PersonController@store');
+
 Route::get('/campista', 'CamperController@show')->name('camper');
 Route::get('/campista/cadastrar', 'CamperController@create');
 Route::post('/campista/cadastrar', 'CamperController@store');
@@ -27,8 +31,11 @@ Route::get('/acampamento', 'CampingController@show')->name('camping');
 Route::get('/acampamento/cadastrar', 'CampingController@create');
 Route::post('/acampamento/cadastrar', 'CampingController@store');
 
-Route::get('/acampamento/{campingId}/gerenciar', 'ManageController@show');
-Route::get('/acampamento/{campingId}/gerenciar/equipe/nova', 'TeamController@create');
+Route::get('/acampamento/{campingId}/gerenciar', 'ManageController@show')->name('manage');
+Route::get('/acampamento/{campingId}/gerenciar/equipe/cadastrar', 'TeamController@create');
+Route::post('/acampamento/{campingId}/gerenciar/equipe/cadastrar', 'TeamController@store');
+Route::get('/acampamento/{campingId}/gerenciar/campista/associar', 'TeamController@associate');
+
 
 Route::get('/acampamento/modalidade', 'ModalityController@show')->name('modality');
 Route::get('/acampamento/modalidade/cadastrar', 'ModalityController@create');
@@ -45,6 +52,11 @@ Route::post('/cores/cadastrar', 'ColorController@store');
 
 # API #
 Route::get('/api/campista/{document}', 'CamperController@GetByDocument');
+Route::get('/api/campista', 'CamperController@GetCamper');
 
 Route::get('/api/voluntario/pesquisar', 'VolunteerController@search');
 Route::get('/api/voluntario/{document}', 'VolunteerController@GetByDocument');
+
+Route::get('/api/pessoas/pesquisar', 'PersonController@search');
+Route::get('/api/pessoas', 'PersonController@GetPeople');
+Route::post('/api/pessoas', 'PersonController@SetPeople');

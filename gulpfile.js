@@ -54,4 +54,5 @@ elixir(function(mix) {
     //vueify
     require("laravel-elixir-vueify");
 
+
 });

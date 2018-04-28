@@ -14,7 +14,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                    	<form id="modality" action="cadastrar" method="POST" class="form-horizontal form-label-left">
+                    	<form id="volunteer" action="cadastrar" method="POST" class="form-horizontal form-label-left">
     	                  	{{ csrf_field() }}
                             <tc-createvolunteer></tc-createvolunteer>
                             <div class="ln_solid"></div>

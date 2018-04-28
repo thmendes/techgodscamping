@@ -8,7 +8,13 @@ class Team extends Model
 {
       protected $fillable = [
         'name',
-        'color',
-        'description'
+        'color_id',
+        'description',
+        'camping_id',
     ];
+
+    public function angel()
+    {
+        return $this->hasMany('App\Models\Angel');
+    }
 }

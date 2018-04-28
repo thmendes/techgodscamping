@@ -67,6 +67,7 @@
         </script>
         <script src="<?php echo e(asset("js/moment.js")); ?>"></script>
         <script src="<?php echo e(asset("js/daterangepicker.js")); ?>"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
         
         <?php echo $__env->yieldPushContent('scripts'); ?>
 

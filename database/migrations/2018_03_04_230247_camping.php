@@ -22,8 +22,7 @@ class Camping extends Migration
             $table->integer('modality_id');
             $table->date('begin_at');
             $table->date('end_at');
-            $table->integer('campers');   
-            $table->integer('teams');   
+            $table->integer('angels');   
             $table->timestamps();
         });
     }

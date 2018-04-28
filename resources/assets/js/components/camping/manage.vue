@@ -1,55 +1,6 @@
 <template>
     <div>
-        <div class="row top_tiles">
-            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a v-bind:href="'/acampamento/' + campingValues.id + '/gerenciar/equipe/nova'">
-                    <div class="tile-stats">
-                        <div class="icon">
-                            <i class="fa fa-users"></i>
-                        </div>
-                        <div class="count">1</div>
-                        <h3>Nova Equipe</h3>
-                        <p>Crie equipes e selecione os anjos</p>
-                    </div>
-                </a>
-            </div>
-            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a href="#"> 
-                    <div class="tile-stats">
-                        <div class="icon">
-                            <i class="fa fa-user"></i>
-                        </div>
-                        <div class="count">13</div>
-                        <h3>Novo Campista</h3>
-                        <p><i class="fa fa-female"></i> 10 <i class="fa fa-male"></i> 3</p>
-                    </div>
-                </a>
-            </div>
-            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a href="#"> 
-                    <div class="tile-stats">
-                        <div class="icon">
-                            <i class="fa fa-comments-o"></i>
-                        </div>
-                        <div class="count">1</div>
-                        <h3>Lorem</h3>
-                        <p>Lorem ipsum psdea itgum rixt.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a href="#">
-                    <div class="tile-stats">
-                        <div class="icon">
-                            <i class="fa fa-check-square-o"></i>
-                        </div>
-                        <div class="count">1</div>
-                        <h3>Lorem</h3>
-                        <p>Lorem ipsum psdea itgum rixt.</p>
-                    </div>
-                </a>
-            </div>
-        </div>
+        
         <div class="x_panel">
             <div class="x_title">
                 <h2>Painel</h2>
@@ -58,14 +9,12 @@
             <div class="x_content">
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <div>
-                        <span> {{ campingValues.id }}</span>
                         <h4>Atividades Recentes</h4>
                         <div class="text-keft mtop20">
                             <a href="#" class="btn btn-sm btn-primary">Novo Registro</a>
                         </div>
                         <ul class="messages">
                             <li>
-
                                 <img src="https://www.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2017/11/18/National-Politics/Images/Rex_Trump_to_allow_elephant_trophies_9227717A.jpg?t=20170517" class="avatar" alt="Avatar">
                                 <div class="message_date">
                                     <h3 class="date text-info">15</h3>
@@ -110,11 +59,11 @@
 </template>
 
 <script>
+    
     export default 
     {
         props: 
         [
-            'camping'
         ],
         data ()
         {
@@ -131,9 +80,6 @@
             
         },
         computed: {
-            campingValues: function () {
-                return JSON.parse(this.camping)
-            }
         }
     }
 </script>

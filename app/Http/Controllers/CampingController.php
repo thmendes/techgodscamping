@@ -11,7 +11,6 @@ class CampingController extends Controller
 {   
     public function __construct(Camping $camping, Modality $modality, Helper $helper)
     {
-    
         $this->camping = $camping;
         $this->modality = $modality;
         $this->helper = $helper;
@@ -46,8 +45,7 @@ class CampingController extends Controller
             'description' =>'required',
             'modality_id' => 'required',
             'reservation' => 'required',
-            'campers' => 'required',
-            'teams' => 'required',
+            'angels' => 'required'
         ]);
 
         $dates = $this->helper->rangeToDate($request['reservation']);
@@ -56,10 +54,9 @@ class CampingController extends Controller
             'name' => $request['name'],
             'description' => $request['description'],
             'modality_id' => $request['modality_id'],
-            'teams' => $request['teams'],
-            'campers' => $request['campers'],
             'begin_at' => $dates['0'],
-            'end_at' => $dates['1']
+            'end_at' => $dates['1'],
+            'angels' => $request['angels']
         ]);
                 
         return redirect()->route('camping');
@@ -69,6 +66,4 @@ class CampingController extends Controller
     {
     	return $this->camping->orderBy($element, $sortBy)->get()->toArray();
     }
-
-    
 }

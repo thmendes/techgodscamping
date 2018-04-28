@@ -10,7 +10,7 @@ class Camping extends Model
 		'name',
 		'description',
 		'modality_id',
-		'teams',
+		'angels',
 		'campers',
 		'begin_at',
 		'end_at'

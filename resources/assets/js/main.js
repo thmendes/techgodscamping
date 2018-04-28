@@ -4,6 +4,9 @@ import TcCreatevolunteer from './components/volunteer/createvolunteer.vue'
 import TcSearchvolunteer from './components/volunteer/search.vue'
 import TcCreatecamper from './components/camper/createcamper.vue'
 import TcManagecamping from "./components/camping/manage.vue"
+import TcAssociate from "./components/team/associate.vue"
+
+
 
 Vue.use(VueResource)
 
@@ -16,6 +19,7 @@ new Vue({
     TcCreatevolunteer,
     TcCreatecamper,
     TcSearchvolunteer,
-    TcManagecamping
+    TcManagecamping,
+    TcAssociate
   }
 });

@@ -50,15 +50,9 @@
 	                        	</div>
 		                  	</div>
                         <div class="form-group">
-                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">Nº Participantes</label>
+                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="angels">Nº de Anjos por time</label>
                             <div class="col-md-1 col-sm-6 col-xs-12">
-                                <input type="text" id="quantityCampers" name="campers" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">Nº Equipes</label>
-                            <div class="col-md-1 col-sm-6 col-xs-12">
-                                <input type="text" id="quantityTeams" name="teams" class="form-control col-md-7 col-xs-12">
+                                <input type="text" id="quantityTeams" name="angels" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                         <div class="ln_solid"></div>
