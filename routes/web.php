@@ -13,7 +13,18 @@
 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
-Route::get('/', 'HomeController@index');
+
+Route::get('/', 'InstitutionalController@index');
+
+Route::get('institucional/galeria', 'AlbumController@index')->name('gallery');
+Route::get('institucional/galeria/nova', 'AlbumController@create');
+Route::post('institucional/galeria/nova', 'AlbumController@store');
+
+Route::get('institucional/galeria/{id}', 'AlbumController@show');
+Route::post('institucional/galeria/{id}/upload', 'AlbumController@upload');
+Route::get('institucional/galeria/{albumId}/delete/{photoId}', 'AlbumController@delete');
+
+Route::get('/meuacampamento', 'HomeController@index');
 
 Route::get('/pessoas', 'PersonController@show')->name('people');
 Route::get('/pessoas/cadastrar', 'PersonController@create');
@@ -48,8 +59,6 @@ Route::post('/funcoes/cadastrar', 'JobController@store');
 Route::get('/cores', 'ColorController@show')->name('color');
 Route::post('/cores/cadastrar', 'ColorController@store');
 
-
-
 # API #
 Route::get('/api/campista/{document}', 'CamperController@GetByDocument');
 Route::get('/api/campista', 'CamperController@GetCamper');
@@ -60,3 +69,5 @@ Route::get('/api/voluntario/{document}', 'VolunteerController@GetByDocument');
 Route::get('/api/pessoas/pesquisar', 'PersonController@search');
 Route::get('/api/pessoas', 'PersonController@GetPeople');
 Route::post('/api/pessoas', 'PersonController@SetPeople');
+
+

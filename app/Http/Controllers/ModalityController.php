@@ -15,7 +15,7 @@ class ModalityController extends Controller
     public function show(Request $request, Modality $modality)
     {
     	$request->user()->authorizeRoles(['manager']);
-      $modalities = array();
+        $modalities = array();
 
     	$modalities = $modality->get('name', 'ASC');
     	

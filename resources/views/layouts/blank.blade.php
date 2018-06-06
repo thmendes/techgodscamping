@@ -19,6 +19,10 @@
         <link href="{{ asset("css/gentelella.min.css") }}" rel="stylesheet">
         <!-- datapicker -->
         <link href="{{ asset("css/daterangepicker.css") }}" rel="stylesheet">
+        <!-- dropzone -->
+        <link href="{{ asset("css/dropzone.min.css") }}" rel="stylesheet">
+        <!-- nprogress -->
+        <link href="{{ asset("css/nprogress.css") }}" rel="stylesheet">
 
         @stack('stylesheets')
 
@@ -46,6 +50,7 @@
         <script src="{{ asset("js/bootstrap.min.js") }}"></script>
         <!-- Custom Theme Scripts -->
         <script src="{{ asset("js/gentelella.min.js") }}"></script>
+
         <!-- datapicker -->
         <script type="text/javascript">
             $(function() {
@@ -67,6 +72,9 @@
         </script>
         <script src="{{ asset("js/moment.js") }}"></script>
         <script src="{{ asset("js/daterangepicker.js") }}"></script>
+        <script src="{{ asset("js/dropzone.min.js") }}"></script>
+        <script src="{{ asset("js/nprogress.js") }}"></script>
+
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
         
         @stack('scripts')
