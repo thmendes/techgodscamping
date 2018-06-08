@@ -20,9 +20,11 @@ Route::get('institucional/galeria', 'AlbumController@index')->name('gallery');
 Route::get('institucional/galeria/nova', 'AlbumController@create');
 Route::post('institucional/galeria/nova', 'AlbumController@store');
 
-Route::get('institucional/galeria/{id}', 'AlbumController@show');
-Route::post('institucional/galeria/{id}/upload', 'AlbumController@upload');
-Route::get('institucional/galeria/{albumId}/delete/{photoId}', 'AlbumController@delete');
+Route::get('institucional/galeria/{id}', 'AlbumController@show')->name('album');
+Route::get('institucional/galeria/{id}/delete', 'AlbumController@delete')->name('album');
+
+Route::post('institucional/galeria/{id}/upload', 'PhotosController@upload');
+Route::get('institucional/galeria/{albumId}/delete/{photoId}', 'PhotosController@delete');
 
 Route::get('/meuacampamento', 'HomeController@index');
 

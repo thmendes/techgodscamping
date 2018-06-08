@@ -19,6 +19,10 @@
         <link href="<?php echo e(asset("css/gentelella.min.css")); ?>" rel="stylesheet">
         <!-- datapicker -->
         <link href="<?php echo e(asset("css/daterangepicker.css")); ?>" rel="stylesheet">
+        <!-- dropzone -->
+        <link href="<?php echo e(asset("css/dropzone.min.css")); ?>" rel="stylesheet">
+        <!-- nprogress -->
+        <link href="<?php echo e(asset("css/nprogress.css")); ?>" rel="stylesheet">
 
         <?php echo $__env->yieldPushContent('stylesheets'); ?>
 
@@ -46,6 +50,7 @@
         <script src="<?php echo e(asset("js/bootstrap.min.js")); ?>"></script>
         <!-- Custom Theme Scripts -->
         <script src="<?php echo e(asset("js/gentelella.min.js")); ?>"></script>
+
         <!-- datapicker -->
         <script type="text/javascript">
             $(function() {
@@ -67,6 +72,9 @@
         </script>
         <script src="<?php echo e(asset("js/moment.js")); ?>"></script>
         <script src="<?php echo e(asset("js/daterangepicker.js")); ?>"></script>
+        <script src="<?php echo e(asset("js/dropzone.min.js")); ?>"></script>
+        <script src="<?php echo e(asset("js/nprogress.js")); ?>"></script>
+
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
         
         <?php echo $__env->yieldPushContent('scripts'); ?>

@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="<?php echo e(url('/')); ?>" class="site_title"><i class="fa fa-heart"></i> <span>Tech Camping</span></a>
+            <a href="<?php echo e(url('/meuacampamento')); ?>" class="site_title"><i class="fa fa-heart"></i> <span>Tech Camping</span></a>
         </div>
         <div class="clearfix"></div>
         <div class="profile clearfix">
@@ -38,6 +38,13 @@
                         <a><i class="fa fa-folder-open"></i>Outros<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="/cores">Cores</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-folder-open"></i>Institucional<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="/institucional/galeria">Galeria</a></li>
+                            <li><a href="/institucional/galeria">Notícias</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -44,6 +44,7 @@
                         <a><i class="fa fa-folder-open"></i>Institucional<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="/institucional/galeria">Galeria</a></li>
+                            <li><a href="/institucional/noticias">Notícias</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -42,7 +42,7 @@
     @include('institutional/carousel')
     @include('institutional/info')
     <div class="container">
-        @yield('content')
+      @include('institutional/church')
     </div>
     @include('institutional/gallery')
     @include('institutional/news')

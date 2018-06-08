@@ -16,6 +16,12 @@ class AlbumController extends Controller
         return view('gallery.index')->with('albums', $albums);
     }
 
+    public function show($id)
+    {   
+        $album = Album::with('Photos')->find($id);
+        return view('gallery.show')->with('album', $album);
+    }
+
     public function create()
     {
         return view('gallery.create');
@@ -30,11 +36,9 @@ class AlbumController extends Controller
             'cover' => 'image|max:1999'
         ]);
 
-        $fileProperties = $this->prepareFile($request, $fileName);
+        $fileProperties = $this->prepareFile($request, $requestFileName);
 
-        $path = $request->file($requestFileName)->storeAs('institutional/album_covers', $fileProperties['filename']);
-
-        $path = $fileProperties['path'];
+        $path = $request->file($requestFileName)->storeAs('public/institutional/album_covers', $fileProperties['filename']);
 
         $album = new Album;
         $album->name = $request->input('name');
@@ -46,39 +50,22 @@ class AlbumController extends Controller
         return redirect()->route('gallery');
     }
 
-    public function show($id)
-    {   
-        $album = Album::with('Photos')->find($id);
-        return view('gallery.show')->with('album', $album);
-    }
-
-    public function upload($id, Request $request)
+    public function delete($id)
     {
-        $requestFileName = 'file';
-        if($request->hasFile('file'))
+        $photos = Photo::where([['album_id', $id]])->get();
+
+        foreach ($photos as $photo) 
         {
-            $fileProperties = $this->prepareFile($request, $requestFileName);
-            
-            $path = $request->file($requestFileName)->storeAs('public/institutional/Galeria/'.$id, $fileProperties['filename']);
-
-            $photo = new Photo;
-            $photo->album_id = $id;
-            $photo->name = $fileProperties['filename'];
-
-            $photo->save();
-
-            return response()->json(['Status' => true, 'Album' => $id]);
+            $myFile = 'institutional/Galeria/'.$id.'/'.$photo->name;
+            Storage::disk('public')->delete($myFile);
+            $photo = Photo::where([['id', $photo->id],['album_id', $id]])->first();
+            $photo->delete();
         }
-    }
+        
+        $album = Album::find($id);
+        $album->delete();
 
-    public function delete($albumId, $photoId, Request $request)
-    {
-        $photo = Photo::where([['id', $photoId],['album_id', $albumId]])->first();
-        $myFile = 'institutional\\Galeria\\'.$albumId.'\\'.$photo->name;
-        dd(Storage::disk('public'));
-        File::delete('C:\xampp\htdocs\techgodscamping\storage\app\public\institutional\Galeria\2\tiger_1527815953.png');
-        dd('n deu');
-        return response()->json(['Status' => true, 'Album' => 'aa']);
+        return redirect()->route('gallery');
     }
 
     private function prepareFile(Request $request, $requestFileName)

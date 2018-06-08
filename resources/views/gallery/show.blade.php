@@ -47,6 +47,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="x_content">
+                    <div class="row">
+                        <a href="/institucional/galeria/{{$album->id}}/delete"><button type="button" class="btn btn-danger">Excluir Álbum</button></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
