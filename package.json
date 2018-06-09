@@ -11,13 +11,14 @@
     "laravel-elixir-webpack-official": "^1.0.10"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^10.0.1",
     "axios": "^0.18.0",
     "laravel-elixir-vueify": "^1.0.6",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.10",
     "lodash.debounce": "^4.0.8",
     "vue": "^2.5.16",
     "vue-axios": "^2.0.2",
-    "vue-resource": "^1.5.0",
+    "vue-resource": "^1.5.1",
     "vuedraggable": "^2.16.0"
   }
 }

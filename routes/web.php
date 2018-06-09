@@ -26,6 +26,10 @@ Route::get('institucional/galeria/{id}/delete', 'AlbumController@delete')->name(
 Route::post('institucional/galeria/{id}/upload', 'PhotosController@upload');
 Route::get('institucional/galeria/{albumId}/delete/{photoId}', 'PhotosController@delete');
 
+Route::get('institucional/noticias', 'JournalController@index')->name('journal');
+Route::get('institucional/noticias/nova', 'JournalController@create');
+Route::post('institucional/noticias/nova', 'JournalController@store');
+
 Route::get('/meuacampamento', 'HomeController@index');
 
 Route::get('/pessoas', 'PersonController@show')->name('people');
@@ -48,7 +52,6 @@ Route::get('/acampamento/{campingId}/gerenciar', 'ManageController@show')->name(
 Route::get('/acampamento/{campingId}/gerenciar/equipe/cadastrar', 'TeamController@create');
 Route::post('/acampamento/{campingId}/gerenciar/equipe/cadastrar', 'TeamController@store');
 Route::get('/acampamento/{campingId}/gerenciar/campista/associar', 'TeamController@associate');
-
 
 Route::get('/acampamento/modalidade', 'ModalityController@show')->name('modality');
 Route::get('/acampamento/modalidade/cadastrar', 'ModalityController@create');

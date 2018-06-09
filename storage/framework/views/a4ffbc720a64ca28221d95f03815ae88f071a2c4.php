@@ -76,7 +76,16 @@
         <script src="<?php echo e(asset("js/nprogress.js")); ?>"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
-        
+        <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
+        <script>
+                ClassicEditor
+                .create( document.querySelector( '#editor' ), {
+                    removePlugins: ['ImageUpload']
+                    } )
+                    .catch( error => {
+                        console.error( error );
+                    } );
+            </script>
         <?php echo $__env->yieldPushContent('scripts'); ?>
 
     </body>
