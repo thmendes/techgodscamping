@@ -10,6 +10,11 @@ use File;
 
 class AlbumController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $albums = Album::with('Photos')->get();
@@ -22,13 +27,21 @@ class AlbumController extends Controller
         return view('gallery.show')->with('album', $album);
     }
 
+    public function showGallery()
+    {
+        $albums = Album::with('Photos')->latest()->simplePaginate(10);
+        return view('gallery-display-all')->with('albums', $albums);
+    }
+
     public function create()
     {
+        $request->user()->authorizeRoles(['manager']);
         return view('gallery.create');
     }
 
     public function store(Request $request)
     {
+        $request->user()->authorizeRoles(['manager']);
         $requestFileName = 'cover';
         $this->validate($request, [
             'name' => 'required',
@@ -47,11 +60,12 @@ class AlbumController extends Controller
 
         $album->save();
 
-        return redirect()->route('gallery');
+        return redirect()->route('album', ['id' => $album->id]);
     }
 
-    public function delete($id)
+    public function delete($id, Request $request)
     {
+        $request->user()->authorizeRoles(['manager']);
         $photos = Photo::where([['album_id', $id]])->get();
 
         foreach ($photos as $photo) 

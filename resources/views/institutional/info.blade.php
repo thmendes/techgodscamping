@@ -52,8 +52,8 @@
                         </a>
                         <div class="caption">
                             <center>
-                                <h3>Acampamento</h3>
-                                <p>Tudo sobre os acampamentos!</p>
+                                <h3>Santidade</h3>
+                                <p>Tudo sobre santidade</p>
                             </center>
                         </div>
                     </div>

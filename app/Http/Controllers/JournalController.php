@@ -7,19 +7,38 @@ use App\Models\Journal;
 
 class JournalController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $journals = Journal::latest()->get();
         return view('journal.index')->with('journals', $journals);
     }
 
-    public function create()
+    public function show($id)
     {
+        $journal = Journal::find($id);
+        return view('news')->with('journal', $journal);
+    }
+
+    public function showNews()
+    {
+        $journals = Journal::latest()->simplePaginate(10);
+        return view('news-display-all')->with('journals', $journals);;
+    }
+
+    public function create(Request $request)
+    {
+        $request->user()->authorizeRoles(['manager']);
         return view('journal.create');
     }
 
     public function store(Request $request)
     {
+        $request->user()->authorizeRoles(['manager']);
         $requestFileName = 'cover';
 
         $this->validate($request, [
@@ -42,6 +61,14 @@ class JournalController extends Controller
         $journal->cover = $requestFileName;
 
         $journal->save();
+
+        return redirect()->route('journal');
+    }
+
+    public function delete($id)
+    {
+        $journal = Journal::find($id);
+        $journal->delete();
 
         return redirect()->route('journal');
     }

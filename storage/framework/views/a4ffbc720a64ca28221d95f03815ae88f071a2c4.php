@@ -30,6 +30,7 @@
 
     <body class="nav-md">
         <div class="container body">
+            
             <div class="main_container">  
             
                 <?php echo $__env->make('includes/sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -76,7 +77,9 @@
         <script src="<?php echo e(asset("js/nprogress.js")); ?>"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+        
         <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
+    
         <script>
                 ClassicEditor
                 .create( document.querySelector( '#editor' ), {
@@ -85,7 +88,7 @@
                     .catch( error => {
                         console.error( error );
                     } );
-            </script>
+        </script>
         <?php echo $__env->yieldPushContent('scripts'); ?>
 
     </body>

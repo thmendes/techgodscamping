@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
-                                <form id="journal"  action="nova" method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left">
+                                <form id="journal" action="nova" method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left">
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <label class="control-label col-md-2 col-sm-3 col-xs-12" for="title">Título</label>

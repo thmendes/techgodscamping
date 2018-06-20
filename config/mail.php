@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'thiago.mendes@hub2b.com.br', 'name' => 'Thiago'],
 
     /*
     |--------------------------------------------------------------------------

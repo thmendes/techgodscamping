@@ -12,16 +12,19 @@
 */
 
 Auth::routes();
+
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/', 'InstitutionalController@index');
+Route::get('/', 'InstitutionalController@index')->name('institutional');
+
+Route::post('/mail/send', 'MessageController@mail');
 
 Route::get('institucional/galeria', 'AlbumController@index')->name('gallery');
 Route::get('institucional/galeria/nova', 'AlbumController@create');
 Route::post('institucional/galeria/nova', 'AlbumController@store');
 
 Route::get('institucional/galeria/{id}', 'AlbumController@show')->name('album');
-Route::get('institucional/galeria/{id}/delete', 'AlbumController@delete')->name('album');
+Route::get('institucional/galeria/{id}/delete', 'AlbumController@delete');
 
 Route::post('institucional/galeria/{id}/upload', 'PhotosController@upload');
 Route::get('institucional/galeria/{albumId}/delete/{photoId}', 'PhotosController@delete');
@@ -29,6 +32,12 @@ Route::get('institucional/galeria/{albumId}/delete/{photoId}', 'PhotosController
 Route::get('institucional/noticias', 'JournalController@index')->name('journal');
 Route::get('institucional/noticias/nova', 'JournalController@create');
 Route::post('institucional/noticias/nova', 'JournalController@store');
+Route::get('institucional/noticias/{id}/delete', 'JournalController@delete');
+
+Route::get('/noticias', 'JournalController@showNews');
+Route::get('/noticias/{id}', 'JournalController@show');
+
+Route::get('/galeria', 'AlbumController@showGallery');
 
 Route::get('/meuacampamento', 'HomeController@index');
 

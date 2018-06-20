@@ -29,10 +29,10 @@
                                             <div class="image view view-first">
                                             <img style="width: 100%; height: 100%; display: block;" src="../storage/institutional/journal_covers/{{$journal->cover}}" alt="image" />
                                                 <div class="mask">
-                                                    <p>{{ $journal->title }}</p>
+                                                    <p>{{ substr($journal->title, 0, 20) }}</p>
                                                     <div class="tools tools-bottom">
-                                                        <a href="/institucional/galeria/">
-                                                            <i class="fa fa-pencil"></i>
+                                                        <a href="/institucional/noticias/{{ $journal->id }}/delete">  
+                                                            <i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -44,7 +44,7 @@
                                     </div>
                                 @endforeach
                             </div>
-                        </div>
+                        </div> 
                     </div>
                 </div>
                 <br/>

@@ -64,6 +64,8 @@
     <div class="footer" id="footer">
         <div class="container">
             <div class="row">
+                <div class="container">
+
                 <div class="col-md-4">
                     <h2>Localização</h2>
                     <div id="map"></div>
@@ -100,21 +102,23 @@
                 </div>
                 <div class="col-md-4">
                     <h2>Contato</h2>
-                    <form style="margin-right: 20px;">
+                    <form style="margin-right: 20px;" id="message" action="/mail/send" method="POST">
+                        {{ csrf_field() }}
                         <div class="form-group">
-                            <label for="nome" hidden="">Nome</label>
-                            <input id="nome" type="text" placeholder="Nome" class="form-control no-border">
+                            <label for="name" hidden="">Nome</label>
+                            <input id="name" type="text" name="name" placeholder="Nome" class="form-control no-border">
                         </div>
                         <div class="form-group">
                             <label for="email" hidden="">E-mail</label>
-                            <input id="email" type="text" placeholder="E-mail" class="form-control no-border">
+                            <input id="email" name="email" type="text" placeholder="E-mail" class="form-control no-border">
                         </div>
                         <div class="form-group">
-                            <label for="mensaem" hidden="">Mensagem</label>
-                            <textarea rows="6" id="mensagem" placeholder="Sua mensagem" class="form-control no-border"></textarea>
+                            <label for="contentMessage" hidden="">Mensagem</label>
+                            <textarea rows="6" id="contentMessage" name="contentMessage" placeholder="Sua mensagem" class="form-control no-border"></textarea>
                         </div>
                         <input type="submit" value="Enviar" class="btn btn-default btn-default-form no-border pull-right">
                     </form>
+                </div>
                 </div>
             </div>
         </div>

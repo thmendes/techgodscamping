@@ -18,6 +18,7 @@
             <div class="menu_section">
                 <h3>Geral</h3>
                 <ul class="nav side-menu">
+                    <!--
                     <li>
                         <a href="/pessoas"><i class="fa fa-user"></i>Pessoas</a>
                     </li>
@@ -40,6 +41,7 @@
                             <li><a href="/cores">Cores</a></li>
                         </ul>
                     </li>
+                    -->
                     <li>
                         <a><i class="fa fa-folder-open"></i>Institucional<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">

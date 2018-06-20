@@ -69,30 +69,38 @@
 <div class="gallery">
     <div class="container">
         <div class="row-fluid justify-content-center no-margin" id="gallery-row">
-            <div class="row">
-                <div class="col-md-12">
-                    <center>
-                        <h2>Galeria de fotos</h2>
-                        <hr/>
-                    </center>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <center>
+                            <h2>Galeria de fotos</h2>
+                            <hr/>
+                        </center>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                @foreach($albums as $album)
+                <div class="row">
+                    @foreach($albums as $album)
                     <div class="col-md-3 gallery-photo">
-                    <a href="{{asset("/storage/institutional/album_covers/$album->cover")}}" data-toggle="lightbox" data-gallery="{{$album->id}}">
+                        <a href="{{asset("/storage/institutional/album_covers/$album->cover")}}" data-toggle="lightbox" data-gallery="{{$album->id}}">
                             <img src="{{asset("/storage/institutional/album_covers/$album->cover")}}" class="img-fluid" style="height:185px; width:100%;">
                             <div class="view-overlay">
                                 <div class="view">Ver</div>
                             </div>
                         </a>
                     </div>
-                    @foreach($album->photos as $photo)
-                        @if(explode('_', $photo->name) <> $album->cover)
-                            <div data-toggle="lightbox" data-gallery="{{ $photo->album_id }}" data-remote="{{ asset("/storage/institutional/Galeria/$photo->album_id/$photo->name") }}" data-title="Hidden item 1"></div>
-                        @endif
-                    @endforeach
-                @endforeach
+                    @foreach($album->photos as $photo) @if(explode('_', $photo->name)
+                    <> $album->cover)
+                        <div data-toggle="lightbox" data-gallery="{{ $photo->album_id }}" data-remote="{{ asset("/storage/institutional/Galeria/$photo->album_id/$photo->name") }}" data-title="Hidden item 1"></div>
+                        @endif @endforeach @endforeach
+                </div>
+                @if(count($albums) == 4)
+                </br>
+                <div class="row">
+                    <center>
+                        <a href="/galeria" style="color:#fff;">Ver Mais</center>
+                </div>
+                @endif
             </div>
         </div>
     </div>

@@ -40,7 +40,7 @@
                                                 </div>
                                             </div>
                                             <div class="caption" style="height: 60px;">
-                                                <p>{{ $album->description }}</p>
+                                                <center><p>{{ $album->description }}</p></center>
                                             </div>
                                         </div>
                                     </div>

@@ -20,9 +20,7 @@
         border-radius: 5px;
     }
 
-    .news-photo {
-
-    }
+    .news-photo {}
 
     .hr-yellow {
         width: 100px;
@@ -45,21 +43,21 @@
         margin: 5px;
         vertical-align: baseline;
     }
+
     .news p {
         color: #fff;
         vertical-align: -webkit-baseline-middle;
     }
 
-     @media (max-width: 992px) {
-	        .data {
-		        padding-top: 8px;
-            }
-     }
-
+    @media (max-width: 992px) {
+        .data {
+            padding-top: 8px;
+        }
+    }
 </style>
 <div class="news">
     <div class="container">
-        <div class="row-fluid justify-content-center no-margin">
+        <div class="row-fluid justify-content-center no-margin" id="news-row">
             <div class="row">
                 <div class="col-md-12">
                     <h2>Notícias Recentes</h2>
@@ -67,60 +65,28 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
-                    <a href="http://www.riguetti.com.br/wordpress/wp-content/uploads/2010/12/Riguetti_Daniela2.jpg">
-                        <div class="thumbnail no-border">
-                            <img src="http://www.riguetti.com.br/wordpress/wp-content/uploads/2010/12/Riguetti_Daniela2.jpg" class="">
-                            <div class="caption">
-                                <center>
-                                    <h3>Paróquia ganha carro para sorteio</h3>
-                                    <div class="data"><i class="fas fa-calendar-alt margin-right-10"></i>13 Mar 2018</div>
-                                </center>
+                @foreach($journals as $journal)
+                    <div class="col-md-3">
+                        <a href="/noticias/{{ $journal->id }}">
+                            <div class="thumbnail no-border">
+                                <img src="{{asset("/storage/institutional/journal_covers/$journal->cover")}}" class="">
+                                <div class="caption">
+                                    <center>
+                                        <h3>{{$journal->title}}</h3>
+                                        <div class="data">
+                                        <i class="fas fa-calendar-alt margin-right-10"></i>{{ $journal->created_at->toFormattedDateString() }}</div>
+                                    </center>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="http://www.riguetti.com.br/wordpress/wp-content/uploads/2010/12/Riguetti_Daniela2.jpg">
-                        <div class="thumbnail no-border">
-                            <img src="http://www.riguetti.com.br/wordpress/wp-content/uploads/2010/12/Riguetti_Daniela2.jpg" class="">
-                            <div class="caption">
-                                <center>
-                                    <h3>Paróquia ganha carro para sorteio</h3>
-                                    <div class="data"><i class="fas fa-calendar-alt margin-right-10"></i>13 Mar 2018</div>
-                                </center>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="http://www.riguetti.com.br/wordpress/wp-content/uploads/2010/12/Riguetti_Daniela2.jpg">
-                        <div class="thumbnail no-border">
-                            <img src="http://www.riguetti.com.br/wordpress/wp-content/uploads/2010/12/Riguetti_Daniela2.jpg" class="">
-                            <div class="caption">
-                                <center>
-                                    <h3>Paróquia ganha carro para sorteio</h3>
-                                    <div class="data"><i class="fas fa-calendar-alt margin-right-10"></i>13 Mar 2018</div>
-                                </center>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="http://www.riguetti.com.br/wordpress/wp-content/uploads/2010/12/Riguetti_Daniela2.jpg">
-                        <div class="thumbnail no-border">
-                            <img src="http://www.riguetti.com.br/wordpress/wp-content/uploads/2010/12/Riguetti_Daniela2.jpg" class="">
-                            <div class="caption">
-                                <center>
-                                    <h3>Paróquia ganha carro para sorteio</h3>
-                                    <div class="data"><i class="fas fa-calendar-alt margin-right-10"></i>13 Mar 2018</div>
-                                </center>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
+                        </a>
+                    </div>
+                @endforeach
             </div>
+            @if(count($journals) == 4)
+                <div class="row">
+                    <center><a href="/noticias" style="color:#747474;">Ver Mais</a></center>
+                </div>
+            @endif
         </div>
     </div>
 </div>

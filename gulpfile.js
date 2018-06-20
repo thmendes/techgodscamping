@@ -54,9 +54,5 @@ elixir(function(mix) {
     //vueify
     require("laravel-elixir-vueify");
 
-    window.CKEDITOR_BASEPATH = 'node_modules/ckeditor/'
-    require('ckeditor')
-    
-
 
 });

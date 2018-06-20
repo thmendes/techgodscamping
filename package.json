@@ -11,7 +11,6 @@
     "laravel-elixir-webpack-official": "^1.0.10"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^10.0.1",
     "axios": "^0.18.0",
     "laravel-elixir-vueify": "^1.0.6",
     "lodash": "^4.17.10",
