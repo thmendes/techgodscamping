@@ -33,7 +33,7 @@ class AlbumController extends Controller
         return view('gallery-display-all')->with('albums', $albums);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $request->user()->authorizeRoles(['manager']);
         return view('gallery.create');
