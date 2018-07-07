@@ -36,7 +36,7 @@ class AlbumController extends Controller
     public function create(Request $request)
     {
         dd($request->user);
-        $request->user()->authorizeRoles(['manager, worker']);
+        $request->user()->authorizeRoles(['manager']);
         return view('gallery.create');
     }
 
