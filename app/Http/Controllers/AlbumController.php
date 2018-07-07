@@ -41,7 +41,7 @@ class AlbumController extends Controller
 
     public function store(Request $request)
     {
-        $request->user()->authorizeRoles(['manager, worker']);
+        $request->user()->authorizeRoles(['manager']);
         $requestFileName = 'cover';
         $this->validate($request, [
             'name' => 'required',
@@ -65,7 +65,7 @@ class AlbumController extends Controller
 
     public function delete($id, Request $request)
     {
-        $request->user()->authorizeRoles(['manager, worker']);
+        $request->user()->authorizeRoles(['manager']);
         $photos = Photo::where([['album_id', $id]])->get();
 
         foreach ($photos as $photo) 
