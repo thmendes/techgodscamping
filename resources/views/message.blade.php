@@ -1,7 +1,7 @@
 <div>
-    Nome: {{ $name }}
+    <p>{{ $name }}</p> 
     </br>
-    E-mail: {{ $email }}
+    <p>{{ $email }}</p>
     </br>
     Mensagem: {{ $contentMessage }}
 </div>

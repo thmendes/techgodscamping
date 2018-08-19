@@ -7,13 +7,8 @@ use App\Models\Journal;
 
 class JournalController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
-    {
+    {        
         $journals = Journal::latest()->get();
         return view('journal.index')->with('journals', $journals);
     }
@@ -32,12 +27,14 @@ class JournalController extends Controller
 
     public function create(Request $request)
     {
+        $this->middleware('auth');
         $request->user()->authorizeRoles(['manager']);
         return view('journal.create');
     }
 
     public function store(Request $request)
     {
+        $this->middleware('auth');
         $request->user()->authorizeRoles(['manager']);
         $requestFileName = 'cover';
 
@@ -67,6 +64,7 @@ class JournalController extends Controller
 
     public function delete($id)
     {
+        $this->middleware('auth');
         $journal = Journal::find($id);
         $journal->delete();
 

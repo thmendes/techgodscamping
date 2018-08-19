@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'thiago.mendes@hub2b.com.br', 'name' => 'Thiago'],
+    'from' => ['address' => env('MAIL_USERNAME', 'contatoapadroeiradouradina@gmail.com'), 'name' => 'Contato'],
 
     /*
     |--------------------------------------------------------------------------

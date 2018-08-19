@@ -16,7 +16,7 @@ class MessageController extends Controller
             'contentMessage'  =>  'required'
         ]);
 
-        Mail::to('th.thiago.mendes@gmail.com')->send(new SendMailable($request['name'], $request['email'], $request['contentMessage']));
+        Mail::to('contato@apadroeiradouradina.com.br')->send(new SendMailable($request['name'], $request['email'], $request['contentMessage']));
         
         return redirect()->route('institutional');
     }

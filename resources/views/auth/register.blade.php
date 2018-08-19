@@ -22,25 +22,25 @@
 <div class="login_wrapper">
     <div class="animate form login_form">
         <section class="login_content">
-            <!--
-                {!! BootForm::open(['url' => url('/register'), 'method' => 'post']) !!}
-                
-                <h1>Criação de Conta</h1>
-                
-                {!! BootForm::text('name', 'Nome', old('name'), ['placeholder' => 'Full Name']) !!}
-                
-                {!! BootForm::email('email', 'Email', old('email'), ['placeholder' => 'Email']) !!}
-                
-                {!! BootForm::password('password', 'Senha', ['placeholder' => 'Password']) !!}
-                
-                {!! BootForm::password('password_confirmation', 'Repita a senha', ['placeholder' => 'Confirmation']) !!}
-                
-                {!! BootForm::submit('Cadastrar', ['class' => 'btn btn-default']) !!}
+            {!! BootForm::open(['url' => url('/register'), 'method' => 'post']) !!}
             
+            <h1>Criação de Conta</h1>
+            
+            {!! BootForm::text('name', 'Nome', old('name'), ['placeholder' => 'Full Name']) !!}
+            
+            {!! BootForm::email('email', 'Email', old('email'), ['placeholder' => 'Email']) !!}
+            
+            {!! BootForm::password('password', 'Senha', ['placeholder' => 'Password']) !!}
+            
+            {!! BootForm::password('password_confirmation', 'Repita a senha', ['placeholder' => 'Confirmation']) !!}
+            
+            {!! BootForm::submit('Cadastrar', ['class' => 'btn btn-default']) !!}
+            
+            <!--
+                <button disabled="disabled">
+                    Breve
+                </button>
             -->
-            <button disabled="disabled">
-                Breve
-            </button>
 			<div class="clearfix"></div>
 			
 			<div class="separator">
