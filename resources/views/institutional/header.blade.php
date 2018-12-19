@@ -97,28 +97,31 @@
                     </div>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav">
                         <li>
-                            <a href="#home">Início</a>
+                            <a href="/">Início</a>
                         </li>
                         <li>
-                            <a href="#gallery-row">Galeria</a>
+                            <a href="/meuacampamento">Facecamper</a>
+                        </li>  
+                        <li>
+                            <a href="/#gallery-row">Galeria</a>
                         </li>
                         <li>
-                            <a href="#news-row">Notícias</a>
+                            <a href="/#news-row">Notícias</a>
                         </li>
                         <li>
-                            <a href="#church-row">A Paróquia</a>
+                            <a href="/#church-row">A Paróquia</a>
                         </li>
                         <li>
-                            <a href="#webradio">Web Rádio</a>
+                            <a href="/#webradio">Web Rádio</a>
                         </li>
                         <li>
-                            <a href="#footer">Contato</a>
+                            <a href="/#footer">Contato</a>
                         </li>
                         <li>
-                            <a href="/meuacampamento">Acampamento</a>
-                        </li>
+                            <a href="{{ url('/register') }}"><b style="color: #ffdb5e">Criar conta</b></a>
+                        </li>     
                     </ul>
                 </div>
             </div>
