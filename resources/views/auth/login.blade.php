@@ -39,9 +39,9 @@
 				<div class="clearfix"></div>
                     
 				<div class="separator">
-					<p class="change_link">Novo no site?
-						<a href="{{ url('/register') }}" class="to_register"> Crie uma conta </a>
-					</p>
+                <p class="change_link">Vem ser campista com a gente!
+                    <a href="{{ url('/register') }}" class="to_register"> Criar minha conta agora. </a>
+                </p>
                         
 					<div class="clearfix"></div>
 					<br />
