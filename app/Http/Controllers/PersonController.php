@@ -28,7 +28,8 @@ class PersonController extends Controller
     public function store(Request $request)
     {
     	$this->validate(request(),[
-            'document'  =>  'numeric|unique:people',
+            'rg'  =>  'required|numeric|unique:people',
+            'cpf'  =>  'required|numeric|unique:people',
             'name' =>'required',
             'phone' =>'required',
             'born'  =>  'required',
@@ -36,10 +37,11 @@ class PersonController extends Controller
             'city' => 'required',
             'province' => 'required',
             'shirt' => 'required'
-       	]);
+           ]);
 
         $this->person->create([
-            'document'  =>  $request['document'],
+            'rg'  =>  $request['rg'],
+            'cpf'  =>  $request['cpf'],
             'name' => $request['name'],
             'email' => $request['email'],
             'phone' => $request['phone'],

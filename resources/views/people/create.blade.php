@@ -17,10 +17,18 @@
                     	<form id="person" action="cadastrar" method="POST" class="form-horizontal form-label-left">
     	                  	{{ csrf_field() }}
                             <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="document">Documento</label>
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="cpf">CPF</label>
                                 <div class="col-md-4 col-sm-6 col-xs-12 left">
                                     <div class="input-group">
-                                        <input type="text" name="document" class="form-control">
+                                        <input type="text" name="cpf" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="rg">RG</label>
+                                <div class="col-md-4 col-sm-6 col-xs-12 left">
+                                    <div class="input-group">
+                                        <input type="text" name="rg" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -89,13 +97,22 @@
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <select class="form-control" name="shirt">
                                         <option value="">Selecione</option>
+                                        <option value="4">4</option>
+                                        <option value="6">6</option>
+                                        <option value="8">8</option>
+                                        <option value="10">10</option>
+                                        <option value="12">12</option>
+                                        <option value="14">14</option>
+                                        <option value="16">16</option>
                                         <option value="PP">PP</option>
                                         <option value="P">P</option>
                                         <option value="M">M</option>
                                         <option value="G">G</option>
                                         <option value="GG">GG</option>
                                         <option value="XG">XG</option>
-                                        <option value="XGG">XGG</option>
+                                        <option value="G1">XGG</option>
+                                        <option value="G2">XGG</option>
+                                        <option value="G3">XGG</option>
                                     </select>
                                 </div> 
                             </div>
