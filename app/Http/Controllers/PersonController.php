@@ -21,7 +21,7 @@ class PersonController extends Controller
 
     public function create(Request $request)
     {
-        $request->user()->authorizeRoles(['manager']);        
+        //$request->user()->authorizeRoles(['manager']);        
         return view('people.create');
     }
 
@@ -52,9 +52,8 @@ class PersonController extends Controller
             'medicine' => $request['medicine'],
             'shirt' => $request['shirt'],
         ]);   
-        
 
-       	return redirect()->route('people');
+        return view('people.success')->with('person', $request['name']);
     }
 
     public function search(Request $request)
@@ -73,5 +72,9 @@ class PersonController extends Controller
     public function SetPeople()
     {
         
+    }
+
+    public function Success()
+    {
     }
 }

@@ -14,7 +14,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                    	<form id="modality" action="cadastrar" method="POST" class="form-horizontal form-label-left">
+                    	<form id="person" action="cadastrar" method="POST" class="form-horizontal form-label-left">
     	                  	{{ csrf_field() }}
                             <div class="form-group">
                                 <label class="control-label col-md-2 col-sm-3 col-xs-12" for="document">Documento</label>

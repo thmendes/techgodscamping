@@ -7,7 +7,7 @@ use Laravel\Scout\Searchable;
 
 class Person extends Model
 {
-    use Searchable;
+    //use Searchable;
     
     protected $fillable = [
         'document', 'name', 'email', 'phone', 'born', 'street', 'city', 'province', 'parent', 'parent_phone', 'medicine', 'shirt'
@@ -16,5 +16,6 @@ class Person extends Model
     public function searchableAs()
 	{
 		return 'name';
-	}
+    }
 }
+

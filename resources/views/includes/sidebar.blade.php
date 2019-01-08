@@ -1,22 +1,22 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="{{ url('/meuacampamento') }}" class="site_title"><i class="fa fa-heart"></i> <span>Tech Camping</span></a>
+            <a href="{{ url('/meuacampamento') }}" class="site_title"><i class="fa fa-heart"></i> <span>Acampamento</span></a>
         </div>
         <div class="clearfix"></div>
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="{{ Gravatar::src(Auth::user()->email) }}" alt="Avatar of {{ Auth::user()->name }}" class="img-circle profile_img">
+                {{-- <img src="{{ Gravatar::src(Auth::user()->email) }}" alt="Avatar of {{ Auth::user()->name }}" class="img-circle profile_img"> --}}
             </div>
             <div class="profile_info">
-                <span>Bem vindo,</span>
-                <h2>{{ Auth::user()->name }}</h2>
+                <span>Bem vindo, campista.</span>
+                {{-- <h2>{{ Auth::user()->name }}</h2> --}}
             </div>
         </div>
         <br />
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
-                <h3>Geral</h3>
+                {{-- <h3>Geral</h3> --}}
                 <ul class="nav side-menu">
                     <!--
                     <li>
@@ -41,7 +41,6 @@
                             <li><a href="/cores">Cores</a></li>
                         </ul>
                     </li>
-                    -->
                     <li>
                         <a><i class="fa fa-folder-open"></i>Institucional<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -49,6 +48,7 @@
                             <li><a href="/institucional/noticias">Notícias</a></li>
                         </ul>
                     </li>
+                -->
                 </ul>
             </div>
         </div>

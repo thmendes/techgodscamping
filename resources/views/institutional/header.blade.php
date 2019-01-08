@@ -102,7 +102,7 @@
                             <a href="/">Início</a>
                         </li>
                         <li>
-                            <a href="/meuacampamento">Facecamper</a>
+                            <a href="{{ url('/meuacampamento') }}">Acampamento</a>
                         </li>  
                         <li>
                             <a href="/#gallery-row">Galeria</a>
@@ -114,13 +114,10 @@
                             <a href="/#church-row">A Paróquia</a>
                         </li>
                         <li>
-                            <a href="/#webradio">Web Rádio</a>
-                        </li>
-                        <li>
                             <a href="/#footer">Contato</a>
                         </li>
                         <li>
-                            <a href="{{ url('/register') }}"><b style="color: #ffdb5e">Criar conta</b></a>
+                            <a href="{{ url('/pessoas/cadastrar') }}"><b style="color: #ffdb5e">Acampamento: Inscrição</b></a>
                         </li>     
                     </ul>
                 </div>
