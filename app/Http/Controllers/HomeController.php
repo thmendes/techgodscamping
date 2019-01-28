@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Models\Role;
 
 class HomeController extends Controller
 {
@@ -12,9 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Role $role)
     {
         $this->middleware('auth');
+        $this->role = $role;
     }
 
     /**
@@ -22,8 +24,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {        
         return view('home');
     }
 }

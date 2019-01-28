@@ -30,7 +30,8 @@ class CamperController extends Controller
 	
 	public function create(Request $request)
     {
-        $request->user()->authorizeRoles(['camper', 'manager']);        
+        $request->user()->authorizeRoles(['camper', 'manager']);    
+            
         return view('camper.create', array(
         	'campers' => array()
         ));

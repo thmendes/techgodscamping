@@ -13,36 +13,8 @@
                     <div class="x_content">
                         <a href="/pessoas/cadastrar"><button type="button" class="btn btn-success">Cadastrar Novo Campista</button></a>
                     </div>
-              		<div class="x_title">
-                    	<h2>Pesquisa<small>Pessoa</small></h2>
-                    	<div class="clearfix"></div>
-                  	</div>
-                  	<div class="x_content">
-                    <br />
-                    	<form id="pesquisa" data-parsley-validate class="form-horizontal form-label-left">
-		                  	<div class="form-group">
-	           					<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome</label>
-	                        	<div class="col-md-6 col-sm-6 col-xs-12">
-		                        	<input type="text" id="name" name="name" class="form-control col-md-7 col-xs-12">
-	                        	</div>
-		                  	</div>
-		                  	<div class="form-group">
-	           					<label class="control-label col-md-3 col-sm-3 col-xs-12" for="documet">Documento</label>
-	                        	<div class="col-md-2 col-sm-6 col-xs-12">
-		                        	<input type="text" id="documet" name="documet" class="form-control col-md-7 col-xs-12">
-	                        	</div>
-		                  	</div>
-                            <div class="ln_solid"></div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-					                          <button class="btn btn-primary" type="reset">Limpar Filtros</button>
-                                    <button type="submit" class="btn btn-success">Pesquisar</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                     <div class="x_title">
-                        <h2>Últimos cadastrados<small>Pessoas</small></h2>
+                        <h2>Todas as pessoas cadastradas<small></small></h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -75,12 +47,8 @@
                           </tbody>
                         </table>
                     </div>
-                </div>
-                @if (count($people) > 2)
-                <div class="x_content">
-                        <a href="/pessoas/todas"><button type="button" class="btn btn-success">Mostrar todos</button></a>
-                    </div>                                                       
-                @endif
+                    {{ $people->links() }}
+                </div>            
             </div>
         </div>
     </div>    

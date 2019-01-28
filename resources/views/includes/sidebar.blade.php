@@ -18,17 +18,19 @@
             <div class="menu_section">
                 {{-- <h3>Geral</h3> --}}
                 <ul class="nav side-menu">
-                    <!--
-                    <li>
-                        <a href="/pessoas"><i class="fa fa-user"></i>Pessoas</a>
-                    </li>
-                    <li>
-                        <a><i class="fa fa-life-ring"></i>Acampamentos<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="/acampamento">Acampamento</a></li>
-                            <li><a href="/acampamento/modalidade">Modalidades</a></li>
-                        </ul>
-                    </li>
+                    @if (Auth::user()->hasRole('manager'))
+                        <li>
+                            <a href="/pessoas"><i class="fa fa-user"></i>Pessoas</a>
+                        </li>
+                        @endif
+                        <!--
+                        <li>
+                            <a><i class="fa fa-life-ring"></i>Acampamentos<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href="/acampamento">Acampamento</a></li>
+                                <li><a href="/acampamento/modalidade">Modalidades</a></li>
+                            </ul>
+                        </li>
                     <li>
                         <a><i class="fa fa-wrench"></i>Trabalho<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">

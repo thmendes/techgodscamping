@@ -10,13 +10,50 @@ class PersonController extends Controller
     
     public function __construct(Person $person)
     {
+        $this->middleware('auth');
         $this->person = $person;
     }
 
     public function show(Request $request)
     {
-        $people = $this->person->orderBy('created_at', 'DESC')->limit(10)->get();
-        return view('people.people', compact('people'));
+        if($request->has('name') && $request->has('document'))
+        {
+            $people = $this->person
+                ->where('name', 'like', '%' . $request['name'] . '%')
+                ->where('document', 'like', '%' . $request['document'] . '%')
+                ->orderBy('created_at', 'DESC')->limit(10)->get();
+
+            return view('people.people', compact('people'));
+        }
+        elseif($request->has('name') || $request->has('document'))
+        {
+            if($request->has('name'))
+            {
+                $people = $this->person
+                ->where('name', 'like', '%' . $request['name'] . '%')
+                ->orderBy('created_at', 'DESC')->limit(10)->get();
+
+                return view('people.people', compact('people'));
+            }
+
+            $people = $this->person
+                ->where('document', 'like', '%' . $request['document'] . '%')
+                ->orderBy('created_at', 'DESC')->limit(10)->get();
+
+            return view('people.people', compact('people'));
+        }
+        else
+        {
+            $people = $this->person->orderBy('created_at', 'DESC')->limit(10)->get();
+    
+            return view('people.people', compact('people'));
+        }
+    }
+
+    public function showAll(Request $request)
+    {
+        $people = $this->person->latest()->simplePaginate(50);
+        return view('people.all', compact('people'));
     }
 
     public function create(Request $request)
@@ -55,7 +92,9 @@ class PersonController extends Controller
             'shirt' => $request['shirt'],
         ]);   
 
-        return view('people.success')->with('person', $request['name']);
+        $people = $this->person->orderBy('created_at', 'DESC')->limit(10)->get();
+    
+        return view('people.people', compact('people'));
     }
 
     public function search(Request $request)
@@ -69,14 +108,5 @@ class PersonController extends Controller
     public function GetPeople()
     {
         return \Response::json($this->person->limit(10)->OrderBy('name')->get());
-    }
-
-    public function SetPeople()
-    {
-        
-    }
-
-    public function Success()
-    {
     }
 }

@@ -43,7 +43,10 @@ Route::get('/galeria', 'AlbumController@showGallery');
 Route::get('/meuacampamento', 'HomeController@index');
 
 Route::get('/pessoas', 'PersonController@show')->name('people');
+Route::get('/pessoas/todas', 'PersonController@showall')->name('showall');
 Route::get('/pessoas/cadastrar', 'PersonController@create');
+Route::get('/pessoas/visitante/cadastrar', 'ExternPersonController@create');
+Route::post('/pessoas/visitante/cadastrar', 'ExternPersonController@store');
 Route::post('/pessoas/cadastrar', 'PersonController@store');
 
 Route::get('/campista', 'CamperController@show')->name('camper');
