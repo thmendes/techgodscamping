@@ -70,7 +70,11 @@ class PersonController extends Controller
             'name' =>'required',
             'phone' =>'required',
             'born'  =>  'required',
+            'parent' => 'required',
+            'parent_phone' => 'required',
+            'sus' => 'required',
             'street' => 'required',
+            'neighbor' => 'required',
             'city' => 'required',
             'province' => 'required',
             'shirt' => 'required'
@@ -86,16 +90,22 @@ class PersonController extends Controller
             'street' => $request['street'],
             'city' => $request['city'],
             'province' => $request['province'],
+            'neighbor' => $request['neighbor'],
+            'sus' => $request['sus'],
             'parent' => $request['parent'],
             'parent_phone' => $request['parent_phone'],
             'medicine' => $request['medicine'],
+            'medicalCare' => $request['medicalCare'],
             'shirt' => $request['shirt'],
+            'obs' => $request['obs']
         ]);   
 
         $people = $this->person->orderBy('created_at', 'DESC')->limit(10)->get();
     
         return view('people.people', compact('people'));
     }
+
+    ## API ##
 
     public function search(Request $request)
     {
@@ -105,8 +115,69 @@ class PersonController extends Controller
         return \Response::json();
     }
 
+    public function GetPerson($id)
+    {
+        return \Response::json($this->person->where('id', $id)->get());
+    }
+
     public function GetPeople()
     {
         return \Response::json($this->person->limit(10)->OrderBy('name')->get());
+    }
+
+    public function updatePeople(Request $request)
+    {      
+        try
+        {
+            $this->person
+                ->where('id', $request['id'])
+                ->update([
+                    'rg'  =>  $request['rg'],
+                    'cpf'  =>  $request['cpf'],
+                    'name' => $request['name'],
+                    'email' => $request['email'],
+                    'phone' => $request['phone'],
+                    'born' => $request['born'],
+                    'street' => $request['street'],
+                    'city' => $request['city'],
+                    'province' => $request['province'],
+                    'neighbor' => $request['neighbor'],
+                    'sus' => $request['sus'],
+                    'parent' => $request['parent'],
+                    'parent_phone' => $request['parent_phone'],
+                    'medicine' => $request['medicine'],
+                    'medicalCare' => $request['medicalCare'],
+                    'shirt' => $request['shirt'],
+                    'obs' => $request['obs']
+                ]);
+        }
+        catch(Exception $e)
+        {
+            return response()->json([
+                'error' => $e.getMessage(),
+            ]);
+        }
+
+        return response()->json([
+            'error' => '',
+        ]);
+    }
+
+    public function RemovePerson($personId)
+    {
+        try
+        {
+            $person = $this->person->findOrFail($personId)->delete();
+        }
+        catch(Exception $e)
+        {
+            return response()->json([
+                'error' => $e.getMessage(),
+            ]);
+        }
+
+        return response()->json([
+            'error' => '',
+        ]);
     }
 }

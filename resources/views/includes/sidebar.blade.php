@@ -9,8 +9,8 @@
                 {{-- <img src="{{ Gravatar::src(Auth::user()->email) }}" alt="Avatar of {{ Auth::user()->name }}" class="img-circle profile_img"> --}}
             </div>
             <div class="profile_info">
-                <span>Bem vindo, campista.</span>
-                {{-- <h2>{{ Auth::user()->name }}</h2> --}}
+                <span>Bem vindo,</span>
+                 <h2>{{ Auth::user()->name }}</h2>
             </div>
         </div>
         <br />
@@ -22,6 +22,13 @@
                         <li>
                             <a href="/pessoas"><i class="fa fa-user"></i>Pessoas</a>
                         </li>
+                        <li>
+                                <a><i class="fa fa-folder-open"></i>Institucional<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/institucional/galeria">Galeria</a></li>
+                                    <li><a href="/institucional/noticias">Notícias</a></li>
+                                </ul>
+                            </li>
                         @endif
                         <!--
                         <li>
@@ -43,13 +50,7 @@
                             <li><a href="/cores">Cores</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a><i class="fa fa-folder-open"></i>Institucional<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="/institucional/galeria">Galeria</a></li>
-                            <li><a href="/institucional/noticias">Notícias</a></li>
-                        </ul>
-                    </li>
+                    
                 -->
                 </ul>
             </div>

@@ -45,9 +45,9 @@ Route::get('/meuacampamento', 'HomeController@index');
 Route::get('/pessoas', 'PersonController@show')->name('people');
 Route::get('/pessoas/todas', 'PersonController@showall')->name('showall');
 Route::get('/pessoas/cadastrar', 'PersonController@create');
+Route::post('/pessoas/cadastrar', 'PersonController@store');
 Route::get('/pessoas/visitante/cadastrar', 'ExternPersonController@create');
 Route::post('/pessoas/visitante/cadastrar', 'ExternPersonController@store');
-Route::post('/pessoas/cadastrar', 'PersonController@store');
 
 Route::get('/campista', 'CamperController@show')->name('camper');
 Route::get('/campista/cadastrar', 'CamperController@create');
@@ -87,5 +87,7 @@ Route::get('/api/voluntario/{document}', 'VolunteerController@GetByDocument');
 Route::get('/api/pessoas/pesquisar', 'PersonController@search');
 Route::get('/api/pessoas', 'PersonController@GetPeople');
 Route::post('/api/pessoas', 'PersonController@SetPeople');
-
+Route::post('/api/pessoas', 'PersonController@updatePeople');
+Route::get('/api/pessoas/{id}', 'PersonController@GetPerson');
+Route::delete('/api/pessoas/{id}', 'PersonController@RemovePerson');
 

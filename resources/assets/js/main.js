@@ -5,6 +5,9 @@ import TcSearchvolunteer from './components/volunteer/search.vue'
 import TcCreatecamper from './components/camper/createcamper.vue'
 import TcManagecamping from "./components/camping/manage.vue"
 import TcAssociate from "./components/team/associate.vue"
+import TcPersonall from "./components/person/person.vue"
+import TcPerson from "./components/person/personall.vue"
+import TcPersonmodal from "./components/person/modal.vue"
 
 
 
@@ -20,6 +23,9 @@ new Vue({
     TcCreatecamper,
     TcSearchvolunteer,
     TcManagecamping,
-    TcAssociate
+    TcAssociate,
+    TcPerson,
+    TcPersonall,
+    TcPersonmodal
   }
 });

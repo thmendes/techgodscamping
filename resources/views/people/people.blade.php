@@ -12,6 +12,7 @@
                     </div>
                     <div class="x_content">
                         <a href="/pessoas/cadastrar"><button type="button" class="btn btn-success">Cadastrar Novo Campista</button></a>
+                        <meta name="csrf-token" content="{{ csrf_token() }}">
                     </div>
               		<div class="x_title">
                     	<h2>Pesquisa<small>Pessoa</small></h2>
@@ -45,36 +46,7 @@
                         <h2>Últimos cadastrados<small>Pessoas</small></h2>
                         <div class="clearfix"></div>
                     </div>
-                    <div class="x_content">
-                        <table class="table">
-                          <thead>
-                            <tr>  
-                              <th>Nome</th>
-                              <th>E-mail</th>
-                              <th>Telefone</th>
-                              <th>Camiseta</th>
-                              <th>Data Inscrição</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                          @if(count($people))
-                                @foreach($people as $person)
-                                <tr>
-                                    <td>{{ $person['name'] }}</td>
-                                    <td>{{ $person['email'] }}</td>
-                                    @if(empty($person['phone']))
-                                        <td>{{ $person['parent_phone'] }}</td>
-                                    @else
-                                        <td>{{ $person['phone'] }}</td>
-                                    @endif
-                                    <td>{{ $person['shirt'] }}</td>
-                                    <td>{{ $person['created_at']->toFormattedDateString() }}</td>
-                                </tr>   
-                                @endforeach
-                            @endif
-                          </tbody>
-                        </table>
-                    </div>
+                    <tc-person v-bind:people="{{$people}}"></tc-person>
                 </div>
                 @if (count($people) > 2)
                 <div class="x_content">

@@ -1,6 +1,19 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+module.exports = { "default": require("core-js/library/fn/json/stringify"), __esModule: true };
+},{"core-js/library/fn/json/stringify":3}],2:[function(require,module,exports){
 
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
+var core = require('../../modules/_core');
+var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
+module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
+  return $JSON.stringify.apply($JSON, arguments);
+};
+
+},{"../../modules/_core":4}],4:[function(require,module,exports){
+var core = module.exports = { version: '2.5.6' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+},{}],5:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -186,7 +199,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],3:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /**!
  * Sortable
  * @author	RubaXa   <trash@rubaxa.org>
@@ -1728,7 +1741,7 @@ process.umask = function() { return 0; };
 	return Sortable;
 });
 
-},{}],4:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -2029,7 +2042,7 @@ function format (id) {
   return match ? match[0] : id
 }
 
-},{}],5:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 /*!
  * vue-resource v1.5.1
  * https://github.com/pagekit/vue-resource
@@ -3588,7 +3601,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 module.exports = plugin;
 
-},{"got":1}],6:[function(require,module,exports){
+},{"got":2}],9:[function(require,module,exports){
 (function (global){
 /*!
  * Vue.js v2.5.16
@@ -14539,7 +14552,7 @@ return Vue;
 })));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],7:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v2.5.16
@@ -22577,7 +22590,7 @@ if (inBrowser) {
 module.exports = Vue;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":2}],8:[function(require,module,exports){
+},{"_process":5}],11:[function(require,module,exports){
 'use strict';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -22985,7 +22998,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     Vue.component('draggable', draggable);
   }
 })();
-},{"sortablejs":3}],9:[function(require,module,exports){
+},{"sortablejs":6}],12:[function(require,module,exports){
 var inserted = exports.cache = {}
 
 exports.insert = function (css) {
@@ -23005,7 +23018,24 @@ exports.insert = function (css) {
   return elem
 }
 
-},{}],10:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _vue = require('vue');
+
+var _vue2 = _interopRequireDefault(_vue);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var bus = new _vue2.default();
+
+exports.default = bus;
+
+},{"vue":10}],14:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
 var __vueify_style__ = __vueify_insert__.insert("\n\n")
 'use strict';
@@ -23054,7 +23084,7 @@ exports.default = {
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div _v-0fbff6bc=\"\">\n    <div class=\"form-group\" _v-0fbff6bc=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"document\" _v-0fbff6bc=\"\">Documento</label>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 left\" _v-0fbff6bc=\"\">\n            <div class=\"input-group\" _v-0fbff6bc=\"\">\n                <input type=\"text\" name=\"document\" v-model=\"document\" class=\"form-control\" _v-0fbff6bc=\"\">\n                <span class=\"input-group-btn\" _v-0fbff6bc=\"\">\n                    <a href=\"#\" @click=\"getByDocument()\" _v-0fbff6bc=\"\"><button type=\"button\" class=\"btn btn-primary\" _v-0fbff6bc=\"\">Verificar</button></a>\n                </span>\n            </div>\n        </div>\n    </div>\n    <div class=\"form-group\" _v-0fbff6bc=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"name\" _v-0fbff6bc=\"\">Nome</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-0fbff6bc=\"\">\n            <input type=\"text\" id=\"name\" name=\"name\" v-model=\"name\" class=\"form-control col-md-7 col-xs-12\" _v-0fbff6bc=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-0fbff6bc=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"email\" _v-0fbff6bc=\"\">E-mail</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-0fbff6bc=\"\">\n            <input type=\"email\" id=\"email\" name=\"email\" v-model=\"email\" class=\"form-control col-md-7 col-xs-12\" _v-0fbff6bc=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-0fbff6bc=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"phone\" _v-0fbff6bc=\"\">Telefone</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-0fbff6bc=\"\">\n            <input type=\"tel\" id=\"phone\" name=\"phone\" v-model=\"phone\" class=\"form-control col-md-7 col-xs-12\" _v-0fbff6bc=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-0fbff6bc=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"born\" _v-0fbff6bc=\"\">Data Nascimento</label>\n        <div class=\"col-md-3 col-sm-6 col-xs-12\" _v-0fbff6bc=\"\">\n            <input type=\"date\" id=\"born\" name=\"born\" value=\"2001-01-01\" v-model=\"born\" class=\"form-control col-md-7 col-xs-12\" _v-0fbff6bc=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-0fbff6bc=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"street\" _v-0fbff6bc=\"\">Endereço</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-0fbff6bc=\"\">\n            <input type=\"text\" id=\"street\" name=\"street\" v-model=\"street\" class=\"form-control col-md-7 col-xs-12\" _v-0fbff6bc=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-0fbff6bc=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"city\" _v-0fbff6bc=\"\">Cidade</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-0fbff6bc=\"\">\n            <input type=\"text\" id=\"city\" name=\"city\" v-model=\"city\" class=\"form-control col-md-7 col-xs-12\" _v-0fbff6bc=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-0fbff6bc=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"province\" _v-0fbff6bc=\"\">Estado</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-0fbff6bc=\"\">\n            <input type=\"text\" id=\"province\" name=\"province\" v-model=\"province\" class=\"form-control col-md-7 col-xs-12\" _v-0fbff6bc=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-0fbff6bc=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"parent\" _v-0fbff6bc=\"\">Responsável</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-0fbff6bc=\"\">\n            <input type=\"text\" id=\"parent\" name=\"parent\" v-model=\"parent\" class=\"form-control col-md-7 col-xs-12\" _v-0fbff6bc=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-0fbff6bc=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"parent_phone\" _v-0fbff6bc=\"\">Responsável - Telefone</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-0fbff6bc=\"\">\n            <input type=\"tel\" id=\"parent_phone\" name=\"parent_phone\" v-model=\"parent_phone\" class=\"form-control col-md-7 col-xs-12\" _v-0fbff6bc=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-0fbff6bc=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"medicine\" _v-0fbff6bc=\"\">Medicamentos</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-0fbff6bc=\"\">\n            <input type=\"text\" id=\"medicine\" name=\"medicine\" v-model=\"medicine\" class=\"form-control col-md-7 col-xs-12\" _v-0fbff6bc=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-0fbff6bc=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"shirt\" _v-0fbff6bc=\"\">Camiseta</label>\n        <div class=\"col-md-3 col-sm-6 col-xs-12\" _v-0fbff6bc=\"\">\n            <select v-model=\"shirt\" class=\"form-control\" name=\"shirt\" _v-0fbff6bc=\"\">\n                <option value=\"\" _v-0fbff6bc=\"\">Selecione</option>\n                <option value=\"PP\" _v-0fbff6bc=\"\">PP</option>\n                <option value=\"P\" _v-0fbff6bc=\"\">P</option>\n                <option value=\"M\" _v-0fbff6bc=\"\">M</option>\n                <option value=\"G\" _v-0fbff6bc=\"\">G</option>\n                <option value=\"GG\" _v-0fbff6bc=\"\">GG</option>\n                <option value=\"XG\" _v-0fbff6bc=\"\">XG</option>\n                <option value=\"XGG\" _v-0fbff6bc=\"\">XGG</option>\n            </select>\n        </div> \n    </div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div _v-23835c31=\"\">\n    <div class=\"form-group\" _v-23835c31=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"document\" _v-23835c31=\"\">Documento</label>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 left\" _v-23835c31=\"\">\n            <div class=\"input-group\" _v-23835c31=\"\">\n                <input type=\"text\" name=\"document\" v-model=\"document\" class=\"form-control\" _v-23835c31=\"\">\n                <span class=\"input-group-btn\" _v-23835c31=\"\">\n                    <a href=\"#\" @click=\"getByDocument()\" _v-23835c31=\"\"><button type=\"button\" class=\"btn btn-primary\" _v-23835c31=\"\">Verificar</button></a>\n                </span>\n            </div>\n        </div>\n    </div>\n    <div class=\"form-group\" _v-23835c31=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"name\" _v-23835c31=\"\">Nome</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-23835c31=\"\">\n            <input type=\"text\" id=\"name\" name=\"name\" v-model=\"name\" class=\"form-control col-md-7 col-xs-12\" _v-23835c31=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-23835c31=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"email\" _v-23835c31=\"\">E-mail</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-23835c31=\"\">\n            <input type=\"email\" id=\"email\" name=\"email\" v-model=\"email\" class=\"form-control col-md-7 col-xs-12\" _v-23835c31=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-23835c31=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"phone\" _v-23835c31=\"\">Telefone</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-23835c31=\"\">\n            <input type=\"tel\" id=\"phone\" name=\"phone\" v-model=\"phone\" class=\"form-control col-md-7 col-xs-12\" _v-23835c31=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-23835c31=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"born\" _v-23835c31=\"\">Data Nascimento</label>\n        <div class=\"col-md-3 col-sm-6 col-xs-12\" _v-23835c31=\"\">\n            <input type=\"date\" id=\"born\" name=\"born\" value=\"2001-01-01\" v-model=\"born\" class=\"form-control col-md-7 col-xs-12\" _v-23835c31=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-23835c31=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"street\" _v-23835c31=\"\">Endereço</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-23835c31=\"\">\n            <input type=\"text\" id=\"street\" name=\"street\" v-model=\"street\" class=\"form-control col-md-7 col-xs-12\" _v-23835c31=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-23835c31=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"city\" _v-23835c31=\"\">Cidade</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-23835c31=\"\">\n            <input type=\"text\" id=\"city\" name=\"city\" v-model=\"city\" class=\"form-control col-md-7 col-xs-12\" _v-23835c31=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-23835c31=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"province\" _v-23835c31=\"\">Estado</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-23835c31=\"\">\n            <input type=\"text\" id=\"province\" name=\"province\" v-model=\"province\" class=\"form-control col-md-7 col-xs-12\" _v-23835c31=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-23835c31=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"parent\" _v-23835c31=\"\">Responsável</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-23835c31=\"\">\n            <input type=\"text\" id=\"parent\" name=\"parent\" v-model=\"parent\" class=\"form-control col-md-7 col-xs-12\" _v-23835c31=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-23835c31=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"parent_phone\" _v-23835c31=\"\">Responsável - Telefone</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-23835c31=\"\">\n            <input type=\"tel\" id=\"parent_phone\" name=\"parent_phone\" v-model=\"parent_phone\" class=\"form-control col-md-7 col-xs-12\" _v-23835c31=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-23835c31=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"medicine\" _v-23835c31=\"\">Medicamentos</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-23835c31=\"\">\n            <input type=\"text\" id=\"medicine\" name=\"medicine\" v-model=\"medicine\" class=\"form-control col-md-7 col-xs-12\" _v-23835c31=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-23835c31=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"shirt\" _v-23835c31=\"\">Camiseta</label>\n        <div class=\"col-md-3 col-sm-6 col-xs-12\" _v-23835c31=\"\">\n            <select v-model=\"shirt\" class=\"form-control\" name=\"shirt\" _v-23835c31=\"\">\n                <option value=\"\" _v-23835c31=\"\">Selecione</option>\n                <option value=\"PP\" _v-23835c31=\"\">PP</option>\n                <option value=\"P\" _v-23835c31=\"\">P</option>\n                <option value=\"M\" _v-23835c31=\"\">M</option>\n                <option value=\"G\" _v-23835c31=\"\">G</option>\n                <option value=\"GG\" _v-23835c31=\"\">GG</option>\n                <option value=\"XG\" _v-23835c31=\"\">XG</option>\n                <option value=\"XGG\" _v-23835c31=\"\">XGG</option>\n            </select>\n        </div> \n    </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -23064,12 +23094,12 @@ if (module.hot) {(function () {  module.hot.accept()
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-0fbff6bc", module.exports)
+    hotAPI.createRecord("_v-23835c31", module.exports)
   } else {
-    hotAPI.update("_v-0fbff6bc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-23835c31", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":4,"vueify/lib/insert-css":9}],11:[function(require,module,exports){
+},{"vue":10,"vue-hot-reload-api":7,"vueify/lib/insert-css":12}],15:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
 var __vueify_style__ = __vueify_insert__.insert("\n\n")
 "use strict";
@@ -23089,7 +23119,7 @@ exports.default = {
     computed: {}
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div _v-3a22d7e8=\"\">\n    \n    <div class=\"x_panel\" _v-3a22d7e8=\"\">\n        <div class=\"x_title\" _v-3a22d7e8=\"\">\n            <h2 _v-3a22d7e8=\"\">Painel</h2>\n            <div class=\"clearfix\" _v-3a22d7e8=\"\"></div>\n        </div>\n        <div class=\"x_content\" _v-3a22d7e8=\"\">\n            <div class=\"col-md-9 col-sm-9 col-xs-12\" _v-3a22d7e8=\"\">\n                <div _v-3a22d7e8=\"\">\n                    <h4 _v-3a22d7e8=\"\">Atividades Recentes</h4>\n                    <div class=\"text-keft mtop20\" _v-3a22d7e8=\"\">\n                        <a href=\"#\" class=\"btn btn-sm btn-primary\" _v-3a22d7e8=\"\">Novo Registro</a>\n                    </div>\n                    <ul class=\"messages\" _v-3a22d7e8=\"\">\n                        <li _v-3a22d7e8=\"\">\n                            <img src=\"https://www.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2017/11/18/National-Politics/Images/Rex_Trump_to_allow_elephant_trophies_9227717A.jpg?t=20170517\" class=\"avatar\" alt=\"Avatar\" _v-3a22d7e8=\"\">\n                            <div class=\"message_date\" _v-3a22d7e8=\"\">\n                                <h3 class=\"date text-info\" _v-3a22d7e8=\"\">15</h3>\n                                <p class=\"month\" _v-3a22d7e8=\"\">Março</p>\n                            </div>\n                            <div class=\"message_wrapper\" _v-3a22d7e8=\"\">\n                                <h4 class=\"heading\" _v-3a22d7e8=\"\"></h4>\n                                <blockquote class=\"message\" _v-3a22d7e8=\"\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nunc urna, convallis\n                                    id laoreet a, placerat quis arcu. Aliquam erat volutpat. Quisque bibendum\n                                    luctus risus sed laoreet.</blockquote>\n                                <br _v-3a22d7e8=\"\">\n                                <p class=\"url\" _v-3a22d7e8=\"\">\n                                    <span class=\"fs1 text-info\" aria-hidden=\"true\" data-icon=\"\" _v-3a22d7e8=\"\"></span>\n                                    <a href=\"#\" _v-3a22d7e8=\"\">\n                                        <i class=\"fa fa-paperclip\" _v-3a22d7e8=\"\"></i> Lorem.png</a>\n                                </p>\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n            <div class=\"col-md-3 col-sm-3 col-xs-12\" _v-3a22d7e8=\"\">\n                <section class=\"panel\" _v-3a22d7e8=\"\">\n                    <div class=\"panel-body\" _v-3a22d7e8=\"\">\n                        <h5 _v-3a22d7e8=\"\">Arquivos do Acampamento</h5>\n                        <ul class=\"list-unstyled project_files\" _v-3a22d7e8=\"\">\n                            <li _v-3a22d7e8=\"\">\n                                <a href=\"\" _v-3a22d7e8=\"\">\n                                    <i class=\"fa fa-file-word-o\" _v-3a22d7e8=\"\"></i> Lista de Compras.docx</a>\n                            </li>\n                        </ul>\n                        <br _v-3a22d7e8=\"\">\n                        <div class=\"text-keft mtop20\" _v-3a22d7e8=\"\">\n                            <a href=\"#\" class=\"btn btn-sm btn-primary\" _v-3a22d7e8=\"\">Adicionar Arquivo</a>\n                        </div>\n                    </div>\n                </section>\n            </div>\n        </div>\n    </div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div _v-5101d957=\"\">\n    \n    <div class=\"x_panel\" _v-5101d957=\"\">\n        <div class=\"x_title\" _v-5101d957=\"\">\n            <h2 _v-5101d957=\"\">Painel</h2>\n            <div class=\"clearfix\" _v-5101d957=\"\"></div>\n        </div>\n        <div class=\"x_content\" _v-5101d957=\"\">\n            <div class=\"col-md-9 col-sm-9 col-xs-12\" _v-5101d957=\"\">\n                <div _v-5101d957=\"\">\n                    <h4 _v-5101d957=\"\">Atividades Recentes</h4>\n                    <div class=\"text-keft mtop20\" _v-5101d957=\"\">\n                        <a href=\"#\" class=\"btn btn-sm btn-primary\" _v-5101d957=\"\">Novo Registro</a>\n                    </div>\n                    <ul class=\"messages\" _v-5101d957=\"\">\n                        <li _v-5101d957=\"\">\n                            <img src=\"https://www.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2017/11/18/National-Politics/Images/Rex_Trump_to_allow_elephant_trophies_9227717A.jpg?t=20170517\" class=\"avatar\" alt=\"Avatar\" _v-5101d957=\"\">\n                            <div class=\"message_date\" _v-5101d957=\"\">\n                                <h3 class=\"date text-info\" _v-5101d957=\"\">15</h3>\n                                <p class=\"month\" _v-5101d957=\"\">Março</p>\n                            </div>\n                            <div class=\"message_wrapper\" _v-5101d957=\"\">\n                                <h4 class=\"heading\" _v-5101d957=\"\"></h4>\n                                <blockquote class=\"message\" _v-5101d957=\"\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nunc urna, convallis\n                                    id laoreet a, placerat quis arcu. Aliquam erat volutpat. Quisque bibendum\n                                    luctus risus sed laoreet.</blockquote>\n                                <br _v-5101d957=\"\">\n                                <p class=\"url\" _v-5101d957=\"\">\n                                    <span class=\"fs1 text-info\" aria-hidden=\"true\" data-icon=\"\" _v-5101d957=\"\"></span>\n                                    <a href=\"#\" _v-5101d957=\"\">\n                                        <i class=\"fa fa-paperclip\" _v-5101d957=\"\"></i> Lorem.png</a>\n                                </p>\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n            <div class=\"col-md-3 col-sm-3 col-xs-12\" _v-5101d957=\"\">\n                <section class=\"panel\" _v-5101d957=\"\">\n                    <div class=\"panel-body\" _v-5101d957=\"\">\n                        <h5 _v-5101d957=\"\">Arquivos do Acampamento</h5>\n                        <ul class=\"list-unstyled project_files\" _v-5101d957=\"\">\n                            <li _v-5101d957=\"\">\n                                <a href=\"\" _v-5101d957=\"\">\n                                    <i class=\"fa fa-file-word-o\" _v-5101d957=\"\"></i> Lista de Compras.docx</a>\n                            </li>\n                        </ul>\n                        <br _v-5101d957=\"\">\n                        <div class=\"text-keft mtop20\" _v-5101d957=\"\">\n                            <a href=\"#\" class=\"btn btn-sm btn-primary\" _v-5101d957=\"\">Adicionar Arquivo</a>\n                        </div>\n                    </div>\n                </section>\n            </div>\n        </div>\n    </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -23099,14 +23129,275 @@ if (module.hot) {(function () {  module.hot.accept()
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-3a22d7e8", module.exports)
+    hotAPI.createRecord("_v-5101d957", module.exports)
   } else {
-    hotAPI.update("_v-3a22d7e8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-5101d957", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":4,"vueify/lib/insert-css":9}],12:[function(require,module,exports){
+},{"vue":10,"vue-hot-reload-api":7,"vueify/lib/insert-css":12}],16:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _bus = require('./../../bus.js');
+
+var _bus2 = _interopRequireDefault(_bus);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    props: [],
+    data: function data() {
+        return {
+            person: []
+        };
+    },
+
+    created: function created() {
+        this.listenToEvents();
+    },
+    mounted: {},
+    methods: {
+        listenToEvents: function listenToEvents() {
+            var _this = this;
+
+            _bus2.default.$on('buildModal', function (personData) {
+                _this.person = personData;
+            });
+        },
+        doSomethingOnHidden: function doSomethingOnHidden() {
+            alert('hidden');
+        }
+    },
+    computed: {}
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"modal\" tabindex=\"-1\" role=\"dialog\" ref=\"vuemodal\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\">Modal title</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">×</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <p>Modal body text goes here.</p>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-1fbc919d", module.exports)
+  } else {
+    hotAPI.update("_v-1fbc919d", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"./../../bus.js":13,"vue":10,"vue-hot-reload-api":7}],17:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _stringify = require('babel-runtime/core-js/json/stringify');
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
+var _bus = require('./../../bus.js');
+
+var _bus2 = _interopRequireDefault(_bus);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    props: {
+        people: Array
+    },
+    data: function data() {
+        return {
+            personModal: [],
+            personToEdit: [],
+            peopleToShow: []
+        };
+    },
+
+    methods: {
+        getPerson: function getPerson(idPerson) {
+            var _this = this;
+
+            this.people.forEach(function (element) {
+                if (element.id == idPerson) _this.personModal = element;
+            });
+        },
+        setPerson: function setPerson(person) {
+            this.people.forEach(function (element) {
+                if (person.id == element.id) element = person;
+            });
+        },
+        loadPersonToEdit: function loadPersonToEdit(idPerson) {
+            this.getPerson(idPerson);
+            this.personToEdit = this.personModal;
+        },
+        updatePerson: function updatePerson(person) {
+            var _this2 = this;
+
+            this.$http.post('/api/pessoas', (0, _stringify2.default)(this.personToEdit), {
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }).then(function (response) {
+                if (response.data['error'] != "") alert('Não foi possível alterar esse cadastro.');
+
+                _this2.setPerson(_this2.personToEdit);
+                alert('Cadastro alterado com sucesso!');
+            }).catch(function (error) {
+                alert('Não foi possível alterar esse cadastro.');
+            });
+        },
+        deletePerson: function deletePerson(personId) {
+            var _this3 = this;
+
+            this.$http.delete('/api/pessoas/' + personId, {
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }).then(function (response) {
+                if (response.data['error'] != "") alert('Não foi possível excluir esse cadastro.');
+
+                var index = _this3.people.map(function (e) {
+                    return e.id;
+                }).indexOf(personId);
+
+                if (index > -1) {
+                    _this3.people.splice(index, 1);
+                    alert('Cadastro removido com sucesso!');
+                }
+            }).catch(function (error) {
+                alert('Não foi possível excluir esse cadastro.');
+            });
+        },
+        syncPeople: function syncPeople() {
+            this.peopleToShow = this.people;
+        }
+    },
+    computed: {},
+    mounted: function mounted() {
+        this.syncPeople();
+    }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"x_content\">\n    <table class=\"table\">\n        <thead>\n        <tr>  \n            <th>Nome</th>\n            <th>E-mail</th>\n            <th>Telefone</th>\n            <th>Camisesta</th>\n            <th>Data Inscrição</th>\n            <th>Ações</th>\n        </tr>\n        </thead>\n        <tbody>\n            <tr v-for=\"person in peopleToShow\" :key=\"person.id\">\n                <td>{{ person.name }}</td>\n                <td>{{ person.email }}</td>\n                <td>{{ person.phone }}</td>\n                <td>{{ person.shirt }}</td>\n                <td>{{ person.created_at }}</td>\n                <td>\n                    <a href=\"#\" class=\"btn btn-primary btn-xs\" v-on:click=\"getPerson(person.id)\" data-toggle=\"modal\" data-target=\"#myViewModal\">\n                        <i class=\"fa fa-folder\"></i>\n                        Visualizar\n                    </a>\n                    <a href=\"#\" class=\"btn btn-info btn-xs\" v-on:click=\"loadPersonToEdit(person.id)\" data-toggle=\"modal\" data-target=\"#myEditModal\">\n                        <i class=\"fa fa-pencil\"></i>\n                        Editar\n                    </a>\n                    <a href=\"#\" class=\"btn btn-danger btn-xs\" v-on:click=\"getPerson(person.id)\" data-toggle=\"modal\" data-target=\"#myDeleteModal\">\n                        <i class=\"fa fa-trash-o\"></i>\n                        Remover\n                    </a>\n                </td>\n            </tr>   \n        </tbody>\n    </table>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myViewModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\">{{personModal.name}}</h4>\n                </div>\n                <div class=\"modal-body\">\n                    <table class=\"table\">\n                        <thead>\n                            </thead><tbody>\n                                <tr><td>CPF</td><td>{{ personModal.cpf }}</td></tr>\n                                <tr><td>RG</td><td>{{ personModal.rg }}</td></tr>\n                                <tr><td>Email</td><td>{{ personModal.email }}</td></tr>\n                                <tr><td>Telefone</td><td>{{ personModal.phone }}</td></tr>\n                                <tr><td>Data Nascimento</td><td>{{ personModal.born }}</td></tr>\n                                <tr><td>Endereço</td><td>{{ personModal.street }}</td></tr>\n                                <tr><td>Bairro</td><td>{{ personModal.neighbor }}</td></tr>\n                                <tr><td>Cidade</td><td>{{ personModal.city }}</td></tr>\n                                <tr><td>Estado</td><td>{{ personModal.province }}</td></tr>\n                                <tr><td>Responsável- Nome</td><td>{{ personModal.parent }}</td></tr>\n                                <tr><td>Responsável - Telefone</td><td>{{ personModal.parent_phone }}</td></tr>\n                                <tr><td>Num. Cartão SUS</td><td>{{ personModal.sus }}</td></tr>\n                                <tr><td>Medicamento Contínuo</td><td>{{ personModal.medicine }}</td></tr>\n                                <tr><td>Cuidados Médicos</td><td>{{ personModal.medicalCare }}</td></tr>\n                                <tr><td>Camiseta</td><td>{{ personModal.shirt }}</td></tr>\n                                <tr><td>Observações</td><td>{{ personModal.obs }}</td></tr>\n                            </tbody>\n                        \n                    </table>\n                </div>\n                <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Fechar</button>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myDeleteModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\"></h4>\n                </div>\n                <div class=\"modal-body\">\n                    <center>\n                        <p>Deseja realmente remover {{personModal.name}} da lista de cadastros?</p>\n                        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" v-on:click=\"deletePerson(personModal.id)\">Excluir</button>\n                        <button type=\"button\" class=\"btn btn-light\" data-dismiss=\"modal\">Cancelar</button>\n                    </center>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myEditModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\">Edição de cadastro</h4>\n                </div>\n                <div class=\"modal-body\">\n                    <table class=\"table\">\n                        <thead>\n                            </thead><tbody>\n                                <tr><td>Nome</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.name\"></td></tr>\n                                <tr><td>CPF</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.cpf\"></td></tr>\n                                <tr><td>RG</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.rg\"></td></tr>\n                                <tr><td>E-mail</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.email\"></td></tr>\n                                <tr><td>Telefone</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.phone\"></td></tr>\n                                <tr><td>Data Nascimento</td><td><input class=\"form-control\" type=\"date\" v-model=\"personToEdit.born\"></td></tr>\n                                <tr><td>Endereço</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.street\"></td></tr>\n                                <tr><td>Bairro</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.neighbor\"></td></tr>\n                                <tr><td>Cidade</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.city\"></td></tr>\n                                <tr><td>Estado</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.province\"></td></tr>\n                                <tr><td>Responsável - Nome</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.parent\"></td></tr>\n                                <tr><td>Responsável - Telefone</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.parent_phone\"></td></tr>\n                                <tr><td>Num. Cartão SUS</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.sus\"></td></tr>\n                                <tr><td>Medicamento Contínuo</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.medicine\"></td></tr>\n                                <tr><td>Cuidados Médicos</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.medicalCare\"></td></tr>\n                                <tr><td>Camiseta</td><td>\n                                    <select class=\"form-control\" type=\"text\" v-model=\"personToEdit.shirt\">\n                                        <option value=\"\">Selecione</option>\n                                        <option value=\"4\">4</option>\n                                        <option value=\"6\">6</option>\n                                        <option value=\"8\">8</option>\n                                        <option value=\"10\">10</option>\n                                        <option value=\"12\">12</option>\n                                        <option value=\"14\">14</option>\n                                        <option value=\"16\">16</option>\n                                        <option value=\"PP\">PP</option>\n                                        <option value=\"P\">P</option>\n                                        <option value=\"M\">M</option>\n                                        <option value=\"G\">G</option>\n                                        <option value=\"GG\">GG</option>\n                                        <option value=\"XG\">XG</option>\n                                        <option value=\"G1\">G1</option>\n                                        <option value=\"G2\">G2</option>\n                                        <option value=\"G3\">G3</option>\n                                    </select></td></tr>\n                                <tr><td>Observações</td><td><input type=\"text\" class=\"form-control\" v-model=\"personToEdit.obs\"></td></tr>\n                            </tbody>\n                        \n                    </table>\n                </div>\n                <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancelar</button>\n                    <button type=\"button\" class=\"btn btn-success\" v-on:click=\"updatePerson\" data-dismiss=\"modal\">Confirmar</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-5909f395", module.exports)
+  } else {
+    hotAPI.update("_v-5909f395", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"./../../bus.js":13,"babel-runtime/core-js/json/stringify":1,"vue":10,"vue-hot-reload-api":7}],18:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _stringify = require('babel-runtime/core-js/json/stringify');
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
+var _bus = require('./../../bus.js');
+
+var _bus2 = _interopRequireDefault(_bus);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    props: {
+        people: Array
+    },
+    data: function data() {
+        return {
+            personModal: [],
+            personToEdit: [],
+            peopleToShow: []
+        };
+    },
+
+    methods: {
+        getPerson: function getPerson(idPerson) {
+            var _this = this;
+
+            this.people.forEach(function (element) {
+                if (element.id == idPerson) _this.personModal = element;
+            });
+        },
+        setPerson: function setPerson(person) {
+            this.people.forEach(function (element) {
+                if (person.id == element.id) element = person;
+            });
+        },
+        loadPersonToEdit: function loadPersonToEdit(idPerson) {
+            this.getPerson(idPerson);
+            this.personToEdit = this.personModal;
+        },
+        updatePerson: function updatePerson(person) {
+            var _this2 = this;
+
+            this.$http.post('/api/pessoas', (0, _stringify2.default)(this.personToEdit), {
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }).then(function (response) {
+                if (response.data['error'] != "") alert('Não foi possível alterar esse cadastro.');
+
+                _this2.setPerson(_this2.personToEdit);
+                alert('Cadastro alterado com sucesso!');
+            }).catch(function (error) {
+                alert('Não foi possível alterar esse cadastro.');
+            });
+        },
+        deletePerson: function deletePerson(personId) {
+            var _this3 = this;
+
+            this.$http.delete('/api/pessoas/' + personId, {
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }).then(function (response) {
+                if (response.data['error'] != "") alert('Não foi possível excluir esse cadastro.');
+
+                var index = _this3.people.map(function (e) {
+                    return e.id;
+                }).indexOf(personId);
+
+                if (index > -1) {
+                    _this3.people.splice(index, 1);
+                    alert('Cadastro removido com sucesso!');
+                }
+            }).catch(function (error) {
+                alert('Não foi possível excluir esse cadastro.');
+            });
+        },
+        syncPeople: function syncPeople() {
+            this.peopleToShow = this.people;
+        }
+    },
+    computed: {},
+    mounted: function mounted() {
+        this.syncPeople();
+    }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"x_content\">\n    <table class=\"table\">\n        <thead>\n        <tr>  \n            <th>Nome</th>\n            <th>E-mail</th>\n            <th>Telefone</th>\n            <th>Camisesta</th>\n            <th>Data Inscrição</th>\n            <th>Ações</th>\n        </tr>\n        </thead>\n        <tbody>\n            <tr v-for=\"person in peopleToShow\" :key=\"person.id\">\n                <td>{{ person.name }}</td>\n                <td>{{ person.email }}</td>\n                <td>{{ person.phone }}</td>\n                <td>{{ person.shirt }}</td>\n                <td>{{ person.created_at }}</td>\n                <td>\n                    <a href=\"#\" class=\"btn btn-primary btn-xs\" v-on:click=\"getPerson(person.id)\" data-toggle=\"modal\" data-target=\"#myViewModal\">\n                        <i class=\"fa fa-folder\"></i>\n                        Visualizar\n                    </a>\n                    <a href=\"#\" class=\"btn btn-info btn-xs\" v-on:click=\"loadPersonToEdit(person.id)\" data-toggle=\"modal\" data-target=\"#myEditModal\">\n                        <i class=\"fa fa-pencil\"></i>\n                        Editar\n                    </a>\n                    <a href=\"#\" class=\"btn btn-danger btn-xs\" v-on:click=\"getPerson(person.id)\" data-toggle=\"modal\" data-target=\"#myDeleteModal\">\n                        <i class=\"fa fa-trash-o\"></i>\n                        Remover\n                    </a>\n                </td>\n            </tr>   \n        </tbody>\n    </table>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myViewModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\">{{personModal.name}}</h4>\n                </div>\n                <div class=\"modal-body\">\n                    <table class=\"table\">\n                        <thead>\n                            </thead><tbody>\n                                <tr><td>CPF</td><td>{{ personModal.cpf }}</td></tr>\n                                <tr><td>RG</td><td>{{ personModal.rg }}</td></tr>\n                                <tr><td>Email</td><td>{{ personModal.email }}</td></tr>\n                                <tr><td>Telefone</td><td>{{ personModal.phone }}</td></tr>\n                                <tr><td>Data Nascimento</td><td>{{ personModal.born }}</td></tr>\n                                <tr><td>Endereço</td><td>{{ personModal.street }}</td></tr>\n                                <tr><td>Bairro</td><td>{{ personModal.neighbor }}</td></tr>\n                                <tr><td>Cidade</td><td>{{ personModal.city }}</td></tr>\n                                <tr><td>Estado</td><td>{{ personModal.province }}</td></tr>\n                                <tr><td>Responsável- Nome</td><td>{{ personModal.parent }}</td></tr>\n                                <tr><td>Responsável - Telefone</td><td>{{ personModal.parent_phone }}</td></tr>\n                                <tr><td>Num. Cartão SUS</td><td>{{ personModal.sus }}</td></tr>\n                                <tr><td>Medicamento Contínuo</td><td>{{ personModal.medicine }}</td></tr>\n                                <tr><td>Cuidados Médicos</td><td>{{ personModal.medicalCare }}</td></tr>\n                                <tr><td>Camiseta</td><td>{{ personModal.shirt }}</td></tr>\n                                <tr><td>Observações</td><td>{{ personModal.obs }}</td></tr>\n                            </tbody>\n                        \n                    </table>\n                </div>\n                <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Fechar</button>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myDeleteModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\"></h4>\n                </div>\n                <div class=\"modal-body\">\n                    <center>\n                        <p>Deseja realmente remover {{personModal.name}} da lista de cadastros?</p>\n                        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" v-on:click=\"deletePerson(personModal.id)\">Excluir</button>\n                        <button type=\"button\" class=\"btn btn-light\" data-dismiss=\"modal\">Cancelar</button>\n                    </center>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myEditModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\">Edição de cadastro</h4>\n                </div>\n                <div class=\"modal-body\">\n                    <table class=\"table\">\n                        <thead>\n                            </thead><tbody>\n                                <tr><td>Nome</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.name\"></td></tr>\n                                <tr><td>CPF</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.cpf\"></td></tr>\n                                <tr><td>RG</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.rg\"></td></tr>\n                                <tr><td>E-mail</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.email\"></td></tr>\n                                <tr><td>Telefone</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.phone\"></td></tr>\n                                <tr><td>Data Nascimento</td><td><input class=\"form-control\" type=\"date\" v-model=\"personToEdit.born\"></td></tr>\n                                <tr><td>Endereço</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.street\"></td></tr>\n                                <tr><td>Bairro</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.neighbor\"></td></tr>\n                                <tr><td>Cidade</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.city\"></td></tr>\n                                <tr><td>Estado</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.province\"></td></tr>\n                                <tr><td>Responsável - Nome</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.parent\"></td></tr>\n                                <tr><td>Responsável - Telefone</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.parent_phone\"></td></tr>\n                                <tr><td>Num. Cartão SUS</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.sus\"></td></tr>\n                                <tr><td>Medicamento Contínuo</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.medicine\"></td></tr>\n                                <tr><td>Cuidados Médicos</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.medicalCare\"></td></tr>\n                                <tr><td>Camiseta</td><td>\n                                    <select class=\"form-control\" type=\"text\" v-model=\"personToEdit.shirt\">\n                                        <option value=\"\">Selecione</option>\n                                        <option value=\"4\">4</option>\n                                        <option value=\"6\">6</option>\n                                        <option value=\"8\">8</option>\n                                        <option value=\"10\">10</option>\n                                        <option value=\"12\">12</option>\n                                        <option value=\"14\">14</option>\n                                        <option value=\"16\">16</option>\n                                        <option value=\"PP\">PP</option>\n                                        <option value=\"P\">P</option>\n                                        <option value=\"M\">M</option>\n                                        <option value=\"G\">G</option>\n                                        <option value=\"GG\">GG</option>\n                                        <option value=\"XG\">XG</option>\n                                        <option value=\"G1\">G1</option>\n                                        <option value=\"G2\">G2</option>\n                                        <option value=\"G3\">G3</option>\n                                    </select></td></tr>\n                                <tr><td>Observações</td><td><input type=\"text\" class=\"form-control\" v-model=\"personToEdit.obs\"></td></tr>\n                            </tbody>\n                        \n                    </table>\n                </div>\n                <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancelar</button>\n                    <button type=\"button\" class=\"btn btn-success\" v-on:click=\"updatePerson\" data-dismiss=\"modal\">Confirmar</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-0548359c", module.exports)
+  } else {
+    hotAPI.update("_v-0548359c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"./../../bus.js":13,"babel-runtime/core-js/json/stringify":1,"vue":10,"vue-hot-reload-api":7}],19:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
-var __vueify_style__ = __vueify_insert__.insert("\n.list[_v-52ee8405] {\n  background-color: #08635b;\n  border-radius: 3px;\n  margin: 5px 5px;\n  padding: 10px;\n  width: 100%;\n  height: 400px;\n  scroll-behavior: auto;\n}\n.list>header[_v-52ee8405] {\n  font-weight: bold;\n  color: rgb(255, 255, 255);\n  text-align: center;\n  font-size: 20px;\n  line-height: 28px;\n  cursor: -webkit-grab;\n  cursor: grab;\n}\n.list article[_v-52ee8405] {\n  border-radius: 3px;\n  margin-top: 10px;\n}\n\n.list .card[_v-52ee8405] {\n  background-color: #FFF;\n  border-bottom: 1px solid #CCC;\n  padding: 15px 10px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: bolder;\n}\n.list .card[_v-52ee8405]:hover {\n  background-color: #F0F0F0;\n}\n.drag-area[_v-52ee8405]{\n min-height: 10px;  \n height: 400px;\n}\n\n")
+var __vueify_style__ = __vueify_insert__.insert("\n.list[_v-48cace56] {\n  background-color: #08635b;\n  border-radius: 3px;\n  margin: 5px 5px;\n  padding: 10px;\n  width: 100%;\n  height: 400px;\n  scroll-behavior: auto;\n}\n.list>header[_v-48cace56] {\n  font-weight: bold;\n  color: rgb(255, 255, 255);\n  text-align: center;\n  font-size: 20px;\n  line-height: 28px;\n  cursor: -webkit-grab;\n  cursor: grab;\n}\n.list article[_v-48cace56] {\n  border-radius: 3px;\n  margin-top: 10px;\n}\n\n.list .card[_v-48cace56] {\n  background-color: #FFF;\n  border-bottom: 1px solid #CCC;\n  padding: 15px 10px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: bolder;\n}\n.list .card[_v-48cace56]:hover {\n  background-color: #F0F0F0;\n}\n.drag-area[_v-48cace56]{\n min-height: 10px;  \n height: 400px;\n}\n\n")
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -23189,22 +23480,22 @@ exports.default = {
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div _v-52ee8405=\"\">\n     <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\" _v-52ee8405=\"\">\n          <section class=\"list\" _v-52ee8405=\"\">\n             <input type=\"text\" lazy=\"\" class=\"form-control col-md-7 col-xs-12\" :name=\"name\" v-model=\"keywords\" placeholder=\"Digite para pesquisar\" _v-52ee8405=\"\">\n             <input type=\"hidden\" :name=\"value\" v-model=\"keywordsId\" _v-52ee8405=\"\">\n             <header _v-52ee8405=\"\">Campistas</header>\n             <draggable class=\"drag-area\" :list=\"campers\" :options=\"{animation:200, group:'status'}\" :data-id-board=\"'campers'\" :element=\"'article'\" @add=\"onAdd($event, true)\" @change=\"update\" _v-52ee8405=\"\">\n                 <article class=\"card\" v-for=\"(camper, index) in campers\" :key=\"camper.id\" :data-id=\"camper.id\" _v-52ee8405=\"\">\n                     <header _v-52ee8405=\"\">\n                         {{ camper.name }}\n                     </header>\n                 </article>\n             </draggable>  \n         </section>\n     </div>\n     <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\" _v-52ee8405=\"\">\n         <section class=\"list\" _v-52ee8405=\"\">\n             <header _v-52ee8405=\"\">Time</header>\n             <draggable class=\"drag-area\" :list=\"members\" :options=\"{animation:200, group:'status'}\" :element=\"'article'\" @add=\"onAdd($event, true)\" @change=\"update\" _v-52ee8405=\"\">\n                 <article class=\"card\" v-for=\"(member, index) in members\" :key=\"member.id\" :data-id=\"member.id\" _v-52ee8405=\"\">\n                     <header _v-52ee8405=\"\">\n                         {{ member.name }}\n                     </header>\n                 </article>\n             </draggable>\n         </section>\n     </div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div _v-48cace56=\"\">\n     <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\" _v-48cace56=\"\">\n          <section class=\"list\" _v-48cace56=\"\">\n             <input type=\"text\" lazy=\"\" class=\"form-control col-md-7 col-xs-12\" :name=\"name\" v-model=\"keywords\" placeholder=\"Digite para pesquisar\" _v-48cace56=\"\">\n             <input type=\"hidden\" :name=\"value\" v-model=\"keywordsId\" _v-48cace56=\"\">\n             <header _v-48cace56=\"\">Campistas</header>\n             <draggable class=\"drag-area\" :list=\"campers\" :options=\"{animation:200, group:'status'}\" :data-id-board=\"'campers'\" :element=\"'article'\" @add=\"onAdd($event, true)\" @change=\"update\" _v-48cace56=\"\">\n                 <article class=\"card\" v-for=\"(camper, index) in campers\" :key=\"camper.id\" :data-id=\"camper.id\" _v-48cace56=\"\">\n                     <header _v-48cace56=\"\">\n                         {{ camper.name }}\n                     </header>\n                 </article>\n             </draggable>  \n         </section>\n     </div>\n     <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\" _v-48cace56=\"\">\n         <section class=\"list\" _v-48cace56=\"\">\n             <header _v-48cace56=\"\">Time</header>\n             <draggable class=\"drag-area\" :list=\"members\" :options=\"{animation:200, group:'status'}\" :element=\"'article'\" @add=\"onAdd($event, true)\" @change=\"update\" _v-48cace56=\"\">\n                 <article class=\"card\" v-for=\"(member, index) in members\" :key=\"member.id\" :data-id=\"member.id\" _v-48cace56=\"\">\n                     <header _v-48cace56=\"\">\n                         {{ member.name }}\n                     </header>\n                 </article>\n             </draggable>\n         </section>\n     </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   module.hot.dispose(function () {
-    __vueify_insert__.cache["\n.list[_v-52ee8405] {\n  background-color: #08635b;\n  border-radius: 3px;\n  margin: 5px 5px;\n  padding: 10px;\n  width: 100%;\n  height: 400px;\n  scroll-behavior: auto;\n}\n.list>header[_v-52ee8405] {\n  font-weight: bold;\n  color: rgb(255, 255, 255);\n  text-align: center;\n  font-size: 20px;\n  line-height: 28px;\n  cursor: -webkit-grab;\n  cursor: grab;\n}\n.list article[_v-52ee8405] {\n  border-radius: 3px;\n  margin-top: 10px;\n}\n\n.list .card[_v-52ee8405] {\n  background-color: #FFF;\n  border-bottom: 1px solid #CCC;\n  padding: 15px 10px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: bolder;\n}\n.list .card[_v-52ee8405]:hover {\n  background-color: #F0F0F0;\n}\n.drag-area[_v-52ee8405]{\n min-height: 10px;  \n height: 400px;\n}\n\n"] = false
+    __vueify_insert__.cache["\n.list[_v-48cace56] {\n  background-color: #08635b;\n  border-radius: 3px;\n  margin: 5px 5px;\n  padding: 10px;\n  width: 100%;\n  height: 400px;\n  scroll-behavior: auto;\n}\n.list>header[_v-48cace56] {\n  font-weight: bold;\n  color: rgb(255, 255, 255);\n  text-align: center;\n  font-size: 20px;\n  line-height: 28px;\n  cursor: -webkit-grab;\n  cursor: grab;\n}\n.list article[_v-48cace56] {\n  border-radius: 3px;\n  margin-top: 10px;\n}\n\n.list .card[_v-48cace56] {\n  background-color: #FFF;\n  border-bottom: 1px solid #CCC;\n  padding: 15px 10px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: bolder;\n}\n.list .card[_v-48cace56]:hover {\n  background-color: #F0F0F0;\n}\n.drag-area[_v-48cace56]{\n min-height: 10px;  \n height: 400px;\n}\n\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-52ee8405", module.exports)
+    hotAPI.createRecord("_v-48cace56", module.exports)
   } else {
-    hotAPI.update("_v-52ee8405", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-48cace56", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":4,"vuedraggable":8,"vueify/lib/insert-css":9}],13:[function(require,module,exports){
+},{"vue":10,"vue-hot-reload-api":7,"vuedraggable":11,"vueify/lib/insert-css":12}],20:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
 var __vueify_style__ = __vueify_insert__.insert("\n\n")
 'use strict';
@@ -23253,7 +23544,7 @@ exports.default = {
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div _v-a1891900=\"\">\n    <div class=\"form-group\" _v-a1891900=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"document\" _v-a1891900=\"\">Documento</label>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 left\" _v-a1891900=\"\">\n            <div class=\"input-group\" _v-a1891900=\"\">\n                <input type=\"text\" name=\"document\" v-model=\"document\" class=\"form-control\" _v-a1891900=\"\">\n                <span class=\"input-group-btn\" _v-a1891900=\"\">\n                    <a href=\"#\" @click=\"getByDocument()\" _v-a1891900=\"\"><button type=\"button\" class=\"btn btn-primary\" _v-a1891900=\"\">Verificar</button></a>\n                </span>\n            </div>\n        </div>\n    </div>\n    <div class=\"form-group\" _v-a1891900=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"name\" _v-a1891900=\"\">Nome</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-a1891900=\"\">\n            <input type=\"text\" id=\"name\" name=\"name\" v-model=\"name\" class=\"form-control col-md-7 col-xs-12\" _v-a1891900=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-a1891900=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"email\" _v-a1891900=\"\">E-mail</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-a1891900=\"\">\n            <input type=\"email\" id=\"email\" name=\"email\" v-model=\"email\" class=\"form-control col-md-7 col-xs-12\" _v-a1891900=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-a1891900=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"phone\" _v-a1891900=\"\">Telefone</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-a1891900=\"\">\n            <input type=\"tel\" id=\"phone\" name=\"phone\" v-model=\"phone\" class=\"form-control col-md-7 col-xs-12\" _v-a1891900=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-a1891900=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"born\" _v-a1891900=\"\">Data Nascimento</label>\n        <div class=\"col-md-3 col-sm-6 col-xs-12\" _v-a1891900=\"\">\n            <input type=\"date\" id=\"born\" name=\"born\" value=\"2001-01-01\" v-model=\"born\" class=\"form-control col-md-7 col-xs-12\" _v-a1891900=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-a1891900=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"street\" _v-a1891900=\"\">Endereço</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-a1891900=\"\">\n            <input type=\"text\" id=\"street\" name=\"street\" v-model=\"street\" class=\"form-control col-md-7 col-xs-12\" _v-a1891900=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-a1891900=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"city\" _v-a1891900=\"\">Cidade</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-a1891900=\"\">\n            <input type=\"text\" id=\"city\" name=\"city\" v-model=\"city\" class=\"form-control col-md-7 col-xs-12\" _v-a1891900=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-a1891900=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"province\" _v-a1891900=\"\">Estado</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-a1891900=\"\">\n            <input type=\"text\" id=\"province\" name=\"province\" v-model=\"province\" class=\"form-control col-md-7 col-xs-12\" _v-a1891900=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-a1891900=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"parent\" _v-a1891900=\"\">Responsável</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-a1891900=\"\">\n            <input type=\"text\" id=\"parent\" name=\"parent\" v-model=\"parent\" class=\"form-control col-md-7 col-xs-12\" _v-a1891900=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-a1891900=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"parent_phone\" _v-a1891900=\"\">Responsável - Telefone</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-a1891900=\"\">\n            <input type=\"tel\" id=\"parent_phone\" name=\"parent_phone\" v-model=\"parent_phone\" class=\"form-control col-md-7 col-xs-12\" _v-a1891900=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-a1891900=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"medicine\" _v-a1891900=\"\">Medicamentos</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-a1891900=\"\">\n            <input type=\"text\" id=\"medicine\" name=\"medicine\" v-model=\"medicine\" class=\"form-control col-md-7 col-xs-12\" _v-a1891900=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-a1891900=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"shirt\" _v-a1891900=\"\">Camiseta</label>\n        <div class=\"col-md-3 col-sm-6 col-xs-12\" _v-a1891900=\"\">\n            <select v-model=\"shirt\" class=\"form-control\" name=\"shirt\" _v-a1891900=\"\">\n                <option value=\"\" _v-a1891900=\"\">Selecione</option>\n                <option value=\"PP\" _v-a1891900=\"\">PP</option>\n                <option value=\"P\" _v-a1891900=\"\">P</option>\n                <option value=\"M\" _v-a1891900=\"\">M</option>\n                <option value=\"G\" _v-a1891900=\"\">G</option>\n                <option value=\"GG\" _v-a1891900=\"\">GG</option>\n                <option value=\"XG\" _v-a1891900=\"\">XG</option>\n                <option value=\"XGG\" _v-a1891900=\"\">XGG</option>\n            </select>\n        </div> \n    </div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div _v-08513bd6=\"\">\n    <div class=\"form-group\" _v-08513bd6=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"document\" _v-08513bd6=\"\">Documento</label>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 left\" _v-08513bd6=\"\">\n            <div class=\"input-group\" _v-08513bd6=\"\">\n                <input type=\"text\" name=\"document\" v-model=\"document\" class=\"form-control\" _v-08513bd6=\"\">\n                <span class=\"input-group-btn\" _v-08513bd6=\"\">\n                    <a href=\"#\" @click=\"getByDocument()\" _v-08513bd6=\"\"><button type=\"button\" class=\"btn btn-primary\" _v-08513bd6=\"\">Verificar</button></a>\n                </span>\n            </div>\n        </div>\n    </div>\n    <div class=\"form-group\" _v-08513bd6=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"name\" _v-08513bd6=\"\">Nome</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-08513bd6=\"\">\n            <input type=\"text\" id=\"name\" name=\"name\" v-model=\"name\" class=\"form-control col-md-7 col-xs-12\" _v-08513bd6=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-08513bd6=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"email\" _v-08513bd6=\"\">E-mail</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-08513bd6=\"\">\n            <input type=\"email\" id=\"email\" name=\"email\" v-model=\"email\" class=\"form-control col-md-7 col-xs-12\" _v-08513bd6=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-08513bd6=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"phone\" _v-08513bd6=\"\">Telefone</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-08513bd6=\"\">\n            <input type=\"tel\" id=\"phone\" name=\"phone\" v-model=\"phone\" class=\"form-control col-md-7 col-xs-12\" _v-08513bd6=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-08513bd6=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"born\" _v-08513bd6=\"\">Data Nascimento</label>\n        <div class=\"col-md-3 col-sm-6 col-xs-12\" _v-08513bd6=\"\">\n            <input type=\"date\" id=\"born\" name=\"born\" value=\"2001-01-01\" v-model=\"born\" class=\"form-control col-md-7 col-xs-12\" _v-08513bd6=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-08513bd6=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"street\" _v-08513bd6=\"\">Endereço</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-08513bd6=\"\">\n            <input type=\"text\" id=\"street\" name=\"street\" v-model=\"street\" class=\"form-control col-md-7 col-xs-12\" _v-08513bd6=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-08513bd6=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"city\" _v-08513bd6=\"\">Cidade</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-08513bd6=\"\">\n            <input type=\"text\" id=\"city\" name=\"city\" v-model=\"city\" class=\"form-control col-md-7 col-xs-12\" _v-08513bd6=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-08513bd6=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"province\" _v-08513bd6=\"\">Estado</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-08513bd6=\"\">\n            <input type=\"text\" id=\"province\" name=\"province\" v-model=\"province\" class=\"form-control col-md-7 col-xs-12\" _v-08513bd6=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-08513bd6=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"parent\" _v-08513bd6=\"\">Responsável</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-08513bd6=\"\">\n            <input type=\"text\" id=\"parent\" name=\"parent\" v-model=\"parent\" class=\"form-control col-md-7 col-xs-12\" _v-08513bd6=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-08513bd6=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"parent_phone\" _v-08513bd6=\"\">Responsável - Telefone</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-08513bd6=\"\">\n            <input type=\"tel\" id=\"parent_phone\" name=\"parent_phone\" v-model=\"parent_phone\" class=\"form-control col-md-7 col-xs-12\" _v-08513bd6=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-08513bd6=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"medicine\" _v-08513bd6=\"\">Medicamentos</label>\n        <div class=\"col-md-6 col-sm-6 col-xs-12\" _v-08513bd6=\"\">\n            <input type=\"text\" id=\"medicine\" name=\"medicine\" v-model=\"medicine\" class=\"form-control col-md-7 col-xs-12\" _v-08513bd6=\"\">\n        </div>\n    </div>\n    <div class=\"form-group\" _v-08513bd6=\"\">\n        <label class=\"control-label col-md-2 col-sm-3 col-xs-12\" for=\"shirt\" _v-08513bd6=\"\">Camiseta</label>\n        <div class=\"col-md-3 col-sm-6 col-xs-12\" _v-08513bd6=\"\">\n            <select v-model=\"shirt\" class=\"form-control\" name=\"shirt\" _v-08513bd6=\"\">\n                <option value=\"\" _v-08513bd6=\"\">Selecione</option>\n                <option value=\"PP\" _v-08513bd6=\"\">PP</option>\n                <option value=\"P\" _v-08513bd6=\"\">P</option>\n                <option value=\"M\" _v-08513bd6=\"\">M</option>\n                <option value=\"G\" _v-08513bd6=\"\">G</option>\n                <option value=\"GG\" _v-08513bd6=\"\">GG</option>\n                <option value=\"XG\" _v-08513bd6=\"\">XG</option>\n                <option value=\"XGG\" _v-08513bd6=\"\">XGG</option>\n            </select>\n        </div> \n    </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -23263,12 +23554,12 @@ if (module.hot) {(function () {  module.hot.accept()
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-a1891900", module.exports)
+    hotAPI.createRecord("_v-08513bd6", module.exports)
   } else {
-    hotAPI.update("_v-a1891900", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-08513bd6", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":4,"vueify/lib/insert-css":9}],14:[function(require,module,exports){
+},{"vue":10,"vue-hot-reload-api":7,"vueify/lib/insert-css":12}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -23327,12 +23618,12 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-1c5235b4", module.exports)
+    hotAPI.createRecord("_v-67594af1", module.exports)
   } else {
-    hotAPI.update("_v-1c5235b4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-67594af1", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":4}],15:[function(require,module,exports){
+},{"vue":10,"vue-hot-reload-api":7}],22:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue/dist/vue.js');
@@ -23363,6 +23654,18 @@ var _associate = require('./components/team/associate.vue');
 
 var _associate2 = _interopRequireDefault(_associate);
 
+var _person = require('./components/person/person.vue');
+
+var _person2 = _interopRequireDefault(_person);
+
+var _personall = require('./components/person/personall.vue');
+
+var _personall2 = _interopRequireDefault(_personall);
+
+var _modal = require('./components/person/modal.vue');
+
+var _modal2 = _interopRequireDefault(_modal);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.use(_vueResource2.default);
@@ -23377,10 +23680,13 @@ new _vue2.default({
     TcCreatecamper: _createcamper2.default,
     TcSearchvolunteer: _search2.default,
     TcManagecamping: _manage2.default,
-    TcAssociate: _associate2.default
+    TcAssociate: _associate2.default,
+    TcPerson: _personall2.default,
+    TcPersonall: _person2.default,
+    TcPersonmodal: _modal2.default
   }
 });
 
-},{"./components/camper/createcamper.vue":10,"./components/camping/manage.vue":11,"./components/team/associate.vue":12,"./components/volunteer/createvolunteer.vue":13,"./components/volunteer/search.vue":14,"vue-resource":5,"vue/dist/vue.js":6}]},{},[15]);
+},{"./components/camper/createcamper.vue":14,"./components/camping/manage.vue":15,"./components/person/modal.vue":16,"./components/person/person.vue":17,"./components/person/personall.vue":18,"./components/team/associate.vue":19,"./components/volunteer/createvolunteer.vue":20,"./components/volunteer/search.vue":21,"vue-resource":8,"vue/dist/vue.js":9}]},{},[22]);
 
 //# sourceMappingURL=main.js.map

@@ -20,7 +20,7 @@
                                 <label class="control-label col-md-2 col-sm-3 col-xs-12" for="cpf">CPF</label>
                                 <div class="col-md-4 col-sm-6 col-xs-12 left">
                                     <div class="input-group">
-                                        <input type="text" name="cpf" class="form-control">
+                                        <input type="text" name="cpf" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -28,14 +28,14 @@
                                 <label class="control-label col-md-2 col-sm-3 col-xs-12" for="rg">RG</label>
                                 <div class="col-md-4 col-sm-6 col-xs-12 left">
                                     <div class="input-group">
-                                        <input type="text" name="rg" class="form-control">
+                                        <input type="text" name="rg" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">Nome</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="name" name="name" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="name" name="name" class="form-control col-md-7 col-xs-12" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -47,49 +47,67 @@
                             <div class="form-group">
                                 <label class="control-label col-md-2 col-sm-3 col-xs-12" for="phone">Telefone</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="tel" id="phone" name="phone" class="form-control col-md-7 col-xs-12">
+                                    <input type="tel" id="phone" name="phone" class="form-control col-md-7 col-xs-12" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2 col-sm-3 col-xs-12" for="born">Data Nascimento</label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <input type="date" id="born" name="born" value="2001-01-01" class="form-control col-md-7 col-xs-12">
+                                    <input type="date" id="born" name="born" value="2001-01-01" class="form-control col-md-7 col-xs-12" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2 col-sm-3 col-xs-12" for="street">Endereço</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="street" name="street" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="street" name="street" class="form-control col-md-7 col-xs-12" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="neighbor">Bairro</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="neighbor" name="neighbor" class="form-control col-md-7 col-xs-12" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2 col-sm-3 col-xs-12" for="city">Cidade</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="city" name="city" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="city" name="city" class="form-control col-md-7 col-xs-12" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2 col-sm-3 col-xs-12" for="province">Estado</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="province" name="province" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="province" name="province" class="form-control col-md-7 col-xs-12" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2 col-sm-3 col-xs-12" for="parent">Responsável</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="parent" name="parent" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="parent" name="parent" class="form-control col-md-7 col-xs-12" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2 col-sm-3 col-xs-12" for="parent_phone">Responsável - Telefone</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="tel" id="parent_phone" name="parent_phone" class="form-control col-md-7 col-xs-12">
+                                    <input type="tel" id="parent_phone" name="parent_phone" class="form-control col-md-7 col-xs-12" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="medicine">Medicamentos</label>
+                                    <label class="control-label col-md-2 col-sm-3 col-xs-12" for="sus">Num. Cartão SUS</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="sus" name="sus" class="form-control col-md-7 col-xs-12" required>
+                                    </div>
+                                </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="medicine">Medicamentos contínuos</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" id="medicine" name="medicine" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12" for="medicalCare">Cuidados médicos</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="medicalCare" name="medicalCare" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -110,12 +128,18 @@
                                         <option value="G">G</option>
                                         <option value="GG">GG</option>
                                         <option value="XG">XG</option>
-                                        <option value="G1">XGG</option>
-                                        <option value="G2">XGG</option>
-                                        <option value="G3">XGG</option>
+                                        <option value="G1">G1</option>
+                                        <option value="G2">G2</option>
+                                        <option value="G3">G3</option>
                                     </select>
                                 </div> 
                             </div>
+                            <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-3 col-xs-12" for="obs">Observações</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="obs" name="obs" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-3 col-xs-12 col-md-offset-2">
