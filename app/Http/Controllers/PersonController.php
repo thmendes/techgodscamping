@@ -23,7 +23,12 @@ class PersonController extends Controller
                 ->where('document', 'like', '%' . $request['document'] . '%')
                 ->orderBy('created_at', 'DESC')->limit(10)->get();
 
-            return view('people.people', compact('people'));
+                $retorno = array(
+                    'people' => $people,
+                    'number' => $this->person->count()
+                );
+                
+                return view('people.people')->with('retorno', $retorno);
         }
         elseif($request->has('name') || $request->has('document'))
         {
@@ -33,20 +38,31 @@ class PersonController extends Controller
                 ->where('name', 'like', '%' . $request['name'] . '%')
                 ->orderBy('created_at', 'DESC')->limit(10)->get();
 
-                return view('people.people', compact('people'));
+                $retorno = array(
+                    'people' => $people,
+                    'number' => $this->person->count()
+                );
+                
+                return view('people.people')->with('retorno', $retorno);
             }
 
             $people = $this->person
                 ->where('document', 'like', '%' . $request['document'] . '%')
                 ->orderBy('created_at', 'DESC')->limit(10)->get();
 
-            return view('people.people', compact('people'));
+
         }
         else
         {
             $people = $this->person->orderBy('created_at', 'DESC')->limit(10)->get();
+
+            $retorno = array(
+                'people' => $people,
+                'number' => $this->person->count()
+            );
+            
+            return view('people.people')->with('retorno', $retorno);
     
-            return view('people.people', compact('people'));
         }
     }
 
@@ -80,7 +96,8 @@ class PersonController extends Controller
             'shirt' => 'required'
            ]);
 
-        $this->person->create([
+        
+           $this->person->create([
             'rg'  =>  $request['rg'],
             'cpf'  =>  $request['cpf'],
             'name' => $request['name'],
@@ -101,8 +118,18 @@ class PersonController extends Controller
         ]);   
 
         $people = $this->person->orderBy('created_at', 'DESC')->limit(10)->get();
-    
-        return view('people.people', compact('people'));
+        
+        $retorno = array(
+            'people' => $people,
+            'number' => $this->person->count()
+        );
+        
+        return view('people.people', compact('retorno'));
+    }
+
+    public function exportPeople()
+    {
+        $people = $this->person->orderBy('name')->get();
     }
 
     ## API ##

@@ -43,16 +43,19 @@
                         </form>
                     </div>
                     <div class="x_title">
-                        <h2>Últimos cadastrados<small>Pessoas</small></h2>
+                    <h2>Últimos cadastrados<small></small></h2>
                         <div class="clearfix"></div>
                     </div>
-                    <tc-person v-bind:people="{{$people}}"></tc-person>
+                    <tc-person v-bind:people="{{$retorno['people']}}"></tc-person>
                 </div>
-                @if (count($people) > 2)
+                @if (count($retorno['people']) > 10)
                 <div class="x_content">
                         <a href="/pessoas/todas"><button type="button" class="btn btn-success">Mostrar todos</button></a>
                     </div>                                                       
                 @endif
+                <div class="x_content">
+                    Total de pessoas cadastradas: {{ $retorno['number'] }} 
+                </div>
             </div>
         </div>
     </div>    

@@ -47,7 +47,13 @@ class ExternPersonController extends Controller
             'shirt' => $request['shirt'],
         ]);   
 
-        return view('people.success')->with('person', $request['name']);
-    }
+        $this->person->count();
 
+        $retorno = array(
+            'person' => $request['name'],
+            'number' => $this->person->count()
+        );
+
+        return view('people.success')->with('retorno', $retorno);
+    }
 }

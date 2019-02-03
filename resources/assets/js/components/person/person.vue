@@ -35,6 +35,7 @@
                 </tr>   
             </tbody>
         </table>
+        <div>{{total}}</div>
         <div class="modal fade" tabindex="-1" role="dialog" id="myViewModal" ref="vuemodal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -156,7 +157,7 @@ export default
 {
     props:
     {
-        people: Array    
+        people: Array,
     },
     data() {
         return {
