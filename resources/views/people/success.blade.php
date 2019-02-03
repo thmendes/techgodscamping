@@ -30,7 +30,7 @@
                             <p>O pagamento deverá ser realizado até o dia 15 de fevereiro de 2019.</p>
                             <p>Para mais informações entrar em contato nos telefones:</p>
                             <ul>
-                                <li>William: 44 - 98803-8305</li>
+                                <li>Willians: 44 - 98803-8305</li>
                                 <li>Carlos: 44 - 99945-7172</li>
                             </ul>
                         @endif
