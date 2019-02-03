@@ -19,7 +19,7 @@
                         @if($retorno['number'] > 270)
                             <p>O número de cadastros ultrapassou a quantidade de vagas para este acampamento, seu nome entrará na lista de espera, agradecemos sua compreensão.</p>
                         @else
-                            <p>Agora o próximo passo para concluir sua inscrição é efetuar o pagamento na secretaria paroquial da sua cidade!</p>
+                            <p>Agora o próximo passo para concluir sua inscrição é efetuar o pagamento na secretaria paroquial.</p>
                             <p>Lá você também irá receber as orientações do campista.</p>
                             <p>As paróquias que podem receber o pagamento, são:</p>
                             <ul>
@@ -27,10 +27,10 @@
                                 <li>Icaraíma</li>
                                 <li>Ivaté</li>
                             </ul> 
-                            <p>O pagamento deverá ser realizado até o dia 10 de fevereiro de 2019.</p>
+                            <p>O pagamento deverá ser realizado até o dia 15 de fevereiro de 2019.</p>
                             <p>Para mais informações entrar em contato nos telefones:</p>
                             <ul>
-                                <li>Willian: 44 - 98803-8305</li>
+                                <li>William: 44 - 98803-8305</li>
                                 <li>Carlos: 44 - 99945-7172</li>
                             </ul>
                         @endif
