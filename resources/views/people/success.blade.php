@@ -24,7 +24,6 @@
                             <p>As paróquias que podem receber o pagamento, são:</p>
                             <ul>
                                 <li>Douradina</li>
-                                <li>Icaraíma</li>
                                 <li>Ivaté</li>
                             </ul> 
                             <p>O pagamento deverá ser realizado até o dia 15 de fevereiro de 2019.</p>
