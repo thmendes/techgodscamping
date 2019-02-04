@@ -48,7 +48,7 @@
                     </div>
                     <tc-person v-bind:people="{{$retorno['people']}}"></tc-person>
                 </div>
-                @if (count($retorno['people']) > 10)
+                @if ($retorno['number'] > 10)
                     <div class="x_content">
                         <a href="/pessoas/todas"><button type="button" class="btn btn-success">Mostrar todos</button></a>
                     </div>                                                       
