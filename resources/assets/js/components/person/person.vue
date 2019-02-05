@@ -18,7 +18,7 @@
                     <td>{{ person.phone }}</td>
                     <td>{{ person.shirt }}</td>
                     <td>{{ person.shirt }}</td>
-                    <!-- <td>{{ person.created_at }}</td> -->
+                    <td>{{ person.created_at }}</td>
                     <td>
                         <a href="#" class="btn btn-primary btn-xs" v-on:click="getPerson(person.id)" data-toggle="modal" data-target="#myViewModal">
                             <i class="fa fa-folder"></i>
