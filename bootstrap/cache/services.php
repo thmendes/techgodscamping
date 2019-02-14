@@ -34,6 +34,7 @@
     30 => 'Watson\\BootstrapForm\\BootstrapFormServiceProvider',
     31 => 'Spatie\\Permission\\PermissionServiceProvider',
     32 => 'Laravel\\Scout\\ScoutServiceProvider',
+    33 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
   ),
   'eager' => 
   array (
@@ -56,6 +57,7 @@
     16 => 'Conner\\Tagging\\Providers\\TaggingServiceProvider',
     17 => 'Spatie\\Permission\\PermissionServiceProvider',
     18 => 'Laravel\\Scout\\ScoutServiceProvider',
+    19 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
   ),
   'deferred' => 
   array (

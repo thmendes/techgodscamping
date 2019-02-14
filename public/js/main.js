@@ -10,7 +10,7 @@ module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
 };
 
 },{"../../modules/_core":4}],4:[function(require,module,exports){
-var core = module.exports = { version: '2.5.6' };
+var core = module.exports = { version: '2.5.4' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 },{}],5:[function(require,module,exports){
@@ -23141,57 +23141,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _bus = require('./../../bus.js');
-
-var _bus2 = _interopRequireDefault(_bus);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-    props: [],
-    data: function data() {
-        return {
-            person: []
-        };
-    },
-
-    created: function created() {
-        this.listenToEvents();
-    },
-    mounted: {},
-    methods: {
-        listenToEvents: function listenToEvents() {
-            var _this = this;
-
-            _bus2.default.$on('buildModal', function (personData) {
-                _this.person = personData;
-            });
-        },
-        doSomethingOnHidden: function doSomethingOnHidden() {
-            alert('hidden');
-        }
-    },
-    computed: {}
-};
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"modal\" tabindex=\"-1\" role=\"dialog\" ref=\"vuemodal\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\">Modal title</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">×</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <p>Modal body text goes here.</p>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
-if (module.hot) {(function () {  module.hot.accept()
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), true)
-  if (!hotAPI.compatible) return
-  if (!module.hot.data) {
-    hotAPI.createRecord("_v-1fbc919d", module.exports)
-  } else {
-    hotAPI.update("_v-1fbc919d", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
-  }
-})()}
-},{"./../../bus.js":13,"vue":10,"vue-hot-reload-api":7}],17:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _stringify = require('babel-runtime/core-js/json/stringify');
 
 var _stringify2 = _interopRequireDefault(_stringify);
@@ -23279,7 +23228,7 @@ exports.default = {
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"x_content\">\n    <table class=\"table\">\n        <thead>\n        <tr>  \n            <th>Nome</th>\n            <th>E-mail</th>\n            <th>Telefone</th>\n            <th>Camisesta</th>\n            <th>Data Inscrição</th>\n            <th>Ações</th>\n        </tr>\n        </thead>\n        <tbody>\n            <tr v-for=\"person in peopleToShow\" :key=\"person.id\">\n                <td>{{ person.name }}</td>\n                <td>{{ person.email }}</td>\n                <td>{{ person.phone }}</td>\n                <td>{{ person.shirt }}</td>\n                <td>{{ person.shirt }}</td>\n                <td>{{ person.created_at }}</td>\n                <td>\n                    <a href=\"#\" class=\"btn btn-primary btn-xs\" v-on:click=\"getPerson(person.id)\" data-toggle=\"modal\" data-target=\"#myViewModal\">\n                        <i class=\"fa fa-folder\"></i>\n                        Visualizar\n                    </a>\n                    <a href=\"#\" class=\"btn btn-info btn-xs\" v-on:click=\"loadPersonToEdit(person.id)\" data-toggle=\"modal\" data-target=\"#myEditModal\">\n                        <i class=\"fa fa-pencil\"></i>\n                        Editar\n                    </a>\n                    <a href=\"#\" class=\"btn btn-danger btn-xs\" v-on:click=\"getPerson(person.id)\" data-toggle=\"modal\" data-target=\"#myDeleteModal\">\n                        <i class=\"fa fa-trash-o\"></i>\n                        Remover\n                    </a>\n                </td>\n            </tr>   \n        </tbody>\n    </table>\n    <div>{{total}}</div>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myViewModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\">{{personModal.name}}</h4>\n                </div>\n                <div class=\"modal-body\">\n                    <table class=\"table\">\n                        <thead>\n                            </thead><tbody>\n                                <tr><td>CPF</td><td>{{ personModal.cpf }}</td></tr>\n                                <tr><td>RG</td><td>{{ personModal.rg }}</td></tr>\n                                <tr><td>Email</td><td>{{ personModal.email }}</td></tr>\n                                <tr><td>Telefone</td><td>{{ personModal.phone }}</td></tr>\n                                <tr><td>Data Nascimento</td><td>{{ personModal.born }}</td></tr>\n                                <tr><td>Endereço</td><td>{{ personModal.street }}</td></tr>\n                                <tr><td>Bairro</td><td>{{ personModal.neighbor }}</td></tr>\n                                <tr><td>Cidade</td><td>{{ personModal.city }}</td></tr>\n                                <tr><td>Estado</td><td>{{ personModal.province }}</td></tr>\n                                <tr><td>Responsável- Nome</td><td>{{ personModal.parent }}</td></tr>\n                                <tr><td>Responsável - Telefone</td><td>{{ personModal.parent_phone }}</td></tr>\n                                <tr><td>Num. Cartão SUS</td><td>{{ personModal.sus }}</td></tr>\n                                <tr><td>Medicamento Contínuo</td><td>{{ personModal.medicine }}</td></tr>\n                                <tr><td>Cuidados Médicos</td><td>{{ personModal.medicalCare }}</td></tr>\n                                <tr><td>Camiseta</td><td>{{ personModal.shirt }}</td></tr>\n                                <tr><td>Observações</td><td>{{ personModal.obs }}</td></tr>\n                            </tbody>\n                        \n                    </table>\n                </div>\n                <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Fechar</button>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myDeleteModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\"></h4>\n                </div>\n                <div class=\"modal-body\">\n                    <center>\n                        <p>Deseja realmente remover {{personModal.name}} da lista de cadastros?</p>\n                        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" v-on:click=\"deletePerson(personModal.id)\">Excluir</button>\n                        <button type=\"button\" class=\"btn btn-light\" data-dismiss=\"modal\">Cancelar</button>\n                    </center>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myEditModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\">Edição de cadastro</h4>\n                </div>\n                <div class=\"modal-body\">\n                    <table class=\"table\">\n                        <thead>\n                            </thead><tbody>\n                                <tr><td>Nome</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.name\"></td></tr>\n                                <tr><td>CPF</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.cpf\"></td></tr>\n                                <tr><td>RG</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.rg\"></td></tr>\n                                <tr><td>E-mail</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.email\"></td></tr>\n                                <tr><td>Telefone</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.phone\"></td></tr>\n                                <tr><td>Data Nascimento</td><td><input class=\"form-control\" type=\"date\" v-model=\"personToEdit.born\"></td></tr>\n                                <tr><td>Endereço</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.street\"></td></tr>\n                                <tr><td>Bairro</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.neighbor\"></td></tr>\n                                <tr><td>Cidade</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.city\"></td></tr>\n                                <tr><td>Estado</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.province\"></td></tr>\n                                <tr><td>Responsável - Nome</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.parent\"></td></tr>\n                                <tr><td>Responsável - Telefone</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.parent_phone\"></td></tr>\n                                <tr><td>Num. Cartão SUS</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.sus\"></td></tr>\n                                <tr><td>Medicamento Contínuo</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.medicine\"></td></tr>\n                                <tr><td>Cuidados Médicos</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.medicalCare\"></td></tr>\n                                <tr><td>Camiseta</td><td>\n                                    <select class=\"form-control\" type=\"text\" v-model=\"personToEdit.shirt\">\n                                        <option value=\"\">Selecione</option>\n                                        <option value=\"4\">4</option>\n                                        <option value=\"6\">6</option>\n                                        <option value=\"8\">8</option>\n                                        <option value=\"10\">10</option>\n                                        <option value=\"12\">12</option>\n                                        <option value=\"14\">14</option>\n                                        <option value=\"16\">16</option>\n                                        <option value=\"PP\">PP</option>\n                                        <option value=\"P\">P</option>\n                                        <option value=\"M\">M</option>\n                                        <option value=\"G\">G</option>\n                                        <option value=\"GG\">GG</option>\n                                        <option value=\"XG\">XG</option>\n                                        <option value=\"G1\">G1</option>\n                                        <option value=\"G2\">G2</option>\n                                        <option value=\"G3\">G3</option>\n                                    </select></td></tr>\n                                <tr><td>Observações</td><td><input type=\"text\" class=\"form-control\" v-model=\"personToEdit.obs\"></td></tr>\n                            </tbody>\n                        \n                    </table>\n                </div>\n                <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancelar</button>\n                    <button type=\"button\" class=\"btn btn-success\" v-on:click=\"updatePerson\" data-dismiss=\"modal\">Confirmar</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"x_content\">\n    <table class=\"table\">\n        <thead>\n        <tr>  \n            <th>Nome</th>\n            <th>E-mail</th>\n            <th>Telefone</th>\n            <th>Camisesta</th>\n            <th>Data Inscrição</th>\n            <th>Açõeas</th>\n        </tr>\n        </thead>\n        <tbody>\n            <tr v-for=\"person in peopleToShow\" :key=\"person.id\">\n                <td>{{ person.name }}</td>\n                <td>{{ person.email }}</td>\n                <td>{{ person.phone }}</td>\n                <td>{{ person.shirt }}</td>\n                <td>{{ person.created_at }}</td>\n                <td>\n                    <a href=\"#\" class=\"btn btn-primary btn-xs\" v-on:click=\"getPerson(person.id)\" data-toggle=\"modal\" data-target=\"#myViewModal\">\n                        <i class=\"fa fa-folder\"></i>\n                        Visualizar\n                    </a>\n                    <a href=\"#\" class=\"btn btn-info btn-xs\" v-on:click=\"loadPersonToEdit(person.id)\" data-toggle=\"modal\" data-target=\"#myEditModal\">\n                        <i class=\"fa fa-pencil\"></i>\n                        Editar\n                    </a>\n                    <a href=\"#\" class=\"btn btn-danger btn-xs\" v-on:click=\"getPerson(person.id)\" data-toggle=\"modal\" data-target=\"#myDeleteModal\">\n                        <i class=\"fa fa-trash-o\"></i>\n                        Remover\n                    </a>\n                </td>\n            </tr>   \n        </tbody>\n    </table>\n    <div>{{total}}</div>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myViewModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\">{{personModal.name}}</h4>\n                </div>\n                <div class=\"modal-body\">\n                    <table class=\"table\">\n                        <thead>\n                            </thead><tbody>\n                                <tr><td>CPF</td><td>{{ personModal.cpf }}</td></tr>\n                                <tr><td>RG</td><td>{{ personModal.rg }}</td></tr>\n                                <tr><td>Email</td><td>{{ personModal.email }}</td></tr>\n                                <tr><td>Telefone</td><td>{{ personModal.phone }}</td></tr>\n                                <tr><td>Data Nascimento</td><td>{{ personModal.born }}</td></tr>\n                                <tr><td>Endereço</td><td>{{ personModal.street }}</td></tr>\n                                <tr><td>Bairro</td><td>{{ personModal.neighbor }}</td></tr>\n                                <tr><td>Cidade</td><td>{{ personModal.city }}</td></tr>\n                                <tr><td>Estado</td><td>{{ personModal.province }}</td></tr>\n                                <tr><td>Responsável- Nome</td><td>{{ personModal.parent }}</td></tr>\n                                <tr><td>Responsável - Telefone</td><td>{{ personModal.parent_phone }}</td></tr>\n                                <tr><td>Num. Cartão SUS</td><td>{{ personModal.sus }}</td></tr>\n                                <tr><td>Medicamento Contínuo</td><td>{{ personModal.medicine }}</td></tr>\n                                <tr><td>Cuidados Médicos</td><td>{{ personModal.medicalCare }}</td></tr>\n                                <tr><td>Camiseta</td><td>{{ personModal.shirt }}</td></tr>\n                                <tr><td>Observações</td><td>{{ personModal.obs }}</td></tr>\n                            </tbody>\n                        \n                    </table>\n                </div>\n                <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Fechar</button>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myDeleteModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\"></h4>\n                </div>\n                <div class=\"modal-body\">\n                    <center>\n                        <p>Deseja realmente remover {{personModal.name}} da lista de cadastros?</p>\n                        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" v-on:click=\"deletePerson(personModal.id)\">Excluir</button>\n                        <button type=\"button\" class=\"btn btn-light\" data-dismiss=\"modal\">Cancelar</button>\n                    </center>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myEditModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\">Edição de cadastro</h4>\n                </div>\n                <div class=\"modal-body\">\n                    <table class=\"table\">\n                        <thead>\n                            </thead><tbody>\n                                <tr><td>Nome</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.name\"></td></tr>\n                                <tr><td>CPF</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.cpf\"></td></tr>\n                                <tr><td>RG</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.rg\"></td></tr>\n                                <tr><td>E-mail</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.email\"></td></tr>\n                                <tr><td>Telefone</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.phone\"></td></tr>\n                                <tr><td>Data Nascimento</td><td><input class=\"form-control\" type=\"date\" v-model=\"personToEdit.born\"></td></tr>\n                                <tr><td>Endereço</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.street\"></td></tr>\n                                <tr><td>Bairro</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.neighbor\"></td></tr>\n                                <tr><td>Cidade</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.city\"></td></tr>\n                                <tr><td>Estado</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.province\"></td></tr>\n                                <tr><td>Responsável - Nome</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.parent\"></td></tr>\n                                <tr><td>Responsável - Telefone</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.parent_phone\"></td></tr>\n                                <tr><td>Num. Cartão SUS</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.sus\"></td></tr>\n                                <tr><td>Medicamento Contínuo</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.medicine\"></td></tr>\n                                <tr><td>Cuidados Médicos</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.medicalCare\"></td></tr>\n                                <tr><td>Camiseta</td><td>\n                                    <select class=\"form-control\" type=\"text\" v-model=\"personToEdit.shirt\">\n                                        <option value=\"\">Selecione</option>\n                                        <option value=\"4\">4</option>\n                                        <option value=\"6\">6</option>\n                                        <option value=\"8\">8</option>\n                                        <option value=\"10\">10</option>\n                                        <option value=\"12\">12</option>\n                                        <option value=\"14\">14</option>\n                                        <option value=\"16\">16</option>\n                                        <option value=\"PP\">PP</option>\n                                        <option value=\"P\">P</option>\n                                        <option value=\"M\">M</option>\n                                        <option value=\"G\">G</option>\n                                        <option value=\"GG\">GG</option>\n                                        <option value=\"XG\">XG</option>\n                                        <option value=\"G1\">G1</option>\n                                        <option value=\"G2\">G2</option>\n                                        <option value=\"G3\">G3</option>\n                                    </select></td></tr>\n                                <tr><td>Observações</td><td><input type=\"text\" class=\"form-control\" v-model=\"personToEdit.obs\"></td></tr>\n                            </tbody>\n                        \n                    </table>\n                </div>\n                <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancelar</button>\n                    <button type=\"button\" class=\"btn btn-success\" v-on:click=\"updatePerson\" data-dismiss=\"modal\">Confirmar</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -23290,112 +23239,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-5909f395", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"./../../bus.js":13,"babel-runtime/core-js/json/stringify":1,"vue":10,"vue-hot-reload-api":7}],18:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _stringify = require('babel-runtime/core-js/json/stringify');
-
-var _stringify2 = _interopRequireDefault(_stringify);
-
-var _bus = require('./../../bus.js');
-
-var _bus2 = _interopRequireDefault(_bus);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-    props: {
-        people: Array
-    },
-    data: function data() {
-        return {
-            personModal: [],
-            personToEdit: [],
-            peopleToShow: []
-        };
-    },
-
-    methods: {
-        getPerson: function getPerson(idPerson) {
-            var _this = this;
-
-            this.people.forEach(function (element) {
-                if (element.id == idPerson) _this.personModal = element;
-            });
-        },
-        setPerson: function setPerson(person) {
-            this.people.forEach(function (element) {
-                if (person.id == element.id) element = person;
-            });
-        },
-        loadPersonToEdit: function loadPersonToEdit(idPerson) {
-            this.getPerson(idPerson);
-            this.personToEdit = this.personModal;
-        },
-        updatePerson: function updatePerson(person) {
-            var _this2 = this;
-
-            this.$http.post('/api/pessoas', (0, _stringify2.default)(this.personToEdit), {
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            }).then(function (response) {
-                if (response.data['error'] != "") alert('Não foi possível alterar esse cadastro.');
-
-                _this2.setPerson(_this2.personToEdit);
-                alert('Cadastro alterado com sucesso!');
-            }).catch(function (error) {
-                alert('Não foi possível alterar esse cadastro.');
-            });
-        },
-        deletePerson: function deletePerson(personId) {
-            var _this3 = this;
-
-            this.$http.delete('/api/pessoas/' + personId, {
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            }).then(function (response) {
-                if (response.data['error'] != "") alert('Não foi possível excluir esse cadastro.');
-
-                var index = _this3.people.map(function (e) {
-                    return e.id;
-                }).indexOf(personId);
-
-                if (index > -1) {
-                    _this3.people.splice(index, 1);
-                    alert('Cadastro removido com sucesso!');
-                }
-            }).catch(function (error) {
-                alert('Não foi possível excluir esse cadastro.');
-            });
-        },
-        syncPeople: function syncPeople() {
-            this.peopleToShow = this.people;
-        }
-    },
-    computed: {},
-    mounted: function mounted() {
-        this.syncPeople();
-    }
-};
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"x_content\">\n    <table class=\"table\">\n        <thead>\n        <tr>  \n            <th>Nome</th>\n            <th>E-mail</th>\n            <th>Telefone</th>\n            <th>Camisesta</th>\n            <th>Data Inscrição</th>\n            <th>Ações</th>\n        </tr>\n        </thead>\n        <tbody>\n            <tr v-for=\"person in peopleToShow\" :key=\"person.id\">\n                <td>{{ person.name }}</td>\n                <td>{{ person.email }}</td>\n                <td>{{ person.phone }}</td>\n                <td>{{ person.shirt }}</td>\n                <td>{{ person.created_at }}</td>\n                <td>\n                    <a href=\"#\" class=\"btn btn-primary btn-xs\" v-on:click=\"getPerson(person.id)\" data-toggle=\"modal\" data-target=\"#myViewModal\">\n                        <i class=\"fa fa-folder\"></i>\n                        Visualizar\n                    </a>\n                    <a href=\"#\" class=\"btn btn-info btn-xs\" v-on:click=\"loadPersonToEdit(person.id)\" data-toggle=\"modal\" data-target=\"#myEditModal\">\n                        <i class=\"fa fa-pencil\"></i>\n                        Editar\n                    </a>\n                    <a href=\"#\" class=\"btn btn-danger btn-xs\" v-on:click=\"getPerson(person.id)\" data-toggle=\"modal\" data-target=\"#myDeleteModal\">\n                        <i class=\"fa fa-trash-o\"></i>\n                        Remover\n                    </a>\n                </td>\n            </tr>   \n        </tbody>\n    </table>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myViewModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\">{{personModal.name}}</h4>\n                </div>\n                <div class=\"modal-body\">\n                    <table class=\"table\">\n                        <thead>\n                            </thead><tbody>\n                                <tr><td>CPF</td><td>{{ personModal.cpf }}</td></tr>\n                                <tr><td>RG</td><td>{{ personModal.rg }}</td></tr>\n                                <tr><td>Email</td><td>{{ personModal.email }}</td></tr>\n                                <tr><td>Telefone</td><td>{{ personModal.phone }}</td></tr>\n                                <tr><td>Data Nascimento</td><td>{{ personModal.born }}</td></tr>\n                                <tr><td>Endereço</td><td>{{ personModal.street }}</td></tr>\n                                <tr><td>Bairro</td><td>{{ personModal.neighbor }}</td></tr>\n                                <tr><td>Cidade</td><td>{{ personModal.city }}</td></tr>\n                                <tr><td>Estado</td><td>{{ personModal.province }}</td></tr>\n                                <tr><td>Responsável- Nome</td><td>{{ personModal.parent }}</td></tr>\n                                <tr><td>Responsável - Telefone</td><td>{{ personModal.parent_phone }}</td></tr>\n                                <tr><td>Num. Cartão SUS</td><td>{{ personModal.sus }}</td></tr>\n                                <tr><td>Medicamento Contínuo</td><td>{{ personModal.medicine }}</td></tr>\n                                <tr><td>Cuidados Médicos</td><td>{{ personModal.medicalCare }}</td></tr>\n                                <tr><td>Camiseta</td><td>{{ personModal.shirt }}</td></tr>\n                                <tr><td>Observações</td><td>{{ personModal.obs }}</td></tr>\n                            </tbody>\n                        \n                    </table>\n                </div>\n                <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Fechar</button>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myDeleteModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\"></h4>\n                </div>\n                <div class=\"modal-body\">\n                    <center>\n                        <p>Deseja realmente remover {{personModal.name}} da lista de cadastros?</p>\n                        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" v-on:click=\"deletePerson(personModal.id)\">Excluir</button>\n                        <button type=\"button\" class=\"btn btn-light\" data-dismiss=\"modal\">Cancelar</button>\n                    </center>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" id=\"myEditModal\" ref=\"vuemodal\">\n        <div class=\"modal-dialog\" role=\"document\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                        <h4 class=\"modal-title\">Edição de cadastro</h4>\n                </div>\n                <div class=\"modal-body\">\n                    <table class=\"table\">\n                        <thead>\n                            </thead><tbody>\n                                <tr><td>Nome</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.name\"></td></tr>\n                                <tr><td>CPF</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.cpf\"></td></tr>\n                                <tr><td>RG</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.rg\"></td></tr>\n                                <tr><td>E-mail</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.email\"></td></tr>\n                                <tr><td>Telefone</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.phone\"></td></tr>\n                                <tr><td>Data Nascimento</td><td><input class=\"form-control\" type=\"date\" v-model=\"personToEdit.born\"></td></tr>\n                                <tr><td>Endereço</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.street\"></td></tr>\n                                <tr><td>Bairro</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.neighbor\"></td></tr>\n                                <tr><td>Cidade</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.city\"></td></tr>\n                                <tr><td>Estado</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.province\"></td></tr>\n                                <tr><td>Responsável - Nome</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.parent\"></td></tr>\n                                <tr><td>Responsável - Telefone</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.parent_phone\"></td></tr>\n                                <tr><td>Num. Cartão SUS</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.sus\"></td></tr>\n                                <tr><td>Medicamento Contínuo</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.medicine\"></td></tr>\n                                <tr><td>Cuidados Médicos</td><td><input class=\"form-control\" type=\"text\" v-model=\"personToEdit.medicalCare\"></td></tr>\n                                <tr><td>Camiseta</td><td>\n                                    <select class=\"form-control\" type=\"text\" v-model=\"personToEdit.shirt\">\n                                        <option value=\"\">Selecione</option>\n                                        <option value=\"4\">4</option>\n                                        <option value=\"6\">6</option>\n                                        <option value=\"8\">8</option>\n                                        <option value=\"10\">10</option>\n                                        <option value=\"12\">12</option>\n                                        <option value=\"14\">14</option>\n                                        <option value=\"16\">16</option>\n                                        <option value=\"PP\">PP</option>\n                                        <option value=\"P\">P</option>\n                                        <option value=\"M\">M</option>\n                                        <option value=\"G\">G</option>\n                                        <option value=\"GG\">GG</option>\n                                        <option value=\"XG\">XG</option>\n                                        <option value=\"G1\">G1</option>\n                                        <option value=\"G2\">G2</option>\n                                        <option value=\"G3\">G3</option>\n                                    </select></td></tr>\n                                <tr><td>Observações</td><td><input type=\"text\" class=\"form-control\" v-model=\"personToEdit.obs\"></td></tr>\n                            </tbody>\n                        \n                    </table>\n                </div>\n                <div class=\"modal-footer\">\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancelar</button>\n                    <button type=\"button\" class=\"btn btn-success\" v-on:click=\"updatePerson\" data-dismiss=\"modal\">Confirmar</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
-if (module.hot) {(function () {  module.hot.accept()
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), true)
-  if (!hotAPI.compatible) return
-  if (!module.hot.data) {
-    hotAPI.createRecord("_v-0548359c", module.exports)
-  } else {
-    hotAPI.update("_v-0548359c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
-  }
-})()}
-},{"./../../bus.js":13,"babel-runtime/core-js/json/stringify":1,"vue":10,"vue-hot-reload-api":7}],19:[function(require,module,exports){
+},{"./../../bus.js":13,"babel-runtime/core-js/json/stringify":1,"vue":10,"vue-hot-reload-api":7}],17:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
 var __vueify_style__ = __vueify_insert__.insert("\n.list[_v-48cace56] {\n  background-color: #08635b;\n  border-radius: 3px;\n  margin: 5px 5px;\n  padding: 10px;\n  width: 100%;\n  height: 400px;\n  scroll-behavior: auto;\n}\n.list>header[_v-48cace56] {\n  font-weight: bold;\n  color: rgb(255, 255, 255);\n  text-align: center;\n  font-size: 20px;\n  line-height: 28px;\n  cursor: -webkit-grab;\n  cursor: grab;\n}\n.list article[_v-48cace56] {\n  border-radius: 3px;\n  margin-top: 10px;\n}\n\n.list .card[_v-48cace56] {\n  background-color: #FFF;\n  border-bottom: 1px solid #CCC;\n  padding: 15px 10px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: bolder;\n}\n.list .card[_v-48cace56]:hover {\n  background-color: #F0F0F0;\n}\n.drag-area[_v-48cace56]{\n min-height: 10px;  \n height: 400px;\n}\n\n")
 'use strict';
@@ -23495,7 +23339,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-48cace56", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":10,"vue-hot-reload-api":7,"vuedraggable":11,"vueify/lib/insert-css":12}],20:[function(require,module,exports){
+},{"vue":10,"vue-hot-reload-api":7,"vuedraggable":11,"vueify/lib/insert-css":12}],18:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
 var __vueify_style__ = __vueify_insert__.insert("\n\n")
 'use strict';
@@ -23559,7 +23403,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-08513bd6", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":10,"vue-hot-reload-api":7,"vueify/lib/insert-css":12}],21:[function(require,module,exports){
+},{"vue":10,"vue-hot-reload-api":7,"vueify/lib/insert-css":12}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -23623,7 +23467,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-67594af1", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":10,"vue-hot-reload-api":7}],22:[function(require,module,exports){
+},{"vue":10,"vue-hot-reload-api":7}],20:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue/dist/vue.js');
@@ -23658,14 +23502,6 @@ var _person = require('./components/person/person.vue');
 
 var _person2 = _interopRequireDefault(_person);
 
-var _personall = require('./components/person/personall.vue');
-
-var _personall2 = _interopRequireDefault(_personall);
-
-var _modal = require('./components/person/modal.vue');
-
-var _modal2 = _interopRequireDefault(_modal);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.use(_vueResource2.default);
@@ -23681,12 +23517,10 @@ new _vue2.default({
     TcSearchvolunteer: _search2.default,
     TcManagecamping: _manage2.default,
     TcAssociate: _associate2.default,
-    TcPerson: _personall2.default,
-    TcPersonall: _person2.default,
-    TcPersonmodal: _modal2.default
+    TcPerson: _person2.default
   }
 });
 
-},{"./components/camper/createcamper.vue":14,"./components/camping/manage.vue":15,"./components/person/modal.vue":16,"./components/person/person.vue":17,"./components/person/personall.vue":18,"./components/team/associate.vue":19,"./components/volunteer/createvolunteer.vue":20,"./components/volunteer/search.vue":21,"vue-resource":8,"vue/dist/vue.js":9}]},{},[22]);
+},{"./components/camper/createcamper.vue":14,"./components/camping/manage.vue":15,"./components/person/person.vue":16,"./components/team/associate.vue":17,"./components/volunteer/createvolunteer.vue":18,"./components/volunteer/search.vue":19,"vue-resource":8,"vue/dist/vue.js":9}]},{},[20]);
 
 //# sourceMappingURL=main.js.map

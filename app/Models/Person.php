@@ -10,7 +10,7 @@ class Person extends Model
     //use Searchable;
     
     protected $fillable = [
-        'cpf', 'rg', 'name', 'email', 'phone', 'born', 'street', 'city', 'province', 'parent', 'parent_phone', 'medicine', 'shirt'
+        'cpf', 'rg', 'name', 'email', 'phone', 'born', 'street', 'city', 'province', 'parent', 'parent_phone', 'medicine', 'shirt', 'neighbor', 'sus', 'medicalCare', 'obs'
     ];
 
     public function searchableAs()

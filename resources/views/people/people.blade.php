@@ -56,6 +56,9 @@
                 <div class="x_content">
                     Total de pessoas cadastradas: {{ $retorno['number'] }} 
                 </div>
+                <div class="x_content">
+                    <a href="/pessoas/exportar"><button type="button" class="btn btn-success">Exportar para Excel</button></a>
+                </div>
             </div>
         </div>
     </div>    

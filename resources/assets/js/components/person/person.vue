@@ -8,7 +8,7 @@
                 <th>Telefone</th>
                 <th>Camisesta</th>
                 <th>Data Inscrição</th>
-                <th>Ações</th>
+                <th>Açõeas</th>
             </tr>
             </thead>
             <tbody>
@@ -16,7 +16,6 @@
                     <td>{{ person.name }}</td>
                     <td>{{ person.email }}</td>
                     <td>{{ person.phone }}</td>
-                    <td>{{ person.shirt }}</td>
                     <td>{{ person.shirt }}</td>
                     <td>{{ person.created_at }}</td>
                     <td>
