@@ -1,3 +1,8 @@
+##### LOCAWEB - NAO REMOVER #####
+AddHandler php56-script .php
+suPHP_ConfigPath /home/apadroeiradouradina/
+##### LOCAWEB - NAO REMOVER #####
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews
