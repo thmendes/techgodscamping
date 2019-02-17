@@ -8,7 +8,7 @@
                 <th>Telefone</th>
                 <th>Camisesta</th>
                 <th>Data Inscrição</th>
-                <th>Ações</th>
+                <th>Açõeas</th>
             </tr>
             </thead>
             <tbody>

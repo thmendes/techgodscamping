@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Excel;
 use App\Models\Person;
 
 class PersonController extends Controller
@@ -49,8 +50,6 @@ class PersonController extends Controller
             $people = $this->person
                 ->where('document', 'like', '%' . $request['document'] . '%')
                 ->orderBy('created_at', 'DESC')->limit(10)->get();
-
-
         }
         else
         {
@@ -64,6 +63,31 @@ class PersonController extends Controller
             return view('people.people')->with('retorno', $retorno);
     
         }
+    }
+
+    public function excel(Request $request)
+    {
+        $people = $this->person->select('name', 'phone', 'parent_phone', 'shirt', 'city', 'neighbor', 'street', 'cpf', 'rg', 'born', 'medicine', 'medicalCare', 'sus', 'obs')->orderBy('created_at', 'DESC')->get();
+
+        $peopleArray[] = ['Nome', 'Telefone', 'Telefone Responsável', 'Camiseta', 'Cidade', 'Bairro', 'Endereço', 'CPF', 'RG', 'Data Nasc.', 'Medicamento', 'Cuidado Médico', 'Cartão SUS', 'Observações'];
+
+        foreach ($people as $person) {
+            $peopleArray[] = $person->toArray();
+        }
+
+        Excel::create('Pessoas', function($excel) use ($peopleArray) {
+
+            // Set the spreadsheet title, creator, and description
+            $excel->setTitle('Pessoas cadastradas');
+            $excel->setCreator('Thiago')->setCompany('Paróquia Douradina');
+            $excel->setDescription('Lista de pessoas cadastradas.');
+    
+            // Build the spreadsheet, passing in the payments array
+            $excel->sheet('sheet1', function($sheet) use ($peopleArray) {
+                $sheet->fromArray($peopleArray, null, 'A1', false, false);
+            });
+    
+        })->download('xlsx');
     }
 
     public function showAll(Request $request)

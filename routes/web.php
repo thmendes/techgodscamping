@@ -46,6 +46,7 @@ Route::get('/pessoas', 'PersonController@show')->name('people');
 Route::get('/pessoas/todas', 'PersonController@showall')->name('showall');
 Route::get('/pessoas/cadastrar', 'PersonController@create');
 Route::post('/pessoas/cadastrar', 'PersonController@store');
+Route::get('/pessoas/exportar', 'PersonController@excel');
 Route::get('/pessoas/visitante/cadastrar', 'ExternPersonController@create');
 Route::post('/pessoas/visitante/cadastrar', 'ExternPersonController@store');
 

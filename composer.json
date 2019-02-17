@@ -32,7 +32,11 @@
         "spatie/laravel-permission": "^1.0",
         "laravel/scout": "^3.0",
         "algolia/algoliasearch-client-php": "^1.25",
+<<<<<<< HEAD
 	"maatwebsite/excel": "~2.1.0"	
+=======
+        "maatwebsite/excel": "~2.1.0"
+>>>>>>> 646389bec191ead94d80258979d1435e1ab4ce00
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
