@@ -20,6 +20,7 @@
                             <p>O número de cadastros ultrapassou a quantidade de vagas para este acampamento, seu nome entrará na lista de espera, agradecemos sua compreensão.</p>
                         @else
                             <p>Agora o próximo passo para concluir sua inscrição é efetuar o pagamento na secretaria paroquial.</p>
+                            <p>O valor da inscrição é de <b>R$ 180,00</b>.</p>
                             <p>Lá você também irá receber as orientações do campista.</p>
                             <p>As paróquias que podem receber o pagamento, são:</p>
                             <ul>
@@ -28,6 +29,7 @@
                                 <li>Ivaté</li>
                             </ul> 
                             <p>O pagamento deverá ser realizado até o dia 20 de abril de 2019.</p>
+                            <p>As malas deverão ser entregues nas paróquias citadas acima no dia 30 de abril!</p>
                             <p>Para mais informações entrar em contato nos telefones:</p>
                             <ul>
                                 <li>Anderson: 44 - 98802-7011</li>
@@ -35,6 +37,8 @@
                                 <li>Laiane: 44 - 99973-5547</li>
                                 <li>Willians: 44 - 98803-8305</li>
                             </ul>
+
+                            <p>O acampamento Juvenil 2019 será realizado nos dias 1 a 5 de maio. Esperamos por você!</p>
                         @endif
                     </div>
                     <div class="x_content">
