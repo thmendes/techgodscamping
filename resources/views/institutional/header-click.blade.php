@@ -117,7 +117,7 @@
                             <a href="/#footer">Contato</a>
                         </li>
                         <li>
-                            <a href="{{ url('/pessoas/visitante/cadastrar') }}"><b style="color: #ffdb5e">Acampamento: Inscrição</b></a>
+                            <a href="{{ url('/pessoas/visitante/cadastrar') }}"><b style="color: #ffdb5e">Acampamento: Inscrição!</b></a>
                         </li>     
                     </ul>
                 </div>

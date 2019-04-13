@@ -16,7 +16,7 @@
                     <div class="x_content">
                         <p>Obrigado por se inscrever, {{ $retorno['person'] }}.</p>
                         <p><h2>Atenção!</h2></p>
-                        @if($retorno['number'] > 270)
+                        @if($retorno['number'] > 9999)
                             <p>O número de cadastros ultrapassou a quantidade de vagas para este acampamento, seu nome entrará na lista de espera, agradecemos sua compreensão.</p>
                         @else
                             <p>Agora o próximo passo para concluir sua inscrição é efetuar o pagamento na secretaria paroquial.</p>
@@ -24,13 +24,16 @@
                             <p>As paróquias que podem receber o pagamento, são:</p>
                             <ul>
                                 <li>Douradina</li>
+                                <li>Icaraíma</li>
                                 <li>Ivaté</li>
                             </ul> 
-                            <p>O pagamento deverá ser realizado até o dia 15 de fevereiro de 2019.</p>
+                            <p>O pagamento deverá ser realizado até o dia 20 de abril de 2019.</p>
                             <p>Para mais informações entrar em contato nos telefones:</p>
                             <ul>
-                                <li>Willians: 44 - 98803-8305</li>
+                                <li>Anderson: 44 - 98802-7011</li>
                                 <li>Carlos: 44 - 99945-7172</li>
+                                <li>Laiane: 44 - 99973-5547</li>
+                                <li>Willians: 44 - 98803-8305</li>
                             </ul>
                         @endif
                     </div>
