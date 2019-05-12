@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-2 col-sm-3 col-xs-12" for="body">Corpo</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-6 col-sm-6 col-xs-12 style='min-height:500px;'">
                                             <textarea name="body" id="editor"></textarea>
                                         </div>
                                     </div>

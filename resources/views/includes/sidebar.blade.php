@@ -23,12 +23,15 @@
                             <a href="/pessoas"><i class="fa fa-user"></i>Pessoas</a>
                         </li>
                         <li>
-                                <a><i class="fa fa-folder-open"></i>Institucional<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="/institucional/galeria">Galeria</a></li>
-                                    <li><a href="/institucional/noticias">Notícias</a></li>
-                                </ul>
-                            </li>
+                            <a><i class="fa fa-folder-open"></i>Institucional<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href="/institucional/galeria">Galeria</a></li>
+                                <li><a href="/institucional/noticias">Notícias</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/administrativo"><i class="fa fa-user"></i>Admistrativo</a>
+                        </li>
                         @endif
                         <!--
                         <li>

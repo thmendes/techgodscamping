@@ -40,7 +40,11 @@ Route::get('/noticias/{id}', 'JournalController@show');
 
 Route::get('/galeria', 'AlbumController@showGallery');
 
-Route::get('/meuacampamento', 'HomeController@index');
+Route::get('/meuacampamento', 'HomeController@index')->name('acampamento');
+
+Route::get('/administrativo', 'AdministrativoController@index')->name('administrativo');
+Route::get('/administrativo/usuario/cadastrar', 'AdministrativoController@createUser');
+Route::post('/administrativo/usuario/cadastrar', 'AdministrativoController@storeUser');
 
 Route::get('/pessoas', 'PersonController@show')->name('people');
 Route::get('/pessoas/todas', 'PersonController@showall')->name('showall');

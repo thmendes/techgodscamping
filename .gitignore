@@ -8,3 +8,4 @@ Homestead.json
 .bowerrc
 .phpintel
 .htaccess
+public/.htaccess

@@ -31,21 +31,15 @@
 			
 				{!! BootForm::password('password', 'Senha', ['placeholder' => 'Senha']) !!}
 				
-				<div>
-					{!! BootForm::submit('Entrar', ['class' => 'btn btn-default submit']) !!}
-					<a class="reset_pass" href="{{  url('/password/reset') }}"> Esqueceu sua senha? </a>
-				</div>
-                    
-				<div class="clearfix"></div>
-                    
-				<div class="separator">
-                <p class="change_link">Vem ser campista com a gente!
-                    <a href="{{ url('/register') }}" class="to_register"> Criar minha conta agora. </a>
-                </p>
-                        
-					<div class="clearfix"></div>
-					<br />
-				</div>
+                <div>
+                    {!! BootForm::submit('Entrar', ['class' => 'btn btn-default submit', 'style' => 'margin:0px;']) !!}
+                </div>
+                
+                {{-- 
+                        <a class="reset_pass" href="{{  url('/password/reset') }}"> Esqueceu sua senha? </a>
+                     
+                --}}
+				
 				{!! BootForm::close() !!}
             </section>
         </div>
